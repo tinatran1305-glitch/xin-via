@@ -1,0 +1,2261 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7e1929">
+  <meta name="description" content="XIN VÍA 4.0 – Đốt phong long xả xui, xin vía chốt đơn thần tốc và gieo quẻ Sales hài hước cho Team C88.">
+  <meta name="keywords" content="xin vía, team c88, đốt phong long, xin vía sales, gieo quẻ sales, chốt đơn, giải hạn kpi">
+  <meta name="author" content="Team C88">
+
+  <!-- Open Graph / Facebook / Zalo -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="XIN VÍA 4.0 | Team C88 - Đốt Xui Rước Lộc Chốt Đơn">
+  <meta property="og:description" content="Đốt phong long xả xui, xin vía khách chuyển khoản, gieo quẻ Sales hài hước cho Team C88!">
+  <meta property="og:image" content="./og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="XIN VÍA 4.0 Team C88">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XIN VÍA 4.0 | Team C88">
+  <meta name="twitter:description" content="Đốt xui, rước lộc, triệu hồi khách chuyển khoản cho dân Sales C88!">
+  <meta name="twitter:image" content="./og-image.jpg">
+
+  <link rel="icon" type="image/jpeg" href="./than-tai-avatar.jpg">
+  <link rel="apple-touch-icon" href="./than-tai-avatar.jpg">
+  <link rel="manifest" href="./manifest.json">
+
+  <title>XIN VÍA 4.0 | Team C88 - Đốt Phong Long & Triệu Hồi Deal Khủng</title>
+
+  <!-- Google Fonts: Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --font-main: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      --bg-dark: #150a10;
+      --bg-panel: #27141f;
+      --bg-panel-subtle: #351a29;
+      --red-primary: #8b1d2c;
+      --red-light: #ad283c;
+      --red-border: #6d1a24;
+      --gold-primary: #ffd166;
+      --gold-light: #ffea9f;
+      --gold-dark: #cf932d;
+      --gold-border: #9b6c2c;
+      --text-main: #fff2e0;
+      --text-muted: #d9bfb0;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-gold: 0 0 25px rgba(255, 209, 102, 0.28);
+      --shadow-red: 0 10px 30px rgba(139, 29, 44, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-main);
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(ellipse at 50% -10%, #942537 0%, #3a1622 45%, #150a10 100%),
+        radial-gradient(circle at 10% 80%, rgba(207, 147, 45, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(173, 40, 60, 0.12) 0%, transparent 45%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Fixed Effect Canvases */
+    #effectCanvas, #rainCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* Container Wrap */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 16px 16px 60px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Top Utility Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(43, 21, 33, 0.85);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .pill-btn:hover {
+      background: rgba(69, 32, 53, 0.95);
+      border-color: var(--gold-primary);
+      transform: translateY(-1px);
+    }
+
+    .pill-btn:active {
+      transform: scale(0.96);
+    }
+
+    .pill-btn.active {
+      background: linear-gradient(135deg, #7c1a29, #9e2335);
+      border-color: var(--gold-primary);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255, 209, 102, 0.35);
+    }
+
+    /* Hero Header */
+    .hero {
+      text-align: center;
+      border: 2px solid var(--gold-dark);
+      border-radius: var(--radius-lg);
+      padding: 28px 18px 24px;
+      background: linear-gradient(150deg, #912131 0%, #631926 50%, #3e121d 100%);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 235, 175, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before, .hero::after {
+      content: '✦';
+      position: absolute;
+      font-size: 80px;
+      color: rgba(255, 215, 128, 0.12);
+      top: -10px;
+      pointer-events: none;
+    }
+    .hero::before { left: 12px; }
+    .hero::after { right: 12px; }
+
+    .eyebrow {
+      letter-spacing: 2.5px;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 209, 102, 0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 8vw, 64px);
+      line-height: 1.05;
+      margin: 12px 0 8px;
+      font-weight: 900;
+      background: linear-gradient(180deg, #fff7dc 0%, #ffd066 65%, #d18d28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+      letter-spacing: 0.5px;
+    }
+
+    .hero-sub {
+      color: #ffe8d1;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .badge-c88 {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffd700, #ff9f1c);
+      color: #4a1505;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 3px 12px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 8px;
+    }
+
+    .hero-quote {
+      font-size: 13.5px;
+      color: var(--gold-light);
+      font-style: italic;
+      opacity: 0.92;
+      margin-top: 4px;
+    }
+
+    /* Mascot Card - Thần Tài Chibi */
+    .mascot-card {
+      margin-top: 16px;
+      background: linear-gradient(135deg, rgba(62, 26, 43, 0.95), rgba(41, 16, 29, 0.95));
+      border: 1.5px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .mascot-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .mascot-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+      width: 82px;
+      height: 82px;
+    }
+
+    .mascot-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 0 18px rgba(255, 209, 102, 0.5);
+      animation: mascotFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes mascotFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-5px) scale(1.03); }
+    }
+
+    .mascot-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+      background: #e63946;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1.5px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .mascot-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mascot-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .mascot-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gold-primary);
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .mascot-hint {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .mascot-bubble {
+      background: rgba(255, 245, 225, 0.1);
+      border-left: 3px solid var(--gold-primary);
+      padding: 9px 12px;
+      border-radius: 0 10px 10px 0;
+      font-size: 14.5px;
+      color: #fff;
+      font-weight: 600;
+      line-height: 1.4;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Panels General */
+    .panel {
+      border: 1px solid var(--gold-border);
+      background: var(--bg-panel);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-top: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    /* Identity Section */
+    .identity {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .identity-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .identity label {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .identity input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .chips-row {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .chip-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 209, 102, 0.3);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chip:hover {
+      background: rgba(255, 209, 102, 0.2);
+      border-color: var(--gold-primary);
+    }
+
+    .field {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1.5px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      background: #fff8eb;
+      color: #3b1820;
+      font-weight: 600;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .field:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 3px rgba(255, 209, 102, 0.35);
+      background: #ffffff;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tab {
+      border: 1.5px solid var(--gold-border);
+      background: var(--bg-panel-subtle);
+      color: var(--text-muted);
+      border-radius: var(--radius-md);
+      padding: 15px 6px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tab span {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 6px;
+      transition: transform 0.25s ease;
+    }
+
+    .tab:hover span {
+      transform: scale(1.15);
+    }
+
+    .tab.active {
+      background: linear-gradient(145deg, #a02534, #6e1823);
+      border-color: var(--gold-primary);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(255, 209, 102, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .tab.active span {
+      animation: tabBounce 0.4s ease;
+    }
+
+    @keyframes tabBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25) translateY(-4px); }
+    }
+
+    /* Ritual Section */
+    .ritual h2 {
+      color: var(--gold-light);
+      margin: 0 0 6px;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .option {
+      border: 1.5px solid #583344;
+      border-radius: var(--radius-sm);
+      background: #391e2c;
+      padding: 13px 14px;
+      text-align: left;
+      color: #f7e2d4;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .option:hover {
+      border-color: var(--gold-border);
+      background: #4a273b;
+    }
+
+    .option.selected {
+      border-color: var(--gold-primary);
+      background: linear-gradient(135deg, #882231, #5d1722);
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(255, 209, 102, 0.25);
+    }
+
+    /* Interactive Stages */
+    .stage {
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 16px 0;
+      border-radius: var(--radius-md);
+      background: radial-gradient(circle at 50% 60%, rgba(139, 29, 44, 0.35) 0%, rgba(21, 10, 16, 0.5) 80%);
+      border: 1px dashed rgba(255, 209, 102, 0.2);
+      overflow: hidden;
+      perspective: 800px;
+    }
+
+    /* Furnace / Flame Animation */
+    .furnace-wrap {
+      position: relative;
+      width: 140px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .furnace-pot {
+      position: absolute;
+      bottom: 6px;
+      font-size: 54px;
+      z-index: 2;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+    }
+
+    .flame-core {
+      font-size: 78px;
+      filter: drop-shadow(0 0 16px #ff7700) drop-shadow(0 0 32px #ff3700);
+      transform-origin: bottom center;
+      animation: flameFlicker 0.6s infinite alternate ease-in-out;
+      z-index: 3;
+    }
+
+    @keyframes flameFlicker {
+      0% { transform: scale(0.95) rotate(-3deg); }
+      100% { transform: scale(1.1) rotate(4deg); }
+    }
+
+    /* Burning Paper Animation */
+    .paper {
+      position: absolute;
+      top: 15px;
+      background: linear-gradient(180deg, #fff3c9 0%, #fad589 100%);
+      color: #7b1d1d;
+      border: 1.5px solid #e0aa3e;
+      border-radius: 6px;
+      padding: 9px 18px;
+      max-width: 80%;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      z-index: 5;
+      transform-origin: center center;
+      transition: all 0.3s ease;
+    }
+
+    .burning .flame-core {
+      animation: flameFlicker 0.12s infinite alternate ease-in-out;
+      filter: drop-shadow(0 0 35px #ff8800) drop-shadow(0 0 60px #ff2200);
+      transform: scale(1.35);
+    }
+
+    .burning .paper {
+      animation: paperDisintegrate 2.6s forwards cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @keyframes paperDisintegrate {
+      0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0 rgba(255, 69, 0, 0));
+        background: #fff3c9;
+      }
+      30% {
+        transform: translateY(35px) scale(0.92) rotate(-6deg);
+        filter: drop-shadow(0 0 15px #ff5100);
+        background: linear-gradient(180deg, #d36a28 0%, #301712 100%);
+        color: #ffca3a;
+      }
+      70% {
+        transform: translateY(70px) scale(0.45) rotate(14deg);
+        opacity: 0.8;
+        filter: blur(2px) drop-shadow(0 0 25px #ff2200);
+      }
+      100% {
+        transform: translateY(95px) scale(0.08) rotate(35deg);
+        opacity: 0;
+        filter: blur(8px);
+      }
+    }
+
+    /* Red Envelope (Bao Lì Xì) 3D Stage */
+    .envelope-wrap {
+      width: 140px;
+      height: 180px;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .red-envelope {
+      width: 120px;
+      height: 165px;
+      background: linear-gradient(145deg, #bd2130, #80141f);
+      border: 2px solid var(--gold-primary);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45), 0 0 18px rgba(255, 209, 102, 0.25);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55px;
+      background: linear-gradient(180deg, #cf2839, #a01c29);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-bottom: 2px solid var(--gold-primary);
+      transform-origin: top;
+      transition: transform 0.6s ease;
+      z-index: 4;
+    }
+
+    .envelope-seal {
+      width: 44px;
+      height: 44px;
+      background: radial-gradient(circle, #ffe699, #d4952c);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: #631518;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 5;
+    }
+
+    .envelope-letter {
+      position: absolute;
+      width: 104px;
+      height: 130px;
+      background: linear-gradient(180deg, #fff9e6, #ffeab0);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #7c1a24;
+      font-size: 13px;
+      padding: 6px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 2;
+      transform: translateY(0);
+    }
+
+    .envelope-light {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 225, 120, 0.8) 0%, rgba(255, 180, 0, 0) 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    /* Envelope Opening Animation */
+    .opening .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .opening .envelope-letter {
+      transform: translateY(-55px) scale(1.08);
+      z-index: 6;
+      box-shadow: 0 10px 25px rgba(255, 209, 102, 0.5);
+    }
+
+    .opening .envelope-light {
+      opacity: 1;
+      animation: lightPulse 1.2s infinite alternate;
+    }
+
+    @keyframes lightPulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      100% { transform: scale(1.3); opacity: 0.95; }
+    }
+
+    /* Fortune Bamboo Cylinder (Ống Xăm) */
+    .shaker-wrap {
+      width: 140px;
+      height: 180px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .shaker-cup {
+      width: 80px;
+      height: 120px;
+      background: linear-gradient(90deg, #6c4623, #a26938, #5a381a);
+      border-radius: 6px 6px 14px 14px;
+      border: 2px solid var(--gold-primary);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shaker-cup::before {
+      content: 'C88';
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--gold-light);
+      border: 1px solid var(--gold-light);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .shaker-stick {
+      position: absolute;
+      width: 16px;
+      height: 120px;
+      background: linear-gradient(180deg, #e6b87d, #c99351);
+      border: 1px solid #7c4b1d;
+      border-radius: 4px;
+      top: 20px;
+      z-index: 2;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 6px;
+      font-size: 10px;
+      font-weight: 900;
+      color: #5c1b22;
+      transition: transform 0.5s ease;
+    }
+
+    .shaking .shaker-cup {
+      animation: shakerShake 0.12s infinite alternate ease-in-out;
+    }
+
+    .shaking .shaker-stick {
+      animation: stickEmerge 1.2s forwards cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @keyframes shakerShake {
+      0% { transform: rotate(-8deg) translateX(-4px); }
+      100% { transform: rotate(8deg) translateX(4px); }
+    }
+
+    @keyframes stickEmerge {
+      0% { transform: translateY(0); }
+      60% { transform: translateY(-30px); }
+      100% { transform: translateY(-65px) scale(1.15); z-index: 4; box-shadow: 0 0 20px #ffd166; }
+    }
+
+    /* Buttons */
+    .primary {
+      width: 100%;
+      border: 0;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #ffd97d 0%, #f4a236 50%, #d47e17 100%);
+      color: #4b1a09;
+      font-weight: 900;
+      font-size: 17px;
+      padding: 17px;
+      box-shadow: 0 6px 0 #944e0b, 0 10px 25px rgba(244, 162, 54, 0.35);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+    }
+
+    .primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #944e0b, 0 5px 12px rgba(244, 162, 54, 0.3);
+    }
+
+    .secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--gold-light);
+      border: 1.5px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      padding: 11px 16px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .secondary:hover {
+      background: rgba(255, 209, 102, 0.18);
+      border-color: var(--gold-primary);
+      transform: translateY(-1px);
+    }
+
+    .secondary:active {
+      transform: scale(0.97);
+    }
+
+    /* Result Card (Bùa Tâm Linh) */
+    .result {
+      display: none;
+      background: linear-gradient(165deg, #fff7e4 0%, #fde4b2 60%, #fad58c 100%);
+      color: #4a191f;
+      border-radius: var(--radius-lg);
+      padding: 30px 22px;
+      text-align: center;
+      border: 4px double #b97f2c;
+      margin-top: 20px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5), inset 0 0 35px rgba(212, 149, 44, 0.2);
+      position: relative;
+    }
+
+    .result::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(185, 127, 44, 0.4);
+      border-radius: calc(var(--radius-lg) - 6px);
+      pointer-events: none;
+    }
+
+    .result.show {
+      display: block;
+      animation: revealCard 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes revealCard {
+      0% { transform: scale(0.8) translateY(30px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .result .big {
+      font-size: 64px;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .result-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #8b1d2c;
+      border-bottom: 2px solid #8b1d2c;
+      padding-bottom: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .result h2 {
+      color: #8f1b2b;
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .result-who {
+      font-size: 15px;
+      color: #6d2c34;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .result .quote {
+      font-weight: 800;
+      font-size: 21px;
+      line-height: 1.45;
+      color: #3b1016;
+      margin: 16px 0;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid #8f1b2b;
+    }
+
+    .result .tip {
+      background: #f1cf99;
+      padding: 13px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #551d23;
+      margin: 14px 0 20px;
+      text-align: left;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .result .secondary {
+      color: #5f1b22;
+      border-color: #a46c37;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .result .secondary:hover {
+      background: #ffffff;
+      border-color: #8f1b2b;
+    }
+
+    /* History Section */
+    .history {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .history-item {
+      background: #391e2b;
+      border: 1px solid #542d3f;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      transition: border-color 0.2s ease;
+    }
+
+    .history-item:hover {
+      border-color: var(--gold-border);
+    }
+
+    .history-item strong {
+      font-size: 14.5px;
+      color: var(--text-main);
+    }
+
+    .history-item small {
+      display: block;
+      color: var(--text-muted);
+      margin-top: 3px;
+      font-size: 12px;
+    }
+
+    /* Mõ Button Floating Toast */
+    .toast-merit {
+      position: fixed;
+      font-size: 17px;
+      font-weight: 900;
+      color: #ffd166;
+      text-shadow: 0 0 10px rgba(255, 209, 102, 0.8), 0 2px 4px #000;
+      pointer-events: none;
+      z-index: 10000;
+      animation: floatUpFade 1.2s ease-out forwards;
+    }
+
+    @keyframes floatUpFade {
+      0% { opacity: 1; transform: translateY(0) scale(0.9); }
+      50% { opacity: 1; transform: translateY(-40px) scale(1.15); }
+      100% { opacity: 0; transform: translateY(-80px) scale(1); }
+    }
+
+    /* Notification Toast Bar */
+    .app-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #7e1929;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13.5px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(255, 209, 102, 0.4);
+      border: 1.5px solid var(--gold-primary);
+      z-index: 10001;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      max-width: 92vw;
+      text-align: center;
+    }
+
+    .app-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 32px;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .notice {
+      color: var(--gold-light);
+      font-size: 12.5px;
+      margin-top: 14px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 580px) {
+      .wrap {
+        padding: 12px 10px 45px;
+      }
+      .top-bar {
+        gap: 6px;
+      }
+      .pill-btn {
+        padding: 7px 11px;
+        font-size: 12px;
+      }
+      .hero {
+        padding: 20px 12px 18px;
+        border-radius: 18px;
+      }
+      .eyebrow {
+        letter-spacing: 1px;
+        font-size: 10.5px;
+        padding: 4px 10px;
+      }
+      .hero h1 {
+        font-size: 34px;
+      }
+      .hero-sub {
+        font-size: 13.5px;
+      }
+      .panel {
+        padding: 16px 12px;
+        border-radius: 16px;
+      }
+      .identity-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .identity input {
+        min-width: 0;
+      }
+      .options {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .tab {
+        padding: 12px 4px;
+        font-size: 12.5px;
+      }
+      .tab span {
+        font-size: 26px;
+      }
+      .result .quote {
+        font-size: 17.5px;
+      }
+      .mascot-card {
+        padding: 12px;
+        gap: 12px;
+      }
+      .mascot-title-row {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .mascot-avatar-wrap {
+        width: 66px;
+        height: 66px;
+      }
+      .mascot-bubble {
+        font-size: 13.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Effect Canvases -->
+  <canvas id="effectCanvas"></canvas>
+  <canvas id="rainCanvas"></canvas>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="app-toast"></div>
+
+  <main class="wrap">
+    <!-- Top Utility Bar: Audio & Mõ Online -->
+    <header class="top-bar">
+      <button class="pill-btn" id="audioToggle" aria-label="Bật tắt âm thanh">
+        <span id="audioIcon">🔈</span>
+        <span id="audioLabel">Âm thanh: TẮT</span>
+      </button>
+
+      <button class="pill-btn" id="moBtn" aria-label="Gõ mõ xả KPI">
+        <span>🔔</span>
+        <span>Gõ Mõ Xả KPI (<strong id="meritCount">0</strong>)</span>
+      </button>
+    </header>
+
+    <!-- Hero Header -->
+    <section class="hero">
+      <div class="eyebrow">✦ PHÒNG GIẢI HẠN & CẦU MAY DÂN SALES ✦</div>
+      <h1>XIN VÍA 4.0</h1>
+      <p class="hero-sub">🔥 Đốt xui · 🧧 Rước lộc · 💰 Triệu hồi khách chuyển khoản</p>
+      <div><span class="badge-c88">Phiên Bản Độc Quyền Team C88</span></div>
+      <p class="hero-quote">“Tâm linh không cứu được KPI, nhưng cứu được huyết áp của dân Sales!”</p>
+    </section>
+
+    <!-- Linh Vật Thần Tài Chibi Interactive Card -->
+    <section class="mascot-card" id="mascotCard" title="Chạm vào Thần Tài để nhận thêm sấm truyền!">
+      <div class="mascot-avatar-wrap">
+        <img src="./than-tai-avatar.jpg" alt="Thần Tài C88 Chibi" class="mascot-avatar" id="mascotAvatar" onerror="this.src='https://api.iconify.design/twemoji:money-bag.svg'">
+        <span class="mascot-badge">C88</span>
+      </div>
+      <div class="mascot-content">
+        <div class="mascot-title-row">
+          <div class="mascot-name">🧧 THẦN TÀI C88 PHÁN:</div>
+          <div class="mascot-hint">👉 Chạm ta nhận lộc</div>
+        </div>
+        <div class="mascot-bubble" id="mascotQuote">
+          "Báo giá xong đừng hoảng, để Thần Tài 'thao túng tâm lý' khách chuyển khoản giúp con!"
+        </div>
+      </div>
+    </section>
+
+    <!-- Nickname Identity Section -->
+    <section class="panel identity">
+      <div class="identity-row">
+        <label for="nickname">✨ Danh xưng người xin vía</label>
+        <input class="field" id="nickname" maxlength="32" placeholder="Nhập tên hoặc biệt danh của bạn...">
+      </div>
+      <div class="chips-row">
+        <span class="chip-label">Gợi ý nhanh:</span>
+        <button type="button" class="chip" data-name="Chiến thần Telesales">Chiến thần Telesales</button>
+        <button type="button" class="chip" data-name="Chúa tể Chốt đơn">Chúa tể Chốt đơn</button>
+        <button type="button" class="chip" data-name="Thần đồng Báo giá">Thần đồng Báo giá</button>
+        <button type="button" class="chip" data-name="Hậu duệ KPI">Hậu duệ KPI</button>
+      </div>
+    </section>
+
+    <!-- Ritual Tabs -->
+    <nav class="tabs" aria-label="Chọn nghi thức">
+      <button class="tab active" data-tab="burn" id="tabBurn">
+        <span>🔥</span>Đốt xui
+      </button>
+      <button class="tab" data-tab="via" id="tabVia">
+        <span>🧧</span>Xin vía
+      </button>
+      <button class="tab" data-tab="fortune" id="tabFortune">
+        <span>🔮</span>Gieo quẻ
+      </button>
+    </nav>
+
+    <!-- Ritual Interaction Section -->
+    <section class="panel ritual" id="ritual" aria-live="polite">
+      <h2 id="ritualTitle">🔥 Lò đốt phong long</h2>
+      <p class="muted" id="ritualDesc">Khách bom đơn, KPI dí, báo giá im lặng? Gửi hết vào lò hóa vàng!</p>
+
+      <div class="options" id="options"></div>
+
+      <div id="customWrap" class="hidden">
+        <label for="customBad" class="muted">Nhập nỗi niềm muốn đốt (tối đa 140 ký tự):</label>
+        <textarea id="customBad" class="field" rows="3" maxlength="140" placeholder="Kể xui xẻo thôi, đừng ghi thông tin mật của khách nha!"></textarea>
+      </div>
+
+      <!-- Stage for Visual Animations -->
+      <div class="stage" id="stage">
+        <!-- Burning Stage elements -->
+        <div id="burnStageContent" class="furnace-wrap">
+          <div id="paper" class="paper">Khách seen không rep</div>
+          <div class="furnace-pot" aria-hidden="true">🏺</div>
+          <div class="flame-core" aria-hidden="true">🔥</div>
+        </div>
+
+        <!-- Red Envelope Stage elements -->
+        <div id="viaStageContent" class="envelope-wrap hidden">
+          <div class="envelope-light"></div>
+          <div class="red-envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-letter" id="envelopeLetter">
+              <span style="font-size: 26px;">🧧</span>
+              <span id="envelopeTitle">VÍA LỘC</span>
+              <span style="font-size: 11px; color: #a02834; margin-top: 4px;">CHỐT ĐƠN 100%</span>
+            </div>
+            <div class="envelope-seal">財</div>
+          </div>
+        </div>
+
+        <!-- Fortune Cylinder Stage elements -->
+        <div id="fortuneStageContent" class="shaker-wrap hidden">
+          <div class="shaker-stick" id="fortuneStick">✦ QUẺ ✦</div>
+          <div class="shaker-cup"></div>
+        </div>
+      </div>
+
+      <button class="primary" id="go">🔥 ĐỐT PHONG LONG NGAY</button>
+      <div class="notice">⚡ Nghi thức vui vẻ giúp giải tỏa áp lực, tăng 200% tinh thần chiến đấu!</div>
+    </section>
+
+    <!-- Result Talisman Card -->
+    <section class="result" id="result" aria-live="polite">
+      <div class="big" id="resultEmoji">🧧</div>
+      <div class="result-badge">XIN VÍA 4.0 · TEAM C88 CHỨNG NHẬN</div>
+      <h2 id="resultTitle"></h2>
+      <p class="result-who" id="resultWho"></p>
+      <p class="quote" id="resultMessage"></p>
+      <p class="tip" id="resultTip"></p>
+
+      <div class="actions">
+        <button class="secondary" id="again">🔁 Làm tiếp</button>
+        <button class="secondary" id="download">📸 Tải ảnh bùa HD</button>
+        <button class="secondary" id="share">📤 Chia sẻ</button>
+        <button class="secondary" id="zaloShare">💬 Gửi qua Zalo</button>
+      </div>
+    </section>
+
+    <!-- History Log Section -->
+    <section class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <h2 style="margin:0;font-size:19px;color:var(--gold-light)">📜 Sổ vía của tui</h2>
+        <button class="secondary" id="clear" style="font-size:12px;padding:6px 12px">Xóa lịch sử</button>
+      </div>
+      <p class="muted" style="margin-top:4px">Lưu riêng trên thiết bị này, an toàn và bảo mật.</p>
+      <div id="history" class="history"></div>
+    </section>
+
+    <footer class="footer">
+      Made with ❤️ for <strong>Team C88</strong> · Chơi vui thôi, chăm khách vẫn là chân ái!<br>
+      Không nhập thông tin nhạy cảm hoặc dữ liệu bí mật khách hàng.
+    </footer>
+  </main>
+
+  <script>
+  (()=>{
+    'use strict';
+
+    const $ = id => document.getElementById(id);
+
+    // ==========================================
+    // DATA DEFINITIONS (Retained & Enriched)
+    // ==========================================
+    const scenarios = [
+      'Khách seen không rep',
+      'Khách bom đơn',
+      'Hụt deal phút 89',
+      'KPI dí tới nóc',
+      'Báo giá xong mất hút',
+      'Sếp hỏi số mỗi sáng',
+      'Khác (tự nhập)'
+    ];
+
+    const vias = [
+      'Chốt hợp đồng',
+      'Khách chuyển khoản',
+      'Vượt KPI',
+      'Khách dễ thương',
+      'Sếp duyệt thưởng',
+      'Đơn hàng bất ngờ'
+    ];
+
+    const fortunes = [
+      ['ĐẠI CÁT', 'Khí thế hôm nay sáng hơn màn hình CRM lúc vừa chốt deal!', 'Gọi lại 3 khách tiềm năng nhất ngay trong sáng nay.'],
+      ['TIỂU CÁT', 'Lộc nhỏ gom dần, deal lớn có ngày về rực rỡ!', 'Chăm sóc chu đáo 2 khách hàng cũ để nhận giới thiệu mới.'],
+      ['BÌNH AN', 'Không drama, không khách quạu. Đó cũng là một loại đại phúc!', 'Kiểm tra lại toàn bộ báo giá đang chờ phản hồi.'],
+      ['KIÊN NHẪN', 'Khách chưa chốt không có nghĩa là hết cơ hội, chỉ là đang gom tiền!', 'Follow-up nhẹ nhàng, hỏi đúng vướng mắc của khách.'],
+      ['ĐỔI CHIẾN THUẬT', 'Phong long có khi nằm ở câu mở đầu telesales!', 'Thử kịch bản tiếp cận mới mẻ, hào hứng hơn.']
+    ];
+
+    const burns = [
+      'Phong long đã hóa tro! KPI vẫn còn đó, nhưng tinh thần đã hồi sinh 200%!',
+      'Đã tiễn vận xui ra khỏi pipeline. Khách sộp mới xin mời bước vào chuyển khoản!',
+      'Đốt chuyện xui, giữ bài học, lau nước mắt rồi đi chốt đơn tiếp!',
+      'Khách cũ chưa trả lời? Đừng lo, lộc trời cho không chỉ có một cửa!',
+      'Hôm nay đốt xui rực lửa, ngày mai đốt cháy bảng vàng doanh số!',
+      'Đã gửi vận xui đi nghỉ phép vô thời hạn không hưởng lương!'
+    ];
+
+    const blessings = [
+      'Vía đã nhận! Chúc khách chuyển khoản nhanh hơn tốc độ bấm gửi báo giá.',
+      'Thần Tài nhắn: Chúc con bách chiến bách thắng, nhưng nhớ follow-up đúng giờ!',
+      'Xin cho khách dễ thương, hợp đồng ký liền tay, hoa hồng về đầy túi!',
+      'Một vía may mắn, một chút chủ động, một ngày chốt deal ngập tràn!',
+      'Vũ trụ đang gửi tín hiệu tích cực, bốc máy gọi là khách đồng ý ngay!',
+      'Xin vía đơn về tới tấp, khách vui cười, đồng đội cùng reo hò!'
+    ];
+
+    const mascotQuotes = [
+      '“Tâm linh không cứu được KPI, nhưng cứu được huyết áp của con!”',
+      '“Báo giá xong đừng hoảng, để Thần Tài thao túng tâm lý khách chuyển khoản giúp!”',
+      '“Alo khách ơi, khách mà chốt hôm nay là Thần Tài bảo kê vận may cả năm!”',
+      '“Chốt được deal nhớ mua ly trà sữa cúng ta nha con yêu!”',
+      '“Khách seen chưa rep là đang bận đếm tiền chuẩn bị thanh toán đó!”',
+      '“Hôm nay ai gọi 20 cuộc telesales, Thần Tài tặng 2 hợp đồng to đùng!”',
+      '“Team C88 ai cũng xinh, khách nào từ chối là khách thiếu tinh tế!”',
+      '“Chúa tể chốt deal, kẻ hủy diệt từ chối, thần đồng vượt KPI – chính là con!”',
+      '“Sếp dí số thì cười tươi, mở XIN VÍA 4.0 ra xả phong long cái đã!”',
+      '“Khách bảo để anh xem lại nghĩa là anh thích rồi, chăm anh thêm xíu đi!”',
+      '“Bình tĩnh con ơi, đại gia cũng phải ngắm báo giá 3 lần mới ký hợp đồng!”',
+      '“Hôm nay phong thủy cực tốt: Hướng xuất hành là hướng về phía khách hàng!”'
+    ];
+
+    // State Variables
+    let tab = 'burn';
+    let selected = scenarios[0];
+    let busy = false;
+    let current = null;
+    let soundEnabled = false;
+    let meritCount = 0;
+
+    const random = arr => arr[Math.floor(Math.random() * arr.length)];
+    const escapeText = s => String(s || '').slice(0, 140);
+
+    // ==========================================
+    // AUDIO SYSTEM (Procedural Web Audio API)
+    // 100% Reliable, zero 404, works offline!
+    // ==========================================
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) {
+          audioCtx = new AudioContextClass();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Wooden Fish (Tiếng gõ mõ)
+    function playWoodblock() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(740, now);
+      osc.frequency.exponentialRampToValueAtTime(320, now + 0.07);
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(650, now);
+      filter.Q.setValueAtTime(4, now);
+
+      gain.gain.setValueAtTime(0.8, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.085);
+    }
+
+    // Temple Gong / Chuông đồng
+    function playGong() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const freqs = [140, 280, 420, 630];
+
+      freqs.forEach((f, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(f, now);
+
+        const duration = 2.4 - idx * 0.4;
+        gain.gain.setValueAtTime(0.3 / (idx + 1), now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + duration);
+      });
+    }
+
+    // Coin Clink / Cha-ching
+    function playCoinSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      [987.77, 1318.51, 1567.98].forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(f, now + i * 0.08);
+
+        gain.gain.setValueAtTime(0.35, now + i * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.08 + 0.35);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + i * 0.08);
+        osc.stop(now + i * 0.08 + 0.36);
+      });
+    }
+
+    // Fire Crackle
+    function playFireSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      const bufferSize = ctx.sampleRate * 2.2;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * (Math.random() > 0.96 ? 0.8 : 0.08);
+      }
+
+      const noise = ctx.createBufferSource();
+      noise.buffer = buffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(800, now);
+      filter.frequency.linearRampToValueAtTime(1400, now + 1.2);
+      filter.frequency.linearRampToValueAtTime(300, now + 2.2);
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0.4, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 2.2);
+
+      noise.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      noise.start(now);
+      noise.stop(now + 2.2);
+    }
+
+    // Rattle / Shaking Sticks
+    function playRattleSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      for (let i = 0; i < 12; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(400 + Math.random() * 300, now + i * 0.09);
+
+        gain.gain.setValueAtTime(0.3, now + i * 0.09);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.09 + 0.05);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + i * 0.09);
+        osc.stop(now + i * 0.09 + 0.055);
+      }
+    }
+
+    // Mascot Cute Pop
+    function playMascotPop() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.exponentialRampToValueAtTime(1046.5, now + 0.12);
+
+      gain.gain.setValueAtTime(0.4, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.15);
+    }
+
+    // Toggle Audio
+    function updateAudioUI() {
+      $('audioIcon').textContent = soundEnabled ? '🔊' : '🔈';
+      $('audioLabel').textContent = soundEnabled ? 'Âm thanh: BẬT' : 'Âm thanh: TẮT';
+      $('audioToggle').classList.toggle('active', soundEnabled);
+    }
+
+    $('audioToggle').addEventListener('click', () => {
+      getAudioContext();
+      soundEnabled = !soundEnabled;
+      try {
+        localStorage.setItem('xinvia-sound-enabled', soundEnabled ? '1' : '0');
+      } catch (e) {}
+      updateAudioUI();
+      if (soundEnabled) {
+        playWoodblock();
+        showToast('🔊 Đã bật âm thanh tâm linh!');
+      } else {
+        showToast('🔈 Đã tắt âm thanh.');
+      }
+    });
+
+    // Mõ Online / Xả KPI Button
+    $('moBtn').addEventListener('click', (e) => {
+      getAudioContext();
+      meritCount++;
+      $('meritCount').textContent = meritCount;
+      playWoodblock();
+
+      // Spawn floating merit toast text
+      const rect = $('moBtn').getBoundingClientRect();
+      const toastEl = document.createElement('div');
+      toastEl.className = 'toast-merit';
+      const phrases = ['+1 May Mắn', '+1 Công Đức', '+1 Chốt Đơn', '+1 Trừ KPI', '+1 Vía Sộp'];
+      toastEl.textContent = random(phrases);
+      toastEl.style.left = (rect.left + rect.width / 2 - 40) + 'px';
+      toastEl.style.top = (rect.top - 10) + 'px';
+      document.body.appendChild(toastEl);
+      setTimeout(() => toastEl.remove(), 1200);
+
+      if (navigator.vibrate) navigator.vibrate(20);
+    });
+
+    // ==========================================
+    // CANVAS PARTICLE EFFECTS: Fire & Coin Rain
+    // ==========================================
+    const effectCanvas = $('effectCanvas');
+    const effectCtx = effectCanvas.getContext('2d');
+    const rainCanvas = $('rainCanvas');
+    const rainCtx = rainCanvas.getContext('2d');
+
+    function resizeCanvases() {
+      effectCanvas.width = window.innerWidth;
+      effectCanvas.height = window.innerHeight;
+      rainCanvas.width = window.innerWidth;
+      rainCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvases);
+    resizeCanvases();
+
+    // Fire sparks & ash particles
+    let fireParticles = [];
+    function spawnFireSparks(centerX, centerY, count = 40) {
+      for (let i = 0; i < count; i++) {
+        fireParticles.push({
+          x: centerX + (Math.random() - 0.5) * 60,
+          y: centerY + (Math.random() - 0.5) * 30,
+          vx: (Math.random() - 0.5) * 3,
+          vy: -Math.random() * 5 - 2,
+          size: Math.random() * 4 + 2,
+          color: Math.random() > 0.4 ? '#ff5500' : (Math.random() > 0.5 ? '#ffcc00' : '#333333'),
+          life: 1.0,
+          decay: Math.random() * 0.02 + 0.01
+        });
+      }
+    }
+
+    function renderEffectCanvas() {
+      effectCtx.clearRect(0, 0, effectCanvas.width, effectCanvas.height);
+      for (let i = fireParticles.length - 1; i >= 0; i--) {
+        const p = fireParticles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life -= p.decay;
+        if (p.life <= 0) {
+          fireParticles.splice(i, 1);
+          continue;
+        }
+        effectCtx.save();
+        effectCtx.globalAlpha = p.life;
+        effectCtx.fillStyle = p.color;
+        effectCtx.beginPath();
+        effectCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        effectCtx.fill();
+        effectCtx.restore();
+      }
+      requestAnimationFrame(renderEffectCanvas);
+    }
+    requestAnimationFrame(renderEffectCanvas);
+
+    // Golden Coin Rain
+    let coins = [];
+    function spawnCoinRain(count = 35) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      for (let i = 0; i < count; i++) {
+        coins.push({
+          x: Math.random() * window.innerWidth,
+          y: -40 - Math.random() * 200,
+          vy: Math.random() * 4 + 4,
+          vx: (Math.random() - 0.5) * 2,
+          angle: Math.random() * Math.PI,
+          vAngle: (Math.random() - 0.5) * 0.15,
+          scaleX: 1,
+          vScaleX: (Math.random() * 0.08 + 0.04),
+          size: Math.random() * 12 + 18,
+          isIngot: Math.random() > 0.7
+        });
+      }
+    }
+
+    function renderRainCanvas() {
+      rainCtx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+      for (let i = coins.length - 1; i >= 0; i--) {
+        const c = coins[i];
+        c.y += c.vy;
+        c.x += c.vx;
+        c.angle += c.vAngle;
+        c.scaleX = Math.cos(c.angle);
+
+        if (c.y > window.innerHeight + 50) {
+          coins.splice(i, 1);
+          continue;
+        }
+
+        rainCtx.save();
+        rainCtx.translate(c.x, c.y);
+        rainCtx.scale(c.scaleX, 1);
+
+        if (c.isIngot) {
+          // Draw Golden Ingot (Thỏi Vàng)
+          rainCtx.fillStyle = '#ffb703';
+          rainCtx.beginPath();
+          rainCtx.moveTo(-c.size, -c.size * 0.4);
+          rainCtx.lineTo(c.size, -c.size * 0.4);
+          rainCtx.lineTo(c.size * 0.7, c.size * 0.4);
+          rainCtx.lineTo(-c.size * 0.7, c.size * 0.4);
+          rainCtx.closePath();
+          rainCtx.fill();
+          rainCtx.fillStyle = '#ffd166';
+          rainCtx.beginPath();
+          rainCtx.arc(0, -c.size * 0.35, c.size * 0.4, 0, Math.PI, true);
+          rainCtx.fill();
+        } else {
+          // Draw Vietnamese/Asian Ancient Round Coin with square hole
+          rainCtx.beginPath();
+          rainCtx.arc(0, 0, c.size, 0, Math.PI * 2);
+          rainCtx.fillStyle = '#ffd166';
+          rainCtx.fill();
+          rainCtx.strokeStyle = '#c48924';
+          rainCtx.lineWidth = 2;
+          rainCtx.stroke();
+
+          // Square hole
+          const hole = c.size * 0.36;
+          rainCtx.fillStyle = '#220d18';
+          rainCtx.fillRect(-hole / 2, -hole / 2, hole, hole);
+          rainCtx.strokeRect(-hole / 2, -hole / 2, hole, hole);
+        }
+        rainCtx.restore();
+      }
+      requestAnimationFrame(renderRainCanvas);
+    }
+    requestAnimationFrame(renderRainCanvas);
+
+    // ==========================================
+    // MASCOT INTERACTION
+    // ==========================================
+    const mascotCard = $('mascotCard');
+    const mascotQuote = $('mascotQuote');
+    const mascotAvatar = $('mascotAvatar');
+
+    let quoteIndex = 0;
+    function triggerMascotReaction() {
+      getAudioContext();
+      playMascotPop();
+
+      // Rotate quote
+      quoteIndex = (quoteIndex + 1) % mascotQuotes.length;
+      mascotQuote.textContent = mascotQuotes[quoteIndex];
+
+      // Bounce avatar
+      mascotAvatar.style.animation = 'none';
+      void mascotAvatar.offsetWidth;
+      mascotAvatar.style.animation = 'tabBounce 0.4s ease';
+
+      // Spawn coins near mascot
+      const rect = mascotCard.getBoundingClientRect();
+      spawnCoinRain(10);
+      if (navigator.vibrate) navigator.vibrate(25);
+    }
+
+    mascotCard.addEventListener('click', triggerMascotReaction);
+
+    // Quick nickname chip select
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const name = chip.getAttribute('data-name');
+        $('nickname').value = name;
+        try {
+          localStorage.setItem('xinvia-name', name);
+        } catch (e) {}
+        showToast('✨ Đã chọn danh xưng: ' + name);
+        if (soundEnabled) playWoodblock();
+      });
+    });
+
+    // ==========================================
+    // HISTORY STORAGE (Retained Compatibility)
+    // ==========================================
+    function getHistory() {
+      try {
+        const raw = JSON.parse(localStorage.getItem('xinvia-history') || '[]');
+        return Array.isArray(raw) ? raw.slice(0, 20) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveHistory(list) {
+      try {
+        localStorage.setItem('xinvia-history', JSON.stringify(list.slice(0, 20)));
+      } catch (e) {}
+    }
+
+    function renderHistory() {
+      const h = getHistory();
+      const container = $('history');
+      container.replaceChildren();
+
+      if (!h.length) {
+        const p = document.createElement('p');
+        p.className = 'muted';
+        p.textContent = 'Chưa có vía nào được lưu. Hãy thực hiện một nghi thức để khai xuân mở hàng nha!';
+        container.append(p);
+        return;
+      }
+
+      h.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'history-item';
+
+        const box = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = item.emoji + ' ' + item.title;
+        const small = document.createElement('small');
+        small.textContent = item.who + ' · ' + item.date;
+        box.append(title, small);
+
+        const btn = document.createElement('button');
+        btn.className = 'secondary';
+        btn.textContent = 'Xem lại';
+        btn.addEventListener('click', () => {
+          showResult(item);
+          if (soundEnabled) playWoodblock();
+        });
+
+        row.append(box, btn);
+        container.append(row);
+      });
+    }
+
+    // ==========================================
+    // RENDER RITUAL VIEW ACCORDING TO TAB
+    // ==========================================
+    function render() {
+      const config = {
+        burn: {
+          title: '🔥 Lò đốt phong long',
+          desc: 'Khách bom đơn, KPI dí, báo giá im lặng? Gửi hết vào lò hóa vàng!',
+          items: scenarios,
+          buttonText: '🔥 ĐỐT PHONG LONG NGAY'
+        },
+        via: {
+          title: '🧧 Điện xin vía tài lộc',
+          desc: 'Chọn loại vía bà muốn triệu hồi hôm nay để chốt đơn thần tốc!',
+          items: vias,
+          buttonText: '🧧 TRIỆU HỒI VÍA MAY'
+        },
+        fortune: {
+          title: '🔮 Ống quẻ Sales thần kỳ',
+          desc: 'Nghĩ về mục tiêu kinh doanh tuần này rồi rút một quẻ sấm truyền!',
+          items: [],
+          buttonText: '🔮 LẮC QUẺ NGAY'
+        }
+      }[tab];
+
+      $('ritualTitle').textContent = config.title;
+      $('ritualDesc').textContent = config.desc;
+      $('go').textContent = config.buttonText;
+
+      // Stage visibility
+      $('burnStageContent').classList.toggle('hidden', tab !== 'burn');
+      $('viaStageContent').classList.toggle('hidden', tab !== 'via');
+      $('fortuneStageContent').classList.toggle('hidden', tab !== 'fortune');
+
+      // Options
+      const optionsContainer = $('options');
+      optionsContainer.replaceChildren();
+      optionsContainer.classList.toggle('hidden', tab === 'fortune');
+
+      if (tab !== 'fortune') {
+        config.items.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'option' + (selected === opt ? ' selected' : '');
+          btn.textContent = (tab === 'via' ? '✨ ' : '🔥 ') + opt;
+          btn.addEventListener('click', () => {
+            selected = opt;
+            if (soundEnabled) playWoodblock();
+            render();
+          });
+          optionsContainer.append(btn);
+        });
+      }
+
+      // Update paper or letter text
+      if (tab === 'burn') {
+        const text = selected === 'Khác (tự nhập)' ? ($('customBad').value.trim() || 'Vận xui tự nhập') : selected;
+        $('paper').textContent = text;
+      } else if (tab === 'via') {
+        $('envelopeTitle').textContent = selected.toUpperCase();
+      }
+
+      // Custom textarea wrap
+      $('customWrap').classList.toggle('hidden', !(tab === 'burn' && selected === 'Khác (tự nhập)'));
+
+      // Tab button active states
+      document.querySelectorAll('.tab').forEach(b => {
+        const active = b.dataset.tab === tab;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+    }
+
+    // ==========================================
+    // RESULT PRESENTATION
+    // ==========================================
+    function showResult(item) {
+      current = item;
+      $('resultEmoji').textContent = item.emoji;
+      $('resultTitle').textContent = item.title;
+      $('resultWho').textContent = item.who;
+      $('resultMessage').textContent = item.message;
+      $('resultTip').textContent = '✨ Lời khuyên hành động: ' + item.tip;
+      $('result').classList.add('show');
+      $('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function makeResult() {
+      const name = $('nickname').value.trim().slice(0, 32) || 'Chiến thần giấu tên';
+      const date = new Date().toLocaleString('vi-VN');
+      let res;
+
+      if (tab === 'burn') {
+        const subject = selected === 'Khác (tự nhập)' ? $('customBad').value.trim() : selected;
+        if (!subject) {
+          alert('Bà nhập điều muốn đốt trước nha!');
+          $('customBad').focus();
+          return null;
+        }
+        res = {
+          emoji: '🔥',
+          title: 'PHONG LONG ĐÃ TIÊU TAN',
+          who: name + ' đã hóa vàng: ' + escapeText(subject),
+          message: random(burns),
+          tip: 'Chọn một khách hàng tiềm năng và chủ động gọi điện tư vấn lại ngay.',
+          date
+        };
+      } else if (tab === 'via') {
+        res = {
+          emoji: '🧧',
+          title: 'LÁ BÙA ' + selected.toUpperCase(),
+          who: 'Trao gửi may mắn tới: ' + name,
+          message: random(blessings),
+          tip: 'Hôm nay gửi một lời tư vấn tận tâm và chu đáo nhất tới khách hàng.',
+          date
+        };
+      } else {
+        const f = random(fortunes);
+        res = {
+          emoji: '🔮',
+          title: 'QUẺ ' + f[0],
+          who: 'Quẻ sấm truyền cho: ' + name,
+          message: f[1],
+          tip: f[2],
+          date
+        };
+      }
+      return res;
+    }
+
+    // ==========================================
+    // RUN RITUAL ANIMATIONS & SOUNDS
+    // ==========================================
+    function run() {
+      if (busy) return;
+      getAudioContext();
+
+      if (tab === 'burn' && selected === 'Khác (tự nhập)') {
+        $('paper').textContent = $('customBad').value.trim() || 'Vận xui tự nhập';
+      }
+
+      const res = makeResult();
+      if (!res) return;
+
+      busy = true;
+      $('go').disabled = true;
+      $('result').classList.remove('show');
+
+      if (tab === 'burn') {
+        // Flame + paper disintegrate
+        playGong();
+        playFireSound();
+        $('stage').classList.add('burning');
+
+        // Trigger sparks & ash on canvas
+        const stageRect = $('stage').getBoundingClientRect();
+        const interval = setInterval(() => {
+          spawnFireSparks(stageRect.left + stageRect.width / 2, stageRect.top + stageRect.height / 2 + 30, 8);
+        }, 80);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          $('stage').classList.remove('burning');
+          finishRitual(res);
+        }, 2700);
+
+      } else if (tab === 'via') {
+        // Red envelope opens in 3D
+        playCoinSound();
+        $('stage').classList.add('opening');
+
+        setTimeout(() => {
+          $('stage').classList.remove('opening');
+          finishRitual(res);
+        }, 1200);
+
+      } else {
+        // Bamboo shaker rattles
+        playRattleSound();
+        $('stage').classList.add('shaking');
+
+        setTimeout(() => {
+          $('stage').classList.remove('shaking');
+          playGong();
+          finishRitual(res);
+        }, 1300);
+      }
+    }
+
+    function finishRitual(res) {
+      busy = false;
+      $('go').disabled = false;
+      showResult(res);
+      saveHistory([res, ...getHistory()]);
+      renderHistory();
+      spawnCoinRain(40);
+      if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
+    }
+
+    // ==========================================
+    // CANVAS TALISMAN IMAGE GENERATOR (Full HD)
+    // ==========================================
+    function imageCanvas(res) {
+      const c = document.createElement('canvas');
+      c.width = 1080;
+      c.height = 1350;
+      const ctx = c.getContext('2d');
+
+      // Gradient background
+      const grad = ctx.createRadialGradient(540, 600, 50, 540, 675, 800);
+      grad.addColorStop(0, '#942232');
+      grad.addColorStop(0.6, '#561622');
+      grad.addColorStop(1, '#1b0912');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1080, 1350);
+
+      // Ornate Outer Double Gold Border
+      ctx.strokeStyle = '#efc16a';
+      ctx.lineWidth = 14;
+      ctx.strokeRect(40, 40, 1000, 1270);
+      ctx.strokeStyle = '#9e6c27';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(55, 55, 970, 1240);
+
+      // Corner Flourishes (Vietnamese Traditional Style)
+      function drawCorner(x, y, flipX, flipY) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(flipX, flipY);
+        ctx.strokeStyle = '#ffd700';
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(0, 50);
+        ctx.lineTo(0, 0);
+        ctx.lineTo(50, 0);
+        ctx.moveTo(12, 50);
+        ctx.lineTo(12, 12);
+        ctx.lineTo(50, 12);
+        ctx.stroke();
+        ctx.restore();
+      }
+      drawCorner(70, 70, 1, 1);
+      drawCorner(1010, 70, -1, 1);
+      drawCorner(70, 1280, 1, -1);
+      drawCorner(1010, 1280, -1, -1);
+
+      // Header Brand
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#ffd700';
+      ctx.font = 'bold 30px system-ui';
+      ctx.letterSpacing = '4px';
+      ctx.fillText('✦ TEAM C88 · CHỨNG NHẬN TÂM LINH ✦', 540, 150);
+
+      ctx.fillStyle = '#ffe2a1';
+      ctx.font = '900 78px system-ui';
+      ctx.fillText('XIN VÍA 4.0', 540, 240);
+
+      // Big Emoji Symbol
+      ctx.font = '130px system-ui';
+      ctx.fillText(res.emoji, 540, 410);
+
+      // Text Wrapper
+      function wrapText(text, startY, fontSize, color, maxWidth, lineHeight, isBold = true) {
+        ctx.fillStyle = color;
+        ctx.font = (isBold ? 'bold ' : '') + fontSize + 'px system-ui';
+        const words = String(text).split(/\s+/);
+        let line = '';
+        const lines = [];
+
+        for (const w of words) {
+          const test = line ? line + ' ' + w : w;
+          if (ctx.measureText(test).width > maxWidth && line) {
+            lines.push(line);
+            line = w;
+          } else {
+            line = test;
+          }
+        }
+        if (line) lines.push(line);
+
+        lines.slice(0, 6).forEach((l, i) => {
+          ctx.fillText(l, 540, startY + i * lineHeight);
+        });
+
+        return startY + Math.min(lines.length, 6) * lineHeight;
+      }
+
+      // Title & Recipient
+      let y = wrapText(res.title, 500, 48, '#ffd700', 880, 62, true);
+      y = wrapText(res.who, y + 40, 32, '#f8d2c2', 880, 46, false);
+
+      // Main Quote in decorative box
+      const quoteBoxY = y + 30;
+      ctx.fillStyle = 'rgba(255, 248, 235, 0.94)';
+      ctx.fillRect(80, quoteBoxY, 920, 200);
+      ctx.strokeStyle = '#c48924';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(80, quoteBoxY, 920, 200);
+
+      wrapText('“' + res.message + '”', quoteBoxY + 65, 38, '#59161e', 840, 52, true);
+
+      // Action Tip
+      wrapText('✨ LỜI KHUYÊN: ' + res.tip, quoteBoxY + 260, 28, '#ffea9f', 860, 42, true);
+
+      // Official Red Seal (Con Dấu Đỏ)
+      ctx.save();
+      ctx.translate(880, 1140);
+      ctx.rotate(-0.15);
+      ctx.strokeStyle = '#d90429';
+      ctx.lineWidth = 5;
+      ctx.strokeRect(-65, -45, 130, 90);
+      ctx.fillStyle = '#d90429';
+      ctx.font = 'bold 22px system-ui';
+      ctx.fillText('C88 SALE', 0, -10);
+      ctx.font = 'bold 20px system-ui';
+      ctx.fillText('CHỐT DEAL', 0, 20);
+      ctx.restore();
+
+      // Footer
+      ctx.fillStyle = '#f4c987';
+      ctx.font = '26px system-ui';
+      ctx.fillText('Chơi vui thôi – chăm khách vẫn là chân ái!', 540, 1260);
+
+      return c;
+    }
+
+    function download() {
+      if (!current) return;
+      const canvas = imageCanvas(current);
+      const link = document.createElement('a');
+      link.download = 'xin-via-c88-' + Date.now() + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showToast('📸 Đã tải ảnh bùa Full HD về máy!');
+      if (soundEnabled) playWoodblock();
+    }
+
+    // ==========================================
+    // SHARE (Web Share API & Direct Zalo Link)
+    // ==========================================
+    function getShareText() {
+      if (!current) return '';
+      return '🧧 XIN VÍA 4.0 – TEAM C88\n' +
+        current.title + '\n' +
+        current.who + '\n' +
+        '“' + current.message + '”\n' +
+        '✨ ' + current.tip + '\n' +
+        '👉 Vào xin vía chốt deal ngay: ' + window.location.href;
+    }
+
+    async function share() {
+      if (!current) return;
+      const text = getShareText();
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'XIN VÍA 4.0 | Team C88',
+            text: text,
+            url: window.location.href
+          });
+          return;
+        } catch (e) {
+          if (e.name === 'AbortError') return;
+        }
+      }
+
+      // Fallback: Copy to clipboard
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('📋 Đã sao chép lời chúc! Hãy dán vào Zalo/Facebook.');
+      } catch (err) {
+        alert('Không thể tự động sao chép. Bạn hãy tải ảnh bùa để gửi nhé!');
+      }
+    }
+
+    function shareToZalo() {
+      if (!current) return;
+      const url = encodeURIComponent(window.location.href);
+      // Zalo Web share link
+      window.open('https://zalo.me/share?url=' + url, '_blank');
+      // Also copy text to clipboard so user can paste the funny quote
+      try {
+        navigator.clipboard.writeText(getShareText());
+        showToast('💬 Đã mở Zalo & sao chép nội dung bùa!');
+      } catch (e) {}
+    }
+
+    // Notification Toast Helper
+    let toastTimeout;
+    function showToast(msg) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => t.classList.remove('show'), 2800);
+    }
+
+    // ==========================================
+    // EVENT LISTENERS & INITIALIZATION
+    // ==========================================
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (busy) return;
+        tab = btn.dataset.tab;
+        selected = tab === 'via' ? vias[0] : scenarios[0];
+        $('result').classList.remove('show');
+        if (soundEnabled) playWoodblock();
+        render();
+      });
+    });
+
+    $('go').addEventListener('click', run);
+
+    $('again').addEventListener('click', () => {
+      $('result').classList.remove('show');
+      $('ritual').scrollIntoView({ behavior: 'smooth' });
+      if (soundEnabled) playWoodblock();
+    });
+
+    $('download').addEventListener('click', download);
+    $('share').addEventListener('click', share);
+    $('zaloShare').addEventListener('click', shareToZalo);
+
+    $('clear').addEventListener('click', () => {
+      if (confirm('Bà có chắc muốn xóa toàn bộ lịch sử xin vía trên thiết bị này không?')) {
+        saveHistory([]);
+        renderHistory();
+        showToast('🗑️ Đã xóa sạch sổ vía!');
+        if (soundEnabled) playWoodblock();
+      }
+    });
+
+    // Nickname persistence
+    const savedName = localStorage.getItem('xinvia-name');
+    if (savedName) $('nickname').value = savedName;
+    $('nickname').addEventListener('input', e => {
+      try {
+        localStorage.setItem('xinvia-name', e.target.value.slice(0, 32));
+      } catch (err) {}
+    });
+
+    // Sound preference persistence
+    const savedSound = localStorage.getItem('xinvia-sound-enabled');
+    soundEnabled = savedSound === '1'; // Default: false (OFF) as requested
+    updateAudioUI();
+
+    // Initial render
+    render();
+    renderHistory();
+  })();
+  </script>
+</body>
+</html>

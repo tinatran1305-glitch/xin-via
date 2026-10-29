@@ -1,0 +1,16 @@
+{
+  "name": "XIN VÍA 4.0 | Team C88",
+  "short_name": "Xin Vía C88",
+  "description": "Đốt phong long, xin vía chốt đơn và gieo quẻ Sales hài hước cho Team C88",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e0f17",
+  "theme_color": "#7e1929",
+  "icons": [
+    {
+      "src": "/than-tai-avatar.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
