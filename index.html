@@ -4,31 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7e1929">
-  <meta name="description" content="XIN VÍA 4.0 – Đốt phong long xả xui, xin vía chốt đơn thần tốc và gieo quẻ Sales hài hước cho Team C88.">
-  <meta name="keywords" content="xin vía, team c88, đốt phong long, xin vía sales, gieo quẻ sales, chốt đơn, giải hạn kpi">
-  <meta name="author" content="Team C88">
+  <meta name="description" content="XIN VÍA 4.0 – Vào đây xả nghiệp – Ra ngoài chốt deal! Đốt phong long xả xui, xin vía chốt đơn thần tốc, gieo quẻ và cầu may cho Dân Sales.">
+  <meta name="keywords" content="xin vía 4.0, hội chốt đơn, dân sales, đốt phong long, xin vía sales, gieo quẻ sales, chùa chốt đơn, giải hạn kpi">
+  <meta name="author" content="Hội Chốt Đơn">
 
   <!-- Open Graph / Facebook / Zalo -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="XIN VÍA 4.0 | Team C88 - Đốt Xui Rước Lộc Chốt Đơn">
-  <meta property="og:description" content="Đốt phong long xả xui, xin vía khách chuyển khoản, gieo quẻ Sales hài hước cho Team C88!">
+  <meta property="og:title" content="XIN VÍA 4.0 | Vào đây xả nghiệp – Ra ngoài chốt deal!">
+  <meta property="og:description" content="Đốt phong long xả xui, xin vía khách chuyển khoản, gieo quẻ và cầu may hài hước cho Hội Chốt Đơn & Dân Sales!">
   <meta property="og:image" content="./og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
   <meta property="og:locale" content="vi_VN">
-  <meta property="og:site_name" content="XIN VÍA 4.0 Team C88">
+  <meta property="og:site_name" content="XIN VÍA 4.0 - Hội Chốt Đơn">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XIN VÍA 4.0 | Team C88">
-  <meta name="twitter:description" content="Đốt xui, rước lộc, triệu hồi khách chuyển khoản cho dân Sales C88!">
+  <meta name="twitter:title" content="XIN VÍA 4.0 | Hội Chốt Đơn">
+  <meta name="twitter:description" content="Vào đây xả nghiệp – Ra ngoài chốt deal! Đốt xui, rước lộc, triệu hồi khách chuyển khoản cho Dân Sales!">
   <meta name="twitter:image" content="./og-image.jpg">
 
   <link rel="icon" type="image/jpeg" href="./than-tai-avatar.jpg">
   <link rel="apple-touch-icon" href="./than-tai-avatar.jpg">
   <link rel="manifest" href="./manifest.json">
 
-  <title>XIN VÍA 4.0 | Team C88 - Đốt Phong Long & Triệu Hồi Deal Khủng</title>
+  <title>XIN VÍA 4.0 | Vào đây xả nghiệp – Ra ngoài chốt deal!</title>
 
   <!-- Google Fonts: Be Vietnam Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -198,7 +198,7 @@
       margin-bottom: 6px;
     }
 
-    .badge-c88 {
+    .badge-slogan {
       display: inline-block;
       background: linear-gradient(135deg, #ffd700, #ff9f1c);
       color: #4a1505;
@@ -409,7 +409,7 @@
     /* Tabs */
     .tabs {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       margin-top: 16px;
     }
@@ -741,7 +741,7 @@
     }
 
     .shaker-cup::before {
-      content: 'C88';
+      content: 'LỘC';
       font-size: 14px;
       font-weight: 900;
       color: var(--gold-light);
@@ -786,6 +786,386 @@
       0% { transform: translateY(0); }
       60% { transform: translateY(-30px); }
       100% { transform: translateY(-65px) scale(1.15); z-index: 4; box-shadow: 0 0 20px #ffd166; }
+    }
+
+    /* ==========================================
+       Chùa Chốt Đơn – Cầu May Online Stage
+       Vietnamese Cartoon Temple (Red & Gold)
+       ========================================== */
+    .temple-wrap {
+      width: 100%;
+      max-width: 420px;
+      height: 235px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 8px 10px 6px;
+      user-select: none;
+    }
+
+    /* Temple Courtyard Floor (Sân chùa) */
+    .temple-courtyard {
+      position: absolute;
+      bottom: 4px;
+      width: 92%;
+      height: 54px;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 209, 102, 0.14) 0 2px, transparent 2px 36px),
+        linear-gradient(180deg, #681823 0%, #3d0e16 100%);
+      border: 2px solid var(--gold-border);
+      border-radius: 12px 12px 16px 16px;
+      box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.45), 0 6px 16px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    /* Temple Building Structure */
+    .temple-building {
+      position: relative;
+      width: 280px;
+      height: 175px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Curved Vietnamese Temple Roofs (Mái đao cong đỏ son - vàng kim) */
+    .temple-roof-top {
+      width: 190px;
+      height: 36px;
+      background: linear-gradient(180deg, #d9384a 0%, #9b1b29 70%, #6e121c 100%);
+      border-top: 3px solid var(--gold-primary);
+      border-bottom: 3px solid var(--gold-primary);
+      border-radius: 50% 50% 12% 12% / 85% 85% 20% 20%;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+
+    .temple-roof-top::before {
+      content: '✦';
+      position: absolute;
+      top: -18px;
+      font-size: 18px;
+      color: var(--gold-primary);
+      text-shadow: 0 0 10px #ffd166;
+    }
+
+    .temple-roof-main {
+      width: 266px;
+      height: 44px;
+      margin-top: -6px;
+      background: linear-gradient(180deg, #c92a3b 0%, #8f1825 75%, #5e1019 100%);
+      border-top: 3px solid var(--gold-primary);
+      border-bottom: 3.5px solid var(--gold-primary);
+      border-radius: 45% 45% 10% 10% / 80% 80% 18% 18%;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    /* Curved Roof Eaves (Đầu đao cong vút) */
+    .temple-roof-main::before,
+    .temple-roof-main::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      width: 24px;
+      height: 16px;
+      border-bottom: 3.5px solid var(--gold-primary);
+      border-radius: 50%;
+    }
+    .temple-roof-main::before {
+      left: -10px;
+      border-left: 3.5px solid var(--gold-primary);
+      transform: rotate(25deg);
+    }
+    .temple-roof-main::after {
+      right: -10px;
+      border-right: 3.5px solid var(--gold-primary);
+      transform: rotate(-25deg);
+    }
+
+    /* Horizontal Plaque (Hoành phi) */
+    .temple-plaque {
+      background: linear-gradient(180deg, #3a0c12, #1f060a);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 6px;
+      padding: 2px 10px;
+      color: var(--gold-primary);
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      margin-top: 6px;
+    }
+
+    /* Hanging Red-Gold Lanterns (Đèn lồng) */
+    .temple-lantern {
+      position: absolute;
+      top: 66px;
+      width: 26px;
+      height: 34px;
+      z-index: 5;
+      transform-origin: top center;
+      animation: lanternSway 3.2s ease-in-out infinite alternate;
+    }
+    .temple-lantern.left { left: 10px; }
+    .temple-lantern.right { right: 10px; animation-delay: -1.6s; }
+
+    .lantern-cord {
+      width: 2px;
+      height: 8px;
+      background: var(--gold-primary);
+      margin: 0 auto;
+    }
+
+    .lantern-body {
+      width: 24px;
+      height: 20px;
+      margin: 0 auto;
+      background: radial-gradient(circle at 50% 45%, #ff6b6b 0%, #c81d25 65%, #780f16 100%);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(255, 190, 80, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+
+    .lantern-tassel {
+      width: 2px;
+      height: 7px;
+      background: #ffbe0b;
+      margin: 0 auto;
+    }
+
+    @keyframes lanternSway {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(5deg); }
+    }
+
+    /* Temple Pillars & Hall (Chính điện & Cột son) */
+    .temple-hall {
+      width: 210px;
+      height: 82px;
+      background: linear-gradient(180deg, #52111b 0%, #340b12 100%);
+      border-left: 6px solid #a82030;
+      border-right: 6px solid #a82030;
+      border-bottom: 3px solid var(--gold-border);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.55);
+    }
+
+    .temple-pillar {
+      width: 7px;
+      height: 100%;
+      background: linear-gradient(90deg, #801520, #c92a3b, #801520);
+      border-left: 1px solid rgba(255, 209, 102, 0.45);
+      border-right: 1px solid rgba(255, 209, 102, 0.45);
+    }
+
+    /* Wish Banner Inside Sanctuary */
+    .temple-wish-tag {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 215, 102, 0.14);
+      border: 1px solid rgba(255, 209, 102, 0.55);
+      color: var(--gold-light);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+      z-index: 4;
+    }
+
+    /* Side Lotus Flowers in Courtyard (Hoa sen sân chùa) */
+    .courtyard-lotus {
+      position: absolute;
+      bottom: 14px;
+      font-size: 26px;
+      z-index: 4;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .courtyard-lotus.left { left: 26px; }
+    .courtyard-lotus.right { right: 26px; }
+
+    /* Offering Lotus (Hoa sen dâng lễ) */
+    .offering-lotus {
+      position: absolute;
+      bottom: 62px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      font-size: 28px;
+      z-index: 6;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 8px rgba(255, 180, 210, 0.5));
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Ornate Golden Incense Burner (Lư hương) */
+    .incense-burner-wrap {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 85px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 5;
+    }
+
+    .incense-sticks {
+      display: flex;
+      gap: 6px;
+      margin-bottom: -4px;
+      z-index: 2;
+      transition: transform 0.5s ease;
+    }
+
+    .incense-stick {
+      width: 3px;
+      height: 28px;
+      background: linear-gradient(180deg, #d89b56 0%, #8f2424 65%);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    /* Glowing Incense Tip (Đầu nén hương cháy đỏ) */
+    .incense-stick::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -1px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ff9f1c;
+      box-shadow: 0 0 4px #ff5400;
+      opacity: 0.45;
+      transition: all 0.3s ease;
+    }
+
+    /* Incense Smoke Wisps (Khói hương trầm bay lên) */
+    .smoke-wrap {
+      position: absolute;
+      bottom: 58px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 75px;
+      pointer-events: none;
+      z-index: 7;
+    }
+
+    .smoke-wisp {
+      position: absolute;
+      bottom: 0;
+      width: 8px;
+      height: 26px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 243, 214, 0.65) 0%, rgba(255, 215, 140, 0) 75%);
+      filter: blur(2px);
+      opacity: 0.35;
+      animation: smokeFloat 3.2s ease-in-out infinite;
+    }
+    .smoke-wisp.w1 { left: 18px; animation-delay: 0s; }
+    .smoke-wisp.w2 { left: 26px; animation-delay: -1.1s; }
+    .smoke-wisp.w3 { left: 34px; animation-delay: -2.2s; }
+
+    @keyframes smokeFloat {
+      0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
+      35% { opacity: 0.55; }
+      70% { transform: translateY(-34px) translateX(-5px) scale(1.35); opacity: 0.35; }
+      100% { transform: translateY(-64px) translateX(6px) scale(1.9); opacity: 0; }
+    }
+
+    /* Golden Censer Body (Bát lư hương đồng vàng) */
+    .censer-pot {
+      width: 62px;
+      height: 34px;
+      background: linear-gradient(135deg, #ffe38f 0%, #d4922a 55%, #8c5811 100%);
+      border: 2px solid #fff1b8;
+      border-radius: 8px 8px 20px 20px;
+      position: relative;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.55), 0 0 14px rgba(255, 209, 102, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .censer-pot::before,
+    .censer-pot::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      width: 10px;
+      height: 16px;
+      border: 2.5px solid var(--gold-primary);
+      border-radius: 6px;
+    }
+    .censer-pot::before { left: -10px; }
+    .censer-pot::after { right: -10px; }
+
+    .censer-label {
+      font-size: 10px;
+      font-weight: 900;
+      color: #59161e;
+      background: rgba(255, 248, 220, 0.85);
+      padding: 1px 6px;
+      border-radius: 999px;
+      border: 1px solid #8c5811;
+    }
+
+    /* Active Ritual Animation when Praying (.praying) */
+    .praying .offering-lotus {
+      transform: translateX(-50%) translateY(-22px) scale(1.38);
+      opacity: 1;
+      filter: drop-shadow(0 0 18px #ffd166) drop-shadow(0 0 28px #ff7096);
+    }
+
+    .praying .courtyard-lotus {
+      transform: scale(1.2) translateY(-4px);
+      filter: drop-shadow(0 0 14px #ffd166);
+    }
+
+    .praying .incense-stick::before {
+      opacity: 1;
+      background: #ffea79;
+      box-shadow: 0 0 10px #ff3300, 0 0 18px #ffd166;
+      transform: scale(1.35);
+    }
+
+    .praying .smoke-wisp {
+      animation-duration: 1.3s;
+      background: radial-gradient(circle, rgba(255, 245, 210, 0.9) 0%, rgba(255, 209, 102, 0) 75%);
+    }
+
+    .praying .lantern-body {
+      box-shadow: 0 0 22px #ffd166, 0 0 35px #ff4d4d;
     }
 
     /* Buttons */
@@ -1096,12 +1476,25 @@
         grid-template-columns: 1fr;
         gap: 8px;
       }
+      .tabs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
       .tab {
         padding: 12px 4px;
         font-size: 12.5px;
       }
       .tab span {
         font-size: 26px;
+      }
+      .temple-building {
+        width: 250px;
+      }
+      .temple-roof-main {
+        width: 240px;
+      }
+      .temple-hall {
+        width: 190px;
       }
       .result .quote {
         font-size: 17.5px;
@@ -1120,6 +1513,16 @@
       }
       .mascot-bubble {
         font-size: 13.5px;
+      }
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -1151,23 +1554,23 @@
       <div class="eyebrow">✦ PHÒNG GIẢI HẠN & CẦU MAY DÂN SALES ✦</div>
       <h1>XIN VÍA 4.0</h1>
       <p class="hero-sub">🔥 Đốt xui · 🧧 Rước lộc · 💰 Triệu hồi khách chuyển khoản</p>
-      <div><span class="badge-c88">Phiên Bản Độc Quyền Team C88</span></div>
-      <p class="hero-quote">“Tâm linh không cứu được KPI, nhưng cứu được huyết áp của dân Sales!”</p>
+      <div><span class="badge-slogan">Vào đây xả nghiệp – Ra ngoài chốt deal!</span></div>
+      <p class="hero-quote">“Tâm linh không cứu được KPI, nhưng cứu được huyết áp của Dân Sales!”</p>
     </section>
 
     <!-- Linh Vật Thần Tài Chibi Interactive Card -->
-    <section class="mascot-card" id="mascotCard" title="Chạm vào Thần Tài để nhận thêm sấm truyền!">
+    <section class="mascot-card" id="mascotCard" title="Chạm vào Thần Tài 4.0 để nhận thêm sấm truyền!">
       <div class="mascot-avatar-wrap">
-        <img src="./than-tai-avatar.jpg" alt="Thần Tài C88 Chibi" class="mascot-avatar" id="mascotAvatar" onerror="this.src='https://api.iconify.design/twemoji:money-bag.svg'">
-        <span class="mascot-badge">C88</span>
+        <img src="./than-tai-avatar.jpg" alt="Thần Tài 4.0 Chibi" class="mascot-avatar" id="mascotAvatar" onerror="this.src='https://api.iconify.design/twemoji:money-bag.svg'">
+        <span class="mascot-badge">4.0</span>
       </div>
       <div class="mascot-content">
         <div class="mascot-title-row">
-          <div class="mascot-name">🧧 THẦN TÀI C88 PHÁN:</div>
+          <div class="mascot-name">🧧 THẦN TÀI 4.0 PHÁN:</div>
           <div class="mascot-hint">👉 Chạm ta nhận lộc</div>
         </div>
         <div class="mascot-bubble" id="mascotQuote">
-          "Báo giá xong đừng hoảng, để Thần Tài 'thao túng tâm lý' khách chuyển khoản giúp con!"
+          "Báo giá xong đừng hoảng, để Thần Tài 4.0 tiếp thêm vía khách chuyển khoản giúp bạn!"
         </div>
       </div>
     </section>
@@ -1197,6 +1600,9 @@
       </button>
       <button class="tab" data-tab="fortune" id="tabFortune">
         <span>🔮</span>Gieo quẻ
+      </button>
+      <button class="tab" data-tab="pray" id="tabPray">
+        <span>🏯</span>Cầu May
       </button>
     </nav>
 
@@ -1240,6 +1646,86 @@
           <div class="shaker-stick" id="fortuneStick">✦ QUẺ ✦</div>
           <div class="shaker-cup"></div>
         </div>
+
+        <!-- Chùa Chốt Đơn - Cầu May Stage elements -->
+        <div id="prayStageContent" class="temple-wrap hidden">
+          <div class="temple-building">
+            <div class="temple-roof-top"></div>
+            <div class="temple-roof-main">
+              <div class="temple-plaque">CHÙA CHỐT ĐƠN · 4.0</div>
+            </div>
+            <!-- Hanging Lanterns -->
+            <div class="temple-lantern left" aria-hidden="true">
+              <div class="lantern-cord"></div>
+              <div class="lantern-body">LỘC</div>
+              <div class="lantern-tassel"></div>
+            </div>
+            <div class="temple-lantern right" aria-hidden="true">
+              <div class="lantern-cord"></div>
+              <div class="lantern-body">PHÚC</div>
+              <div class="lantern-tassel"></div>
+            </div>
+            <!-- Main Sanctuary Hall -->
+            <div class="temple-hall">
+              <div class="temple-pillar"></div>
+              <div class="temple-wish-tag" id="templeWishTag">🌸 Cầu: Chốt deal</div>
+              <div class="temple-pillar"></div>
+            </div>
+          </div>
+
+          <!-- Courtyard & Lotus Flowers (SVG Pink-Gold Vietnamese Lotus) -->
+          <div class="temple-courtyard" aria-hidden="true"></div>
+          <div class="courtyard-lotus left" aria-hidden="true">
+            <svg width="34" height="30" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="18" cy="27" rx="15" ry="4" fill="#2d6a4f" stroke="#ffd166" stroke-width="1.2"/>
+              <path d="M18 26C10 25 5 18 7 11C11 13 15 17 18 26Z" fill="#ff758f" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C26 25 31 18 29 11C25 13 21 17 18 26Z" fill="#ff758f" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C12 22 10 14 13 7C16 11 17 16 18 26Z" fill="#ff8fa3" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C24 22 26 14 23 7C20 11 19 16 18 26Z" fill="#ff8fa3" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C14 18 14 10 18 3C22 10 22 18 18 26Z" fill="#ffb3c1" stroke="#ffd166" stroke-width="1.2"/>
+              <circle cx="18" cy="19" r="3" fill="#ffd166"/>
+            </svg>
+          </div>
+          <div class="courtyard-lotus right" aria-hidden="true">
+            <svg width="34" height="30" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="18" cy="27" rx="15" ry="4" fill="#2d6a4f" stroke="#ffd166" stroke-width="1.2"/>
+              <path d="M18 26C10 25 5 18 7 11C11 13 15 17 18 26Z" fill="#ff758f" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C26 25 31 18 29 11C25 13 21 17 18 26Z" fill="#ff758f" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C12 22 10 14 13 7C16 11 17 16 18 26Z" fill="#ff8fa3" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C24 22 26 14 23 7C20 11 19 16 18 26Z" fill="#ff8fa3" stroke="#ffd166" stroke-width="1"/>
+              <path d="M18 26C14 18 14 10 18 3C22 10 22 18 18 26Z" fill="#ffb3c1" stroke="#ffd166" stroke-width="1.2"/>
+              <circle cx="18" cy="19" r="3" fill="#ffd166"/>
+            </svg>
+          </div>
+          <div class="offering-lotus" id="offeringLotus" aria-hidden="true">
+            <svg width="42" height="36" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="18" cy="27" rx="15" ry="4" fill="#d4952c" stroke="#fff3b0" stroke-width="1.2"/>
+              <path d="M18 26C10 25 5 18 7 11C11 13 15 17 18 26Z" fill="#ff4d6d" stroke="#ffd166" stroke-width="1.1"/>
+              <path d="M18 26C26 25 31 18 29 11C25 13 21 17 18 26Z" fill="#ff4d6d" stroke="#ffd166" stroke-width="1.1"/>
+              <path d="M18 26C12 22 10 14 13 7C16 11 17 16 18 26Z" fill="#ff758f" stroke="#ffd166" stroke-width="1.1"/>
+              <path d="M18 26C24 22 26 14 23 7C20 11 19 16 18 26Z" fill="#ff758f" stroke="#ffd166" stroke-width="1.1"/>
+              <path d="M18 26C14 18 14 10 18 3C22 10 22 18 18 26Z" fill="#ffb3c1" stroke="#fff3b0" stroke-width="1.3"/>
+              <circle cx="18" cy="18" r="3.5" fill="#ffd166"/>
+            </svg>
+          </div>
+
+          <!-- Incense Burner & Smoke -->
+          <div class="smoke-wrap" aria-hidden="true">
+            <div class="smoke-wisp w1"></div>
+            <div class="smoke-wisp w2"></div>
+            <div class="smoke-wisp w3"></div>
+          </div>
+          <div class="incense-burner-wrap" aria-hidden="true">
+            <div class="incense-sticks" id="incenseSticks">
+              <div class="incense-stick"></div>
+              <div class="incense-stick"></div>
+              <div class="incense-stick"></div>
+            </div>
+            <div class="censer-pot">
+              <span class="censer-label">LỘC</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <button class="primary" id="go">🔥 ĐỐT PHONG LONG NGAY</button>
@@ -1249,7 +1735,7 @@
     <!-- Result Talisman Card -->
     <section class="result" id="result" aria-live="polite">
       <div class="big" id="resultEmoji">🧧</div>
-      <div class="result-badge">XIN VÍA 4.0 · TEAM C88 CHỨNG NHẬN</div>
+      <div class="result-badge" id="resultBadge">XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN</div>
       <h2 id="resultTitle"></h2>
       <p class="result-who" id="resultWho"></p>
       <p class="quote" id="resultMessage"></p>
@@ -1274,7 +1760,7 @@
     </section>
 
     <footer class="footer">
-      Made with ❤️ for <strong>Team C88</strong> · Chơi vui thôi, chăm khách vẫn là chân ái!<br>
+      Made with ❤️ for <strong>Hội Chốt Đơn & Dân Sales</strong> · Vào đây xả nghiệp – Ra ngoài chốt deal!<br>
       Không nhập thông tin nhạy cảm hoặc dữ liệu bí mật khách hàng.
     </footer>
   </main>
@@ -1326,26 +1812,98 @@
 
     const blessings = [
       'Vía đã nhận! Chúc khách chuyển khoản nhanh hơn tốc độ bấm gửi báo giá.',
-      'Thần Tài nhắn: Chúc con bách chiến bách thắng, nhưng nhớ follow-up đúng giờ!',
+      'Thần Tài 4.0 nhắn: Chúc bạn bách chiến bách thắng, nhớ follow-up đúng giờ nha!',
       'Xin cho khách dễ thương, hợp đồng ký liền tay, hoa hồng về đầy túi!',
       'Một vía may mắn, một chút chủ động, một ngày chốt deal ngập tràn!',
       'Vũ trụ đang gửi tín hiệu tích cực, bốc máy gọi là khách đồng ý ngay!',
       'Xin vía đơn về tới tấp, khách vui cười, đồng đội cùng reo hò!'
     ];
 
+    const prayers = [
+      'Chốt deal',
+      'Khách chuyển khoản',
+      'Vượt KPI',
+      'Bình an',
+      'Hết drama',
+      'Đồng đội vui vẻ'
+    ];
+
+    const prayerWishes = {
+      'Chốt deal': [
+        [
+          'Chúc bạn mở miệng là khách gật đầu, gửi hợp đồng là khách ký liền tay không cần chỉnh sửa!',
+          'Sự chuẩn bị kỹ lưỡng và thái độ chân thành chính là chìa khóa mở mọi hợp đồng lớn.'
+        ],
+        [
+          'Cầu cho pipeline hôm nay nở rộ như hoa sen, deal nhỏ gom nhanh, deal to chốt gọn!',
+          'Mỗi cuộc gọi tư vấn tận tâm đều đang đưa bạn đến gần hơn với cú chốt đơn rực rỡ.'
+        ]
+      ],
+      'Khách chuyển khoản': [
+        [
+          'Chúc điện thoại bạn hôm nay ting ting báo tiền về dồn dập hơn cả tin nhắn nhóm chat!',
+          'Hãy chủ động hỗ trợ quy trình thanh toán rõ ràng, nhanh gọn để khách yên tâm chuyển khoản ngay.'
+        ],
+        [
+          'Hương trầm bay cao, chúc khách hàng vừa xem xong báo giá đã mở app ngân hàng quét mã!',
+          'Sự tin cậy và phản hồi nhanh chóng của bạn luôn làm khách hàng an tâm rút hầu bao.'
+        ]
+      ],
+      'Vượt KPI': [
+        [
+          'Chúc cột doanh số của bạn tháng này bay cao vượt nóc, bảng vàng vinh danh gọi tên đầu tiên!',
+          'Chia nhỏ mục tiêu theo từng ngày và kiên trì bám sát, bạn hoàn toàn đủ sức bứt phá giới hạn.'
+        ],
+        [
+          'Cầu cho KPI từ áp lực hóa thành động lực, cuối tháng nhìn bảng thưởng mà cười tít mắt!',
+          'Nỗ lực bền bỉ mỗi ngày của bạn chắc chắn sẽ kết trái ngọt xứng đáng.'
+        ]
+      ],
+      'Bình an': [
+        [
+          'Chúc bạn tâm bất biến giữa dòng đời vạn deadline, khách có hỏi khó vẫn mỉm cười duyên dáng!',
+          'Hít một hơi thật sâu, uống một ngụm nước mát; giữ tâm thế bình tĩnh thì việc khó mấy cũng êm.'
+        ],
+        [
+          'Cầu cho ngày đi làm nhẹ nhàng êm ả, sóng gió dừng sau cánh cửa, năng lượng tích cực ngập tràn!',
+          'Bình an bắt đầu từ việc bạn biết trân trọng sức khỏe và dành cho mình những phút nghỉ ngơi hợp lý.'
+        ]
+      ],
+      'Hết drama': [
+        [
+          'Chúc mọi hiểu lầm tan nhanh như khói hương, công việc trôi chảy mượt mà không một gợn sóng!',
+          'Giao tiếp rõ ràng, thiện chí và tập trung vào giải pháp sẽ giúp mọi việc luôn êm đẹp.'
+        ],
+        [
+          'Cầu cho tuần này êm ấm thuận hòa, khách hàng dễ tính, quy trình suôn sẻ từ A đến Z!',
+          'Giữ năng lượng tích cực và nụ cười thân thiện sẽ giúp bạn hóa giải mọi căng thẳng nơi công sở.'
+        ]
+      ],
+      'Đồng đội vui vẻ': [
+        [
+          'Chúc anh chị em Hội Chốt Đơn lúc nào cũng rộn ràng tiếng cười, người tung kẻ hứng chốt deal ầm ầm!',
+          'Một lời hỏi thăm, khích lệ đồng đội đúng lúc sẽ nhân đôi niềm vui và sức mạnh của cả tập thể.'
+        ],
+        [
+          'Cầu cho tập thể đồng nghiệp luôn đoàn kết thương yêu, cùng nhau về số và cùng nhau đi liên hoan!',
+          'Đi một mình có thể nhanh, nhưng đi cùng những đồng đội tuyệt vời sẽ giúp chúng ta tiến thật xa.'
+        ]
+      ]
+    };
+
     const mascotQuotes = [
-      '“Tâm linh không cứu được KPI, nhưng cứu được huyết áp của con!”',
-      '“Báo giá xong đừng hoảng, để Thần Tài thao túng tâm lý khách chuyển khoản giúp!”',
-      '“Alo khách ơi, khách mà chốt hôm nay là Thần Tài bảo kê vận may cả năm!”',
-      '“Chốt được deal nhớ mua ly trà sữa cúng ta nha con yêu!”',
-      '“Khách seen chưa rep là đang bận đếm tiền chuẩn bị thanh toán đó!”',
-      '“Hôm nay ai gọi 20 cuộc telesales, Thần Tài tặng 2 hợp đồng to đùng!”',
-      '“Team C88 ai cũng xinh, khách nào từ chối là khách thiếu tinh tế!”',
-      '“Chúa tể chốt deal, kẻ hủy diệt từ chối, thần đồng vượt KPI – chính là con!”',
-      '“Sếp dí số thì cười tươi, mở XIN VÍA 4.0 ra xả phong long cái đã!”',
-      '“Khách bảo để anh xem lại nghĩa là anh thích rồi, chăm anh thêm xíu đi!”',
-      '“Bình tĩnh con ơi, đại gia cũng phải ngắm báo giá 3 lần mới ký hợp đồng!”',
-      '“Hôm nay phong thủy cực tốt: Hướng xuất hành là hướng về phía khách hàng!”'
+      '“Tâm linh không cứu được KPI, nhưng cứu được huyết áp của Dân Sales!”',
+      '“Báo giá xong đừng hoảng, để Thần Tài 4.0 tiếp thêm vía khách chuyển khoản giúp bạn!”',
+      '“Alo khách ơi, khách mà chốt hôm nay là Thần Tài 4.0 bảo kê lộc lá cả năm!”',
+      '“Chốt được deal to nhớ tự thưởng ly trà sữa full topping lấy thảo nha!”',
+      '“Khách seen chưa rep là đang bận đếm tiền chuẩn bị thanh toán hợp đồng đó!”',
+      '“Hôm nay ai chăm chỉ bám sát pipeline, Thần Tài 4.0 độ cho hợp đồng về tới tấp!”',
+      '“Dân kinh doanh vừa có tâm vừa có tầm, khách nào còn đắn đo là sắp gật đầu chốt lớn!”',
+      '“Chúa tể chốt deal, kẻ hủy diệt sự từ chối, thần đồng vượt KPI – chính là bạn!”',
+      '“Áp lực doanh số thì cứ mỉm cười, vào XIN VÍA 4.0 xả nghiệp rồi ra ngoài chốt deal!”',
+      '“Khách bảo để anh xem lại nghĩa là anh ưng bụng rồi, tư vấn thêm xíu nữa là chốt!”',
+      '“Bình tĩnh bạn ơi, khách sộp cũng phải ngắm báo giá vài lần mới ký hợp đồng!”',
+      '“Hôm nay phong thủy cực tốt: Hướng xuất hành đại cát là hướng về phía khách hàng!”'
     ];
 
     // State Variables
@@ -1535,6 +2093,36 @@
       osc.stop(now + 0.15);
     }
 
+    // Gentle Temple Bell (Tiếng chuông chùa thanh nhẹ)
+    function playTempleBell() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      // Harmonic bell partials for a warm, peaceful chime
+      const partials = [
+        { freq: 528, amp: 0.28, dur: 2.2 },
+        { freq: 1056, amp: 0.14, dur: 1.6 },
+        { freq: 1584, amp: 0.07, dur: 1.1 }
+      ];
+
+      partials.forEach(p => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(p.freq, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.linearRampToValueAtTime(p.amp, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + p.dur);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + p.dur + 0.05);
+      });
+    }
+
     // Toggle Audio
     function updateAudioUI() {
       $('audioIcon').textContent = soundEnabled ? '🔊' : '🔈';
@@ -1598,6 +2186,7 @@
     // Fire sparks & ash particles
     let fireParticles = [];
     function spawnFireSparks(centerX, centerY, count = 40) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       for (let i = 0; i < count; i++) {
         fireParticles.push({
           x: centerX + (Math.random() - 0.5) * 60,
@@ -1608,6 +2197,23 @@
           color: Math.random() > 0.4 ? '#ff5500' : (Math.random() > 0.5 ? '#ffcc00' : '#333333'),
           life: 1.0,
           decay: Math.random() * 0.02 + 0.01
+        });
+      }
+    }
+
+    // Incense smoke & golden lotus aura particles
+    function spawnIncenseSmoke(centerX, centerY, count = 10) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      for (let i = 0; i < count; i++) {
+        fireParticles.push({
+          x: centerX + (Math.random() - 0.5) * 36,
+          y: centerY + (Math.random() - 0.5) * 16,
+          vx: (Math.random() - 0.5) * 1.1,
+          vy: -Math.random() * 2.2 - 0.8,
+          size: Math.random() * 5 + 3,
+          color: Math.random() > 0.35 ? 'rgba(255, 240, 210, 0.55)' : '#ffd166',
+          life: 0.95,
+          decay: Math.random() * 0.014 + 0.008
         });
       }
     }
@@ -1752,12 +2358,29 @@
     });
 
     // ==========================================
-    // HISTORY STORAGE (Retained Compatibility)
+    // HISTORY STORAGE (Retained & Sanitized)
+    // Only sanitizes legacy system-generated phrases;
+    // preserves personal user input (nickname, custom text in 'who').
     // ==========================================
+    function sanitizeLegacyText(str) {
+      return String(str || '')
+        .replace(/Thần Tài C88/gi, 'Thần Tài 4.0')
+        .replace(/C88 SALE\s*-\s*CHỐT DEAL/gi, 'XIN VÍA 4.0 - CHỐT DEAL')
+        .replace(/bảng vàng C88/gi, 'bảng vàng vinh danh')
+        .replace(/Team C88/gi, 'Hội Chốt Đơn');
+    }
+
     function getHistory() {
       try {
         const raw = JSON.parse(localStorage.getItem('xinvia-history') || '[]');
-        return Array.isArray(raw) ? raw.slice(0, 20) : [];
+        if (!Array.isArray(raw)) return [];
+        return raw.slice(0, 20).map(item => ({
+          ...item,
+          title: sanitizeLegacyText(item.title),
+          who: String(item.who || ''),
+          message: sanitizeLegacyText(item.message),
+          tip: sanitizeLegacyText(item.tip)
+        }));
       } catch (e) {
         return [];
       }
@@ -1819,7 +2442,7 @@
         },
         via: {
           title: '🧧 Điện xin vía tài lộc',
-          desc: 'Chọn loại vía bà muốn triệu hồi hôm nay để chốt đơn thần tốc!',
+          desc: 'Chọn loại vía bạn muốn triệu hồi hôm nay để chốt đơn thần tốc!',
           items: vias,
           buttonText: '🧧 TRIỆU HỒI VÍA MAY'
         },
@@ -1828,6 +2451,12 @@
           desc: 'Nghĩ về mục tiêu kinh doanh tuần này rồi rút một quẻ sấm truyền!',
           items: [],
           buttonText: '🔮 LẮC QUẺ NGAY'
+        },
+        pray: {
+          title: '🏯 Chùa Chốt Đơn – Cầu May Online',
+          desc: 'Chọn một điều ước tốt lành, thành tâm dâng hoa sen và thắp nén hương cầu may!',
+          items: prayers,
+          buttonText: '🏯 DÂNG HOA & THẮP HƯƠNG'
         }
       }[tab];
 
@@ -1839,6 +2468,7 @@
       $('burnStageContent').classList.toggle('hidden', tab !== 'burn');
       $('viaStageContent').classList.toggle('hidden', tab !== 'via');
       $('fortuneStageContent').classList.toggle('hidden', tab !== 'fortune');
+      $('prayStageContent').classList.toggle('hidden', tab !== 'pray');
 
       // Options
       const optionsContainer = $('options');
@@ -1846,10 +2476,11 @@
       optionsContainer.classList.toggle('hidden', tab === 'fortune');
 
       if (tab !== 'fortune') {
+        const prefixMap = { burn: '🔥 ', via: '✨ ', pray: '🌸 ' };
         config.items.forEach(opt => {
           const btn = document.createElement('button');
           btn.className = 'option' + (selected === opt ? ' selected' : '');
-          btn.textContent = (tab === 'via' ? '✨ ' : '🔥 ') + opt;
+          btn.textContent = (prefixMap[tab] || '✨ ') + opt;
           btn.addEventListener('click', () => {
             selected = opt;
             if (soundEnabled) playWoodblock();
@@ -1859,12 +2490,14 @@
         });
       }
 
-      // Update paper or letter text
+      // Update paper, letter, or temple wish tag text
       if (tab === 'burn') {
         const text = selected === 'Khác (tự nhập)' ? ($('customBad').value.trim() || 'Vận xui tự nhập') : selected;
         $('paper').textContent = text;
       } else if (tab === 'via') {
         $('envelopeTitle').textContent = selected.toUpperCase();
+      } else if (tab === 'pray') {
+        $('templeWishTag').textContent = '🌸 Cầu: ' + selected;
       }
 
       // Custom textarea wrap
@@ -1883,11 +2516,16 @@
     // ==========================================
     function showResult(item) {
       current = item;
+      const isPray = item.type === 'pray' || item.emoji === '🏯';
       $('resultEmoji').textContent = item.emoji;
+      $('resultBadge').textContent = isPray
+        ? 'CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0'
+        : 'XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN';
       $('resultTitle').textContent = item.title;
       $('resultWho').textContent = item.who;
       $('resultMessage').textContent = item.message;
-      $('resultTip').textContent = '✨ Lời khuyên hành động: ' + item.tip;
+      $('resultTip').textContent = (isPray ? '🌱 Lời động viên tích cực: ' : '✨ Lời khuyên hành động: ') + item.tip;
+      $('download').textContent = isPray ? '📸 Tải thiệp cầu may PNG' : '📸 Tải ảnh bùa HD';
       $('result').classList.add('show');
       $('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -1900,11 +2538,12 @@
       if (tab === 'burn') {
         const subject = selected === 'Khác (tự nhập)' ? $('customBad').value.trim() : selected;
         if (!subject) {
-          alert('Bà nhập điều muốn đốt trước nha!');
+          alert('Bạn nhập điều muốn đốt trước nha!');
           $('customBad').focus();
           return null;
         }
         res = {
+          type: 'burn',
           emoji: '🔥',
           title: 'PHONG LONG ĐÃ TIÊU TAN',
           who: name + ' đã hóa vàng: ' + escapeText(subject),
@@ -1914,6 +2553,7 @@
         };
       } else if (tab === 'via') {
         res = {
+          type: 'via',
           emoji: '🧧',
           title: 'LÁ BÙA ' + selected.toUpperCase(),
           who: 'Trao gửi may mắn tới: ' + name,
@@ -1921,14 +2561,27 @@
           tip: 'Hôm nay gửi một lời tư vấn tận tâm và chu đáo nhất tới khách hàng.',
           date
         };
-      } else {
+      } else if (tab === 'fortune') {
         const f = random(fortunes);
         res = {
+          type: 'fortune',
           emoji: '🔮',
           title: 'QUẺ ' + f[0],
           who: 'Quẻ sấm truyền cho: ' + name,
           message: f[1],
           tip: f[2],
+          date
+        };
+      } else {
+        const pool = prayerWishes[selected] || prayerWishes['Chốt deal'];
+        const chosen = random(pool);
+        res = {
+          type: 'pray',
+          emoji: '🏯',
+          title: 'CẦU MAY: ' + selected.toUpperCase(),
+          who: 'Tín chủ dâng hoa cầu may: ' + name,
+          message: chosen[0],
+          tip: chosen[1],
           date
         };
       }
@@ -1981,7 +2634,7 @@
           finishRitual(res);
         }, 1200);
 
-      } else {
+      } else if (tab === 'fortune') {
         // Bamboo shaker rattles
         playRattleSound();
         $('stage').classList.add('shaking');
@@ -1991,6 +2644,26 @@
           playGong();
           finishRitual(res);
         }, 1300);
+
+      } else {
+        // Chùa Chốt Đơn: Offer lotus, light virtual incense, smoke rises, gentle bell chime
+        playTempleBell();
+        $('stage').classList.add('praying');
+
+        const stageRect = $('stage').getBoundingClientRect();
+        const smokeInterval = setInterval(() => {
+          spawnIncenseSmoke(stageRect.left + stageRect.width / 2, stageRect.top + stageRect.height - 65, 5);
+        }, 120);
+
+        setTimeout(() => {
+          playTempleBell();
+        }, 900);
+
+        setTimeout(() => {
+          clearInterval(smokeInterval);
+          $('stage').classList.remove('praying');
+          finishRitual(res);
+        }, 2100);
       }
     }
 
@@ -2052,15 +2725,20 @@
       drawCorner(1010, 1280, -1, -1);
 
       // Header Brand
+      const isPray = res.type === 'pray' || res.emoji === '🏯';
       ctx.textAlign = 'center';
       ctx.fillStyle = '#ffd700';
       ctx.font = 'bold 30px system-ui';
       ctx.letterSpacing = '4px';
-      ctx.fillText('✦ TEAM C88 · CHỨNG NHẬN TÂM LINH ✦', 540, 150);
+      ctx.fillText(
+        isPray ? '✦ CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0 ✦' : '✦ HỘI CHỐT ĐƠN · CHỨNG NHẬN TÂM LINH ✦',
+        540,
+        150
+      );
 
       ctx.fillStyle = '#ffe2a1';
       ctx.font = '900 78px system-ui';
-      ctx.fillText('XIN VÍA 4.0', 540, 240);
+      ctx.fillText(isPray ? 'CHÙA CHỐT ĐƠN' : 'XIN VÍA 4.0', 540, 240);
 
       // Big Emoji Symbol
       ctx.font = '130px system-ui';
@@ -2107,18 +2785,26 @@
       wrapText('“' + res.message + '”', quoteBoxY + 65, 38, '#59161e', 840, 52, true);
 
       // Action Tip
-      wrapText('✨ LỜI KHUYÊN: ' + res.tip, quoteBoxY + 260, 28, '#ffea9f', 860, 42, true);
+      wrapText(
+        (isPray ? '🌱 LỜI ĐỘNG VIÊN: ' : '✨ LỜI KHUYÊN: ') + res.tip,
+        quoteBoxY + 260,
+        28,
+        '#ffea9f',
+        860,
+        42,
+        true
+      );
 
-      // Official Red Seal (Con Dấu Đỏ)
+      // Official Red Seal (Con Dấu Đỏ: XIN VÍA 4.0 - CHỐT DEAL)
       ctx.save();
-      ctx.translate(880, 1140);
+      ctx.translate(870, 1140);
       ctx.rotate(-0.15);
       ctx.strokeStyle = '#d90429';
       ctx.lineWidth = 5;
-      ctx.strokeRect(-65, -45, 130, 90);
+      ctx.strokeRect(-80, -45, 160, 90);
       ctx.fillStyle = '#d90429';
-      ctx.font = 'bold 22px system-ui';
-      ctx.fillText('C88 SALE', 0, -10);
+      ctx.font = 'bold 21px system-ui';
+      ctx.fillText('XIN VÍA 4.0', 0, -10);
       ctx.font = 'bold 20px system-ui';
       ctx.fillText('CHỐT DEAL', 0, 20);
       ctx.restore();
@@ -2126,19 +2812,20 @@
       // Footer
       ctx.fillStyle = '#f4c987';
       ctx.font = '26px system-ui';
-      ctx.fillText('Chơi vui thôi – chăm khách vẫn là chân ái!', 540, 1260);
+      ctx.fillText('Vào đây xả nghiệp – Ra ngoài chốt deal!', 540, 1260);
 
       return c;
     }
 
     function download() {
       if (!current) return;
+      const isPray = current.type === 'pray' || current.emoji === '🏯';
       const canvas = imageCanvas(current);
       const link = document.createElement('a');
-      link.download = 'xin-via-c88-' + Date.now() + '.png';
+      link.download = (isPray ? 'thiep-cau-may-4.0-' : 'xin-via-4.0-') + Date.now() + '.png';
       link.href = canvas.toDataURL('image/png');
       link.click();
-      showToast('📸 Đã tải ảnh bùa Full HD về máy!');
+      showToast(isPray ? '📸 Đã tải thiệp cầu may PNG về máy!' : '📸 Đã tải ảnh bùa Full HD về máy!');
       if (soundEnabled) playWoodblock();
     }
 
@@ -2147,12 +2834,12 @@
     // ==========================================
     function getShareText() {
       if (!current) return '';
-      return '🧧 XIN VÍA 4.0 – TEAM C88\n' +
+      return '🧧 XIN VÍA 4.0 – HỘI CHỐT ĐƠN\n' +
         current.title + '\n' +
         current.who + '\n' +
         '“' + current.message + '”\n' +
         '✨ ' + current.tip + '\n' +
-        '👉 Vào xin vía chốt deal ngay: ' + window.location.href;
+        '👉 Vào đây xả nghiệp – Ra ngoài chốt deal: ' + window.location.href;
     }
 
     async function share() {
@@ -2162,7 +2849,7 @@
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'XIN VÍA 4.0 | Team C88',
+            title: 'XIN VÍA 4.0 | Vào đây xả nghiệp – Ra ngoài chốt deal!',
             text: text,
             url: window.location.href
           });
@@ -2210,7 +2897,9 @@
       btn.addEventListener('click', () => {
         if (busy) return;
         tab = btn.dataset.tab;
-        selected = tab === 'via' ? vias[0] : scenarios[0];
+        if (tab === 'via') selected = vias[0];
+        else if (tab === 'pray') selected = prayers[0];
+        else selected = scenarios[0];
         $('result').classList.remove('show');
         if (soundEnabled) playWoodblock();
         render();
@@ -2230,7 +2919,7 @@
     $('zaloShare').addEventListener('click', shareToZalo);
 
     $('clear').addEventListener('click', () => {
-      if (confirm('Bà có chắc muốn xóa toàn bộ lịch sử xin vía trên thiết bị này không?')) {
+      if (confirm('Bạn có chắc muốn xóa toàn bộ lịch sử xin vía trên thiết bị này không?')) {
         saveHistory([]);
         renderHistory();
         showToast('🗑️ Đã xóa sạch sổ vía!');
@@ -2238,7 +2927,7 @@
       }
     });
 
-    // Nickname persistence
+    // Nickname persistence (preserve exact user-entered nickname)
     const savedName = localStorage.getItem('xinvia-name');
     if (savedName) $('nickname').value = savedName;
     $('nickname').addEventListener('input', e => {
