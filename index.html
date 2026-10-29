@@ -406,12 +406,51 @@
       background: #ffffff;
     }
 
-    /* Tabs */
+    /* Navigation Groups & Tabs */
+    .nav-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .nav-group {
+      background: rgba(39, 20, 31, 0.78);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+    }
+
+    .nav-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+    }
+
+    .nav-group-sub {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
     .tabs {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 16px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .tabs.stress-tabs {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .tab {
@@ -419,19 +458,21 @@
       background: var(--bg-panel-subtle);
       color: var(--text-muted);
       border-radius: var(--radius-md);
-      padding: 15px 6px;
+      padding: 12px 6px;
       font-weight: 800;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
       overflow: hidden;
+      text-align: center;
+      line-height: 1.25;
     }
 
     .tab span {
       display: block;
-      font-size: 32px;
-      margin-bottom: 6px;
+      font-size: 28px;
+      margin-bottom: 5px;
       transition: transform 0.25s ease;
     }
 
@@ -1168,6 +1209,591 @@
       box-shadow: 0 0 22px #ffd166, 0 0 35px #ff4d4d;
     }
 
+    /* Ritual Header Bar with Back Button */
+    .ritual-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .back-nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      border-radius: 999px;
+      padding: 5px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .back-nav-btn:hover {
+      background: rgba(255, 209, 102, 0.2);
+      border-color: var(--gold-primary);
+    }
+
+    /* ==========================================
+       MINI GAME 1: 🥊 ĐẤM BAO CÁT XẢ NGHIỆP
+       ========================================== */
+    .punch-wrap {
+      width: 100%;
+      max-width: 440px;
+      min-height: 270px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px 12px;
+      user-select: none;
+    }
+
+    .punch-hud {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      z-index: 6;
+    }
+
+    .punch-counter-badge {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1.5px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .punch-meter-bar {
+      flex: 1;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--gold-border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .punch-meter-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ffd166, #ff5400, #e63946);
+      transition: width 0.2s ease;
+    }
+
+    .punch-arena {
+      position: relative;
+      width: 220px;
+      height: 185px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .punch-beam {
+      width: 120px;
+      height: 10px;
+      background: linear-gradient(90deg, #5a381a, #c48924, #5a381a);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 6px;
+      z-index: 4;
+    }
+
+    .punch-pendulum {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform-origin: top center;
+      transition: transform 0.18s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+      cursor: pointer;
+      position: relative;
+      z-index: 5;
+    }
+
+    .punch-chain {
+      width: 6px;
+      height: 24px;
+      background: repeating-linear-gradient(180deg, #ffd166 0 4px, #6c4623 4px 8px);
+      border-left: 1px solid #fff;
+      border-right: 1px solid #5a381a;
+    }
+
+    .punch-bag {
+      width: 96px;
+      height: 136px;
+      background: linear-gradient(135deg, #d92638 0%, #9b1625 55%, #5e0c15 100%);
+      border: 3px solid var(--gold-primary);
+      border-radius: 28px 28px 34px 34px;
+      box-shadow: inset -8px -8px 18px rgba(0,0,0,0.45), inset 6px 6px 14px rgba(255,255,255,0.2), 0 12px 24px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 6px;
+      position: relative;
+      transition: filter 0.15s ease;
+    }
+
+    .punch-bag:active {
+      filter: brightness(1.2);
+    }
+
+    .punch-bag-strap {
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #9b6c2c, #ffd166, #9b6c2c);
+      border-radius: 3px;
+    }
+
+    .punch-face {
+      font-size: 32px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+      transition: transform 0.15s ease;
+    }
+
+    .punch-tag {
+      background: rgba(255, 248, 225, 0.92);
+      color: #6b121c;
+      font-size: 10.5px;
+      font-weight: 900;
+      padding: 3px 7px;
+      border-radius: 6px;
+      border: 1px solid var(--gold-dark);
+      max-width: 84px;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .punch-white-flag {
+      position: absolute;
+      top: -18px;
+      right: -28px;
+      font-size: 30px;
+      transform: rotate(18deg) scale(0);
+      transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+    }
+
+    .punch-white-flag.surrender {
+      transform: rotate(12deg) scale(1);
+      animation: flagWave 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes flagWave {
+      0% { transform: rotate(5deg) scale(1); }
+      100% { transform: rotate(22deg) scale(1.08); }
+    }
+
+    .punch-speech {
+      background: rgba(255, 248, 230, 0.95);
+      color: #4a1219;
+      border: 2px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 7px 12px;
+      font-size: 12.5px;
+      font-weight: 800;
+      text-align: center;
+      max-width: 95%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      z-index: 6;
+    }
+
+    .hit-pop {
+      position: absolute;
+      font-weight: 900;
+      font-size: 18px;
+      color: #ffd166;
+      text-shadow: 0 2px 0 #8b1d2c, 0 0 10px #ff5400;
+      pointer-events: none;
+      z-index: 20;
+      animation: hitBurst 0.55s ease-out forwards;
+    }
+
+    @keyframes hitBurst {
+      0% { transform: scale(0.5) rotate(-10deg); opacity: 1; }
+      50% { transform: scale(1.3) rotate(8deg) translateY(-12px); opacity: 1; }
+      100% { transform: scale(1) translateY(-28px); opacity: 0; }
+    }
+
+    /* ==========================================
+       MINI GAME 2: 🌳 CÂY ƯỚC NGUYỆN
+       ========================================== */
+    .tree-wrap {
+      width: 100%;
+      max-width: 440px;
+      min-height: 260px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 10px;
+      user-select: none;
+    }
+
+    .wishing-tree {
+      position: relative;
+      width: 260px;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .tree-canopy {
+      position: absolute;
+      top: 6px;
+      width: 230px;
+      height: 145px;
+      background:
+        radial-gradient(circle at 30% 35%, #2ec4b6 0%, #1b998b 55%, transparent 70%),
+        radial-gradient(circle at 70% 35%, #38b000 0%, #1b7a43 55%, transparent 70%),
+        radial-gradient(circle at 50% 25%, #52b788 0%, #2d6a4f 65%, #1b4332 100%);
+      border: 2.5px solid var(--gold-primary);
+      border-radius: 50% 50% 44% 44% / 58% 58% 42% 42%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45), inset 0 4px 15px rgba(255, 234, 159, 0.35);
+      cursor: pointer;
+      z-index: 4;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .tree-canopy.rustle {
+      animation: treeRustle 0.55s ease;
+      filter: brightness(1.18) drop-shadow(0 0 18px rgba(255, 209, 102, 0.6));
+    }
+
+    @keyframes treeRustle {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.04) rotate(-2deg); }
+      50% { transform: scale(1.06) rotate(2deg); }
+      75% { transform: scale(1.02) rotate(-1deg); }
+    }
+
+    .tree-trunk {
+      width: 44px;
+      height: 90px;
+      background: linear-gradient(90deg, #5a381a, #8d5b34, #4a2c11);
+      border-left: 2px solid var(--gold-border);
+      border-right: 2px solid var(--gold-border);
+      border-radius: 10px 10px 18px 18px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .tree-base {
+      width: 150px;
+      height: 22px;
+      background: linear-gradient(180deg, #9b6c2c, #5a381a);
+      border: 2px solid var(--gold-primary);
+      border-radius: 999px;
+      z-index: 3;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .tree-ornament {
+      position: absolute;
+      font-size: 18px;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+
+    .tree-tags-layer {
+      position: absolute;
+      inset: 8px;
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    .tree-wish-tag {
+      position: absolute;
+      pointer-events: auto;
+      width: 24px;
+      height: 36px;
+      border-radius: 4px 4px 8px 8px;
+      border: 1.5px solid #fff3b0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      transform-origin: top center;
+      animation: tagFlyIn 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, lanternSway 3s ease-in-out infinite alternate;
+      transition: transform 0.2s ease;
+    }
+
+    .tree-wish-tag.red {
+      background: linear-gradient(180deg, #e63946, #9b1b29);
+      color: #ffd166;
+    }
+
+    .tree-wish-tag.gold {
+      background: linear-gradient(180deg, #ffd166, #d4922a);
+      color: #59161e;
+    }
+
+    .tree-wish-tag:hover {
+      transform: scale(1.25) !important;
+      z-index: 10;
+    }
+
+    @keyframes tagFlyIn {
+      0% { transform: translateY(90px) scale(0.3); opacity: 0; }
+      100% { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .tree-wishes-panel {
+      margin-top: 14px;
+      border-top: 1px dashed rgba(255, 209, 102, 0.3);
+      padding-top: 12px;
+    }
+
+    .tree-wishes-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .tree-wish-item {
+      background: rgba(57, 30, 44, 0.9);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .tree-wish-item-text {
+      flex: 1;
+      cursor: pointer;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .tree-wish-item-text:hover {
+      color: var(--gold-primary);
+    }
+
+    /* ==========================================
+       MINI GAME 3: 🔮 THẦY PHÁN CÔNG SỞ
+       ========================================== */
+    .oracle-wrap {
+      width: 100%;
+      max-width: 440px;
+      min-height: 235px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      user-select: none;
+    }
+
+    .oracle-character {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .oracle-sage {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 35%, #5e2a4d 0%, #311228 100%);
+      border: 3px solid var(--gold-primary);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45), 0 0 18px rgba(255, 209, 102, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+      transition: transform 0.3s ease;
+    }
+
+    .oracle-hat {
+      position: absolute;
+      top: -14px;
+      background: linear-gradient(135deg, #9b1b29, #591018);
+      border: 2px solid var(--gold-primary);
+      border-radius: 12px 12px 4px 4px;
+      padding: 2px 10px;
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--gold-light);
+    }
+
+    .oracle-face {
+      font-size: 38px;
+      line-height: 1;
+      margin-top: 6px;
+    }
+
+    .oracle-fan {
+      position: absolute;
+      right: -14px;
+      bottom: 6px;
+      font-size: 26px;
+      transform-origin: bottom left;
+      animation: fanWave 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes fanWave {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(15deg); }
+    }
+
+    .crystal-ball-wrap {
+      margin-top: -12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 4;
+    }
+
+    .crystal-ball {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #e0aaff 0%, #7b2cbf 55%, #240046 100%);
+      border: 2.5px solid var(--gold-primary);
+      box-shadow: 0 0 20px rgba(157, 78, 221, 0.6), inset 0 0 14px rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      transition: all 0.4s ease;
+    }
+
+    .crystal-base {
+      width: 54px;
+      height: 14px;
+      margin-top: -4px;
+      background: linear-gradient(90deg, #8c5811, #ffd166, #8c5811);
+      border-radius: 6px 6px 10px 10px;
+      border: 1.5px solid #5a381a;
+    }
+
+    .divining .crystal-ball {
+      transform: scale(1.18);
+      box-shadow: 0 0 38px #ffd166, 0 0 65px #c77dff, inset 0 0 24px #fff;
+      animation: crystalPulse 0.45s ease-in-out infinite alternate;
+    }
+
+    .divining .oracle-sage {
+      transform: translateY(-5px);
+    }
+
+    @keyframes crystalPulse {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.35); }
+    }
+
+    /* ==========================================
+       MINI GAME 4: 🔔 GÕ MÕ XẢ KPI (UPGRADED STAGE)
+       ========================================== */
+    .mo-wrap {
+      width: 100%;
+      max-width: 440px;
+      min-height: 245px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      user-select: none;
+    }
+
+    .wooden-fish-btn {
+      width: 136px;
+      height: 112px;
+      background: radial-gradient(circle at 40% 35%, #d4922a 0%, #8c5811 65%, #4a2c09 100%);
+      border: 3px solid var(--gold-primary);
+      border-radius: 52% 48% 45% 45% / 60% 60% 42% 42%;
+      box-shadow: inset -6px -8px 16px rgba(0,0,0,0.5), 0 12px 25px rgba(0,0,0,0.5), 0 0 20px rgba(255, 209, 102, 0.25);
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.1s ease, box-shadow 0.3s ease;
+    }
+
+    .wooden-fish-btn:active,
+    .wooden-fish-btn.strike {
+      transform: scale(0.92) translateY(3px);
+    }
+
+    .wooden-fish-btn.zen-active {
+      box-shadow: 0 0 40px #ffd166, 0 0 75px rgba(255, 234, 159, 0.85), inset 0 0 20px #fff3b0;
+      animation: zenBreathe 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes zenBreathe {
+      0% { transform: scale(0.98); }
+      100% { transform: scale(1.06); }
+    }
+
+    .wooden-fish-slit {
+      width: 72px;
+      height: 12px;
+      background: #2b1204;
+      border-radius: 999px;
+      border-bottom: 2px solid var(--gold-light);
+      margin-top: 8px;
+    }
+
+    .mo-combo-banner {
+      background: linear-gradient(135deg, rgba(255, 209, 102, 0.2), rgba(173, 40, 60, 0.35));
+      border: 1.5px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Honor Title Badge on Result Card */
+    .honor-title-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #8b1d2c, #591018);
+      color: #ffd166;
+      border: 2px solid #d4922a;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      margin: 4px 0 10px;
+      box-shadow: 0 4px 12px rgba(139, 29, 44, 0.3);
+    }
+
     /* Buttons */
     .primary {
       width: 100%;
@@ -1476,9 +2102,18 @@
         grid-template-columns: 1fr;
         gap: 8px;
       }
-      .tabs {
+      .tabs,
+      .tabs.stress-tabs {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
+      }
+      .nav-group {
+        padding: 10px;
+      }
+      .nav-group-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
       }
       .tab {
         padding: 12px 4px;
@@ -1590,32 +2225,83 @@
       </div>
     </section>
 
-    <!-- Ritual Tabs -->
-    <nav class="tabs" aria-label="Chọn nghi thức">
-      <button class="tab active" data-tab="burn" id="tabBurn">
-        <span>🔥</span>Đốt xui
-      </button>
-      <button class="tab" data-tab="via" id="tabVia">
-        <span>🧧</span>Xin vía
-      </button>
-      <button class="tab" data-tab="fortune" id="tabFortune">
-        <span>🔮</span>Gieo quẻ
-      </button>
-      <button class="tab" data-tab="pray" id="tabPray">
-        <span>🏯</span>Cầu May
-      </button>
-    </nav>
+    <!-- Navigation Groups: Nhóm 1 (Xin Vía & Cầu May) & Nhóm 2 (Góc Xả Stress) -->
+    <div class="nav-groups" id="navGroups" role="navigation" aria-label="Chọn nghi thức hoặc mini game">
+      <div class="nav-group">
+        <div class="nav-group-header">
+          <span>🏮 NHÓM 1 – XIN VÍA &amp; CẦU MAY</span>
+          <span class="nav-group-sub">Nạp năng lượng tích cực &amp; lộc lá</span>
+        </div>
+        <div class="tabs">
+          <button type="button" class="tab active" data-tab="burn" id="tabBurn">
+            <span>🔥</span>Đốt phong long
+          </button>
+          <button type="button" class="tab" data-tab="via" id="tabVia">
+            <span>🧧</span>Xin vía
+          </button>
+          <button type="button" class="tab" data-tab="fortune" id="tabFortune">
+            <span>🔮</span>Gieo quẻ
+          </button>
+          <button type="button" class="tab" data-tab="pray" id="tabPray">
+            <span>🏯</span>Chùa Chốt Đơn
+          </button>
+          <button type="button" class="tab" data-tab="tree" id="tabTree">
+            <span>🌳</span>Cây Ước Nguyện
+          </button>
+        </div>
+      </div>
 
-    <!-- Ritual Interaction Section -->
+      <div class="nav-group">
+        <div class="nav-group-header">
+          <span>⚡ NHÓM 2 – GÓC XẢ STRESS</span>
+          <span class="nav-group-sub">Giải tỏa áp lực công sở tức thì</span>
+        </div>
+        <div class="tabs stress-tabs">
+          <button type="button" class="tab" data-tab="punch" id="tabPunch">
+            <span>🥊</span>Đấm Bao Cát
+          </button>
+          <button type="button" class="tab" data-tab="oracle" id="tabOracle">
+            <span>🔮</span>Thầy Phán Công Sở
+          </button>
+          <button type="button" class="tab" data-tab="mo" id="tabMo">
+            <span>🔔</span>Gõ Mõ Xả KPI
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ritual & Mini Game Interaction Section -->
     <section class="panel ritual" id="ritual" aria-live="polite">
-      <h2 id="ritualTitle">🔥 Lò đốt phong long</h2>
+      <div class="ritual-top-row">
+        <h2 id="ritualTitle">🔥 Lò đốt phong long</h2>
+        <button type="button" class="back-nav-btn" id="backToNavBtn" title="Quay lại danh sách trò chơi">🏠 Chọn trò khác</button>
+      </div>
       <p class="muted" id="ritualDesc">Khách bom đơn, KPI dí, báo giá im lặng? Gửi hết vào lò hóa vàng!</p>
 
       <div class="options" id="options"></div>
 
-      <div id="customWrap" class="hidden">
+      <!-- Custom input for Burn -->
+      <div id="customWrap" class="hidden" style="margin-top: 10px;">
         <label for="customBad" class="muted">Nhập nỗi niềm muốn đốt (tối đa 140 ký tự):</label>
-        <textarea id="customBad" class="field" rows="3" maxlength="140" placeholder="Kể xui xẻo thôi, đừng ghi thông tin mật của khách nha!"></textarea>
+        <textarea id="customBad" class="field" rows="2" maxlength="140" placeholder="Kể xui xẻo thôi, đừng ghi thông tin mật của khách nha!"></textarea>
+      </div>
+
+      <!-- Custom input for Mini Game 1: Đấm Bao Cát -->
+      <div id="customPunchWrap" class="hidden" style="margin-top: 10px;">
+        <label for="customPunchInput" class="muted">Nhập áp lực muốn đấm bay (tối đa 100 ký tự):</label>
+        <input id="customPunchInput" class="field" maxlength="100" placeholder="VD: Bắt sửa báo giá lần thứ 18 lúc 11h đêm...">
+      </div>
+
+      <!-- Custom input & sample chips for Mini Game 2: Cây Ước Nguyện -->
+      <div id="treeInputWrap" class="hidden" style="margin-top: 10px;">
+        <label for="treeWishInput" class="muted">Nhập điều ước của bạn (tối đa 150 ký tự) hoặc chọn mẫu bên trên:</label>
+        <textarea id="treeWishInput" class="field" rows="2" maxlength="150" placeholder="Mong hôm nay có khách dễ thương, chốt deal êm ru..."></textarea>
+      </div>
+
+      <!-- Custom input & sample chips for Mini Game 3: Thầy Phán Công Sở -->
+      <div id="oracleInputWrap" class="hidden" style="margin-top: 10px;">
+        <label for="oracleQuestionInput" class="muted">Nhập câu hỏi công sở muốn thỉnh Thầy (tối đa 180 ký tự) hoặc chọn gợi ý bên trên:</label>
+        <textarea id="oracleQuestionInput" class="field" rows="2" maxlength="180" placeholder="VD: Khách bảo để anh xem lại là có chốt không Thầy?"></textarea>
       </div>
 
       <!-- Stage for Visual Animations -->
@@ -1726,10 +2412,107 @@
             </div>
           </div>
         </div>
+
+        <!-- MINI GAME 1: 🥊 ĐẤM BAO CÁT XẢ NGHIỆP Stage -->
+        <div id="punchStageContent" class="punch-wrap hidden">
+          <div class="punch-hud">
+            <span class="punch-counter-badge" id="punchCounterBadge">🥊 Cú đấm: 0 / 20</span>
+            <div class="punch-meter-bar" aria-hidden="true">
+              <div class="punch-meter-fill" id="punchMeterFill"></div>
+            </div>
+            <button type="button" class="back-nav-btn" id="punchResetBtn" title="Chơi lại từ đầu">🔁 Chơi lại</button>
+          </div>
+
+          <div class="punch-arena" id="punchArena">
+            <div class="punch-beam"></div>
+            <div class="punch-pendulum" id="punchPendulum" role="button" tabindex="0" aria-label="Bao cát xả nghiệp - Nhấn hoặc chạm để đấm">
+              <div class="punch-chain"></div>
+              <div class="punch-bag" id="punchBagTarget">
+                <div class="punch-white-flag" id="punchFlag" aria-hidden="true">🏳️</div>
+                <div class="punch-bag-strap"></div>
+                <div class="punch-face" id="punchFace">😏</div>
+                <div class="punch-tag" id="punchTag">Khách seen không rep</div>
+                <div class="punch-bag-strap"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="punch-speech" id="punchSpeech">
+            “Chạm vào bao cát hoặc bấm nút bên dưới để tung cú đấm xả nghiệp!”
+          </div>
+        </div>
+
+        <!-- MINI GAME 2: 🌳 CÂY ƯỚC NGUYỆN Stage -->
+        <div id="treeStageContent" class="tree-wrap hidden">
+          <div class="wishing-tree" id="wishingTree">
+            <div class="tree-canopy" id="treeCanopy" role="button" tabindex="0" aria-label="Tán cây ước nguyện - Chạm để rung lá đón lộc">
+              <span class="tree-ornament" style="top:18px;left:28px;">🏮</span>
+              <span class="tree-ornament" style="top:14px;right:30px;">🏮</span>
+              <span class="tree-ornament" style="top:54px;left:18px;">🌸</span>
+              <span class="tree-ornament" style="top:48px;right:20px;">🌸</span>
+              <span class="tree-ornament" style="top:22px;left:102px;">🌟</span>
+              <span class="tree-ornament" style="bottom:20px;left:45px;">🧧</span>
+              <span class="tree-ornament" style="bottom:22px;right:48px;">🧧</span>
+              <div class="tree-tags-layer" id="treeTagsLayer"></div>
+            </div>
+            <div class="tree-trunk"></div>
+            <div class="tree-base"></div>
+          </div>
+          <div class="muted" style="font-size:12px;text-align:center;margin-top:6px;z-index:5;">
+            ✨ Chạm vào tán lá để nghe chuông gió · Chạm vào thẻ đỏ/vàng trên cành để đọc lại điều ước
+          </div>
+        </div>
+
+        <!-- MINI GAME 3: 🔮 THẦY PHÁN CÔNG SỞ Stage -->
+        <div id="oracleStageContent" class="oracle-wrap hidden">
+          <div class="oracle-character" id="oracleCharacter">
+            <div class="oracle-sage" id="oracleSage">
+              <div class="oracle-hat">THẦY PHÁN 4.0</div>
+              <div class="oracle-face" id="oracleFace">🧐</div>
+              <div class="oracle-fan" aria-hidden="true">🪭</div>
+            </div>
+            <div class="crystal-ball-wrap">
+              <div class="crystal-ball" id="crystalBall">🔮</div>
+              <div class="crystal-base"></div>
+            </div>
+          </div>
+          <div class="punch-speech" id="oracleSpeech" style="margin-top:10px;">
+            “Con muốn hỏi chuyện chốt đơn, KPI, sếp, đồng nghiệp hay lương thưởng? Cứ hỏi Thầy!”
+          </div>
+        </div>
+
+        <!-- MINI GAME 4: 🔔 GÕ MÕ XẢ KPI Stage -->
+        <div id="moStageContent" class="mo-wrap hidden">
+          <div class="mo-combo-banner" id="moComboBanner">
+            🔔 Gõ mõ tịnh tâm · Giữ lì 2 giây để bật chế độ “Tịnh Tâm”
+          </div>
+
+          <button type="button" class="wooden-fish-btn" id="woodenFishTarget" aria-label="Gõ mõ xả KPI">
+            <span style="font-size:34px;line-height:1;">🔔</span>
+            <span style="font-size:12px;font-weight:900;color:#fff3b0;margin-top:4px;">MÕ TỊNH TÂM</span>
+            <div class="wooden-fish-slit"></div>
+          </button>
+
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;z-index:5;">
+            <span class="punch-counter-badge" id="moStageCount">Tâm tịnh: 0</span>
+            <button type="button" class="back-nav-btn" id="moCertificateBtn">🏅 Nhận chứng nhận Tịnh Tâm</button>
+            <button type="button" class="back-nav-btn" id="moResetBtn">🔄 Đặt lại bộ đếm</button>
+          </div>
+        </div>
       </div>
 
-      <button class="primary" id="go">🔥 ĐỐT PHONG LONG NGAY</button>
-      <div class="notice">⚡ Nghi thức vui vẻ giúp giải tỏa áp lực, tăng 200% tinh thần chiến đấu!</div>
+      <button type="button" class="primary" id="go">🔥 ĐỐT PHONG LONG NGAY</button>
+
+      <!-- Saved Wishes Panel for Mini Game 2 (Cây Ước Nguyện) -->
+      <div id="treeWishesPanel" class="tree-wishes-panel hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+          <strong style="font-size:14px;color:var(--gold-light);">🌳 Điều ước đang treo trên cây (<span id="treeWishCount">0</span>/20)</strong>
+          <button type="button" class="back-nav-btn" id="clearTreeWishesBtn">🗑️ Xóa tất cả</button>
+        </div>
+        <div id="treeWishesList" class="tree-wishes-list"></div>
+      </div>
+
+      <div class="notice" id="ritualNotice">⚡ Nghi thức vui vẻ giúp giải tỏa áp lực, tăng 200% tinh thần chiến đấu!</div>
     </section>
 
     <!-- Result Talisman Card -->
@@ -1737,15 +2520,18 @@
       <div class="big" id="resultEmoji">🧧</div>
       <div class="result-badge" id="resultBadge">XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN</div>
       <h2 id="resultTitle"></h2>
+      <div class="honor-title-pill hidden" id="resultHonor">🏅 Danh hiệu: Chiến Thần Chốt Đơn</div>
       <p class="result-who" id="resultWho"></p>
       <p class="quote" id="resultMessage"></p>
       <p class="tip" id="resultTip"></p>
 
       <div class="actions">
-        <button class="secondary" id="again">🔁 Làm tiếp</button>
-        <button class="secondary" id="download">📸 Tải ảnh bùa HD</button>
-        <button class="secondary" id="share">📤 Chia sẻ</button>
-        <button class="secondary" id="zaloShare">💬 Gửi qua Zalo</button>
+        <button type="button" class="secondary" id="again">🔁 Làm tiếp</button>
+        <button type="button" class="secondary hidden" id="oracleRerollBtn">🎲 Đổi lời phán</button>
+        <button type="button" class="secondary hidden" id="oracleSaveBtn">💾 Lưu vào sổ vía</button>
+        <button type="button" class="secondary" id="download">📸 Tải ảnh bùa HD</button>
+        <button type="button" class="secondary" id="share">📤 Chia sẻ</button>
+        <button type="button" class="secondary" id="zaloShare">💬 Gửi qua Zalo</button>
       </div>
     </section>
 
@@ -1906,6 +2692,183 @@
       '“Hôm nay phong thủy cực tốt: Hướng xuất hành đại cát là hướng về phía khách hàng!”'
     ];
 
+    // ==========================================
+    // MINI GAMES DATA & HONOR TITLES
+    // ==========================================
+    const honorTitles = {
+      burn: ['Hội Viên Hóa Vàng Phong Long', 'Dũng Sĩ Đốt Xui Cấp Tốc', 'Bậc Thầy Thanh Lọc Pipeline'],
+      via: ['Chiến Thần Xin Vía', 'Đại Sứ Thu Hút Khách Sộp', 'Chúa Tể Triệu Hồi Hợp Đồng'],
+      fortune: ['Nhà Tiên Tri Doanh Số', 'Bậc Thầy Bắt Sóng Khách Hàng', 'Cao Thủ Đọc Vị Thị Trường'],
+      pray: ['Tín Chủ Chốt Đơn Thành Tâm', 'Đại Gia Năng Lượng Tích Cực', 'Người Gieo Hoa Sen May Mắn'],
+      punch: ['Cao Thủ Xả Nghiệp', 'Quyền Vương Né Deadline', 'Võ Sư Đấm Bay Áp Lực', 'Kẻ Hủy Diệt Cơn Quạu Công Sở'],
+      tree: ['Người Gieo Mầm May Mắn', 'Nghệ Nhân Treo Lộc Đầu Cành', 'Đại Sứ Ước Nguyện Tích Cực'],
+      oracle: ['Thánh Hỏi Thầy Công Sở', 'Nhà Thám Hiểm Tâm Linh Văn Phòng', 'Tri Kỷ Của Thầy Phán 4.0'],
+      mo: ['Tâm Bất Biến Giữa Dòng KPI', 'Đại Sư Gõ Mõ Tịnh Tâm', 'Bậc Thầy Né Drama Công Sở']
+    };
+
+    // MINI GAME 1: 🥊 ĐẤM BAO CÁT XẢ NGHIỆP
+    const punchPressures = [
+      'Khách seen không rep',
+      'Khách bom đơn',
+      'Deadline dí',
+      'KPI rượt',
+      'Họp dài bất tận',
+      'Drama công sở',
+      'Việc phát sinh phút cuối',
+      'Khác (tự nhập)'
+    ];
+
+    const punchQuotes5 = [
+      'Ui da! Nhẹ tay thôi bạn ơi, bao cát bắt đầu nhăn mặt rồi nè!',
+      'Ái chà! Cú đấm có lực đó, bao cát hơi choáng nha!',
+      'Khoan đã! Mới 5 cái mà sao nghe mùi áp lực nồng nặc vậy!'
+    ];
+
+    const punchQuotes10 = [
+      'Khoan! Tui chỉ là cái deadline, không phải người giao deadline!',
+      'Đấm tui 10 cái rồi đó! Khách chưa rep chứ có phải tui chưa rep đâu!',
+      'Bình tĩnh nào thí chủ! Bao cát chỉ làm công ăn lương thôi mà!',
+      'Tui biết lỗi rồi! Mai tui nhắn khách chuyển khoản liền cho bạn!'
+    ];
+
+    const punchQuotes20 = [
+      'Đấm tui 20 cái rồi, giờ nhớ uống nước nha!',
+      'Bao cát xin đầu hàng. KPI thì chưa chắc!',
+      'Bạn vừa đấm bay áp lực. Còn email chưa trả lời thì vẫn nằm đó!',
+      'Cờ trắng giơ cao! Mọi bực dọc bay sạch, chúc bạn chiều nay chốt đơn rực rỡ!'
+    ];
+
+    const punchHitWords = ['BOOM!', 'BỤP!', 'BỐP!', 'CHÁT!', '⭐ BÙM!', '💥 XOẢ!'];
+
+    // MINI GAME 2: 🌳 CÂY ƯỚC NGUYỆN
+    const treeSampleWishes = [
+      'Mong hôm nay có khách dễ thương',
+      'Mong deadline nhẹ nhàng',
+      'Mong cả ngày không drama',
+      'Mong khách chuyển khoản nhanh',
+      'Mong tuần này vượt mục tiêu',
+      'Mong bản thân luôn bình tĩnh'
+    ];
+
+    const treeBlessings = [
+      ['Điều ước của bạn đã được treo lên cành cao đón nắng ấm. Chúc tâm nguyện sớm nở hoa kết trái!', 'Hãy bắt đầu ngày mới bằng một nụ cười và một việc nhỏ trong tầm tay.'],
+      ['Gió lành thổi qua tán lá ngọc, gửi năng lượng bình an và may mắn đến công việc của bạn hôm nay!', 'Giữ tinh thần thoải mái, khi tâm vui vẻ thì cơ hội tốt sẽ tự khắc tìm về.'],
+      ['Thẻ ước nguyện đỏ thắm đã an vị trên Cây Lộc 4.0! Chúc bạn gặp khách hiền, đồng nghiệp mến!', 'Đừng quên dành 5 phút vươn vai và thưởng cho mình một ngụm nước mát nhé.'],
+      ['Cây Ước Nguyện đã ghi nhận lời cầu chúc tích cực! Chúc bạn làm việc gì cũng hanh thông thuận lợi.', 'Mỗi bước đi kiên trì hôm nay đều là hạt mầm cho thành quả ngày mai.']
+    ];
+
+    // MINI GAME 3: 🔮 THẦY PHÁN CÔNG SỞ (84 Humorous Answers across 7 Categories)
+    const oracleSampleQuestions = [
+      'Hôm nay có chốt được đơn không thầy?',
+      'Khách bảo để anh xem lại là sao thầy?',
+      'Tuần này KPI có về kịp không?',
+      'Sếp gọi họp đột xuất có điềm gì không?',
+      'Có nên uống trà sữa chiều nay không?',
+      'Bao giờ lương thưởng mới về túi?',
+      'Làm sao để né drama công sở hả thầy?'
+    ];
+
+    const oracleDatabase = {
+      sales: [
+        ['Quẻ báo khách đang mở app ngân hàng rồi, chỉ là đang phân vân nên chuyển khoản nhanh hay chuyển khoản siêu tốc thôi!', 'Nhắn một câu hỏi thăm lịch sự kèm ưu đãi nhỏ để khách chốt lẹ nha.'],
+        ['Khách bảo “để anh xem lại” nghĩa là anh đang hỏi ý kiến nóc nhà đó! Bình tĩnh chờ tin vui!', 'Gửi bản tóm tắt 3 lợi ích rõ nhất để khách dễ trình bày với người nhà.'],
+        ['Khách seen không rep không phải khách quên, mà là khách đang đứng hình vì báo giá quá hợp lý!', 'Chiều nay 14h30 gọi lại nhẹ nhàng là đúng khung giờ hoàng đạo.'],
+        ['Tín hiệu vũ trụ cho thấy đơn hàng này 80% đã chín muồi, còn 20% nằm ở nụ cười tư vấn của con!', 'Kiểm tra lại hợp đồng để sẵn sàng gửi ngay khi khách gật đầu.'],
+        ['Thầy bấm độn thấy hôm nay có quý nhân hỏi mua hàng, ăn nói dịu dàng là khách thương khách chốt!', 'Trả lời tin nhắn trong vòng 5 phút đầu tiên để giữ nhiệt độ mua hàng.'],
+        ['Đừng buồn vì một khách bận rộn, trong danh bạ của con đang có 2 khách cũ chờ được hỏi thăm kìa!', 'Lọc lại danh sách khách hàng tháng trước và gửi lời chúc ngày mới.'],
+        ['Quẻ Đại Cát Chốt Đơn! Khách hàng sắp tới tuy hỏi hơi kỹ nhưng khi ký thì chuyển khoản một cục!', 'Chuẩn bị sẵn câu trả lời cho các thắc mắc về hậu mãi và bảo hành.'],
+        ['Khách đang so sánh giá chút xíu thôi, nhưng thái độ nhiệt tình của con đã thắng điểm tuyệt đối!', 'Nhấn mạnh giá trị dịch vụ và sự đồng hành tận tâm của bạn.'],
+        ['Thầy nhìn quả cầu thấy tin nhắn “Em lên đơn cho anh nhé” đang bay tới rất gần rồi!', 'Giữ điện thoại đầy pin và thông báo bật chuông rõ ràng nha.'],
+        ['Hôm nay vía bán hàng sáng rực như đèn sân khấu, đăng bài nào là có người chấm bài đó!', 'Thêm một câu kêu gọi hành động thật vui vẻ ở cuối tin nhắn tư vấn.'],
+        ['Khách im lặng 3 ngày không phải mất hút, mà đang gom lúa chờ ngày đẹp chốt luôn combo lớn!', 'Gửi một cập nhật hữu ích thay vì chỉ hỏi “Anh đã xem chưa?”.'],
+        ['Quẻ chỉ rõ: Đơn nhỏ mở đường cho đơn to, cứ chăm sóc khách chu đáo là lộc nối đuôi nhau về!', 'Cảm ơn khách hàng thật chân thành ngay cả khi họ mới chỉ hỏi thông tin.']
+      ],
+      kpi: [
+        ['KPI tháng này giống như xe lên dốc: Đầu tháng hơi thở dốc nhưng cuối tháng lao về đích vèo vèo!', 'Chia mục tiêu còn lại theo từng ngày để thấy con số nhẹ nhàng hơn.'],
+        ['Thầy soi thấy cột doanh số của con đang蓄 lực chờ cú nổ lớn vào nửa cuối tuần này!', 'Tập trung 80% thời gian cho 20% nhóm khách hàng có khả năng chốt cao nhất.'],
+        ['Đừng nhìn tổng KPI mà hoa mắt, hãy nhìn từng đơn nhỏ cộng lại – tích tiểu thành đại cát!', 'Hoàn thành 3 cuộc gọi chất lượng trước giờ nghỉ trưa hôm nay.'],
+        ['Quẻ báo KPI tuy có rượt nhưng chân con chạy nhanh hơn KPI! Cuối kỳ vẫn kịp mỉm cười!', 'Rà soát lại các deal đang lửng lơ để đẩy nhanh tiến độ ký kết.'],
+        ['Số chưa về hôm nay là để dồn về một lượt cho bảng tổng kết thêm phần kịch tính!', 'Giữ vững nhịp độ làm việc đều đặn, đừng để tâm lý sốt ruột làm rối kế hoạch.'],
+        ['Thầy phán: Bảng vàng doanh số vẫn còn chỗ trống đang đợi tên con tỏa sáng!', 'Học hỏi thêm một mẹo chốt đơn hay từ đồng nghiệp ngồi cạnh.'],
+        ['KPI là con số, còn bản lĩnh của con là vô hạn! Cứ làm hết sức là lộc tự khắc tìm tới!', 'Ghi ra 3 việc quan trọng nhất cần chốt trong ngày và gạch từng việc.'],
+        ['Quẻ Thuận Buồm Xuôi Gió: Tuần này có một hợp đồng bất ngờ giúp kéo cột KPI lên thẳng đứng!', 'Đừng bỏ qua những yêu cầu báo giá nhỏ vì đó có thể là khách sộp thử lòng.'],
+        ['Áp lực KPI chỉ là phép thử cho chiếc vương miện Chiến Thần Doanh Số của con thôi!', 'Dành 10 phút đầu giờ sắp xếp lại thứ tự ưu tiên trong pipeline.'],
+        ['Thầy thấy chỉ số may mắn của con đang tăng 150%, chỉ cần thêm 50% chủ động là vượt chỉ tiêu!', 'Mạnh dạn đề xuất gói giải pháp trọn gói thay vì chỉ bán lẻ.'],
+        ['Con số hiện tại chỉ là màn khởi động, khúc bứt tốc ngoạn mục nhất đang ở phía trước!', 'Giữ năng lượng tích cực trong giọng nói khi trao đổi với khách hàng.'],
+        ['Quẻ phán: KPI sợ người lì đòn! Con cứ kiên trì bám mục tiêu là KPI phải tự động đầu hàng!', 'Tự thưởng một niềm vui nhỏ sau mỗi mốc mục tiêu hoàn thành trong ngày.']
+      ],
+      boss: [
+        ['Sếp gọi họp đột xuất 90% là để hỏi tiến độ, 10% còn lại là sếp cũng đang tìm người tâm sự!', 'Mang theo sổ ghi chép và cập nhật ngắn gọn 3 gạch đầu dòng rõ ràng.'],
+        ['Thầy bấm quẻ thấy hôm nay sếp đang vui tính, trình ký giấy tờ hay xin duyệt giá đều dễ gật đầu!', 'Trình bày phương án kèm luôn giải pháp để sếp duyệt trong 1 nốt nhạc.'],
+        ['Drama công sở giống như mây mù buổi sớm: Con cứ tập trung làm tốt việc mình là nắng ấm tự lên!', 'Mỉm cười lịch sự, nghe bằng một tai và giữ thái độ trung lập hòa nhã.'],
+        ['Đồng nghiệp hôm nay là quý nhân trợ lực, phối hợp ăn ý là việc khó mấy cũng xong trước giờ tan tầm!', 'Gửi một lời cảm ơn hoặc khen ngợi chân thành khi đồng đội hỗ trợ bạn.'],
+        ['Sếp hỏi kỹ không phải bắt bẻ, mà là muốn con nắm chắc phần thắng khi ra gặp khách hàng đó!', 'Chuẩn bị sẵn số liệu minh họa ngắn gọn trước khi vào phòng họp.'],
+        ['Muốn né drama công sở? Bí kíp của Thầy là: Đeo tai nghe, mở bảng tính và nở nụ cười bí hiểm!', 'Tập trung trao đổi công việc qua văn bản rõ ràng, minh bạch.'],
+        ['Quẻ Hòa Hợp: Hôm nay team mình người tung kẻ hứng cực mượt, đi ăn trưa chung là nảy ra ý tưởng hay!', 'Chủ động rủ đồng nghiệp uống nước hoặc nghỉ giải lao ngắn giữa giờ.'],
+        ['Cuộc họp chiều nay tuy hơi dài nhưng sẽ chốt được hướng đi mới giúp giảm bớt việc lặp lại!', 'Ghi lại kết luận cuộc họp ngay khi vừa kết thúc để khỏi quên.'],
+        ['Thầy soi thấy sếp đang ngầm ghi nhận sự cố gắng của con, cứ vững tay chèo nhé!', 'Báo cáo kết quả đúng hạn để tạo ấn tượng chuyên nghiệp bền vững.'],
+        ['Gặp chuyện trái ý nơi văn phòng, hãy hít sâu 3 giây rồi niệm câu: “Việc mình là chốt deal, không phải chốt drama!”', 'Chuyển mọi cuộc tranh luận về mục tiêu chung của tập thể.'],
+        ['Quẻ Quý Nhân Đồng Hành: Có người trong công ty sắp chỉ cho con một mẹo xử lý việc cực nhanh!', 'Đừng ngại hỏi kinh nghiệm từ các anh chị đi trước khi gặp ca khó.'],
+        ['Hôm nay phong thủy bàn làm việc cực vượng cho sự đoàn kết, nói lời hay ý đẹp là mọi việc hanh thông!', 'Giữ góc làm việc gọn gàng, sạch sẽ để đón luồng sinh khí mới.']
+      ],
+      deadline: [
+        ['Deadline dí không đáng sợ, đáng sợ là chưa uống nước mà đã ngồi nhìn deadline thở dài!', 'Chia việc lớn thành các chặng 25 phút tập trung để xử lý gọn từng phần.'],
+        ['Thầy bấm tay thấy việc phát sinh phút cuối này nhìn thì to nhưng làm 30 phút là êm đẹp!', 'Bắt tay làm ngay phần dễ nhất để tạo đà tâm lý hứng khởi.'],
+        ['Email chưa trả lời đang xếp hàng ngay ngắn đợi con, giải quyết từng cái một là chiều về thảnh thơi!', 'Dùng quy tắc 2 phút: Việc nào dưới 2 phút thì xử lý dứt điểm ngay.'],
+        ['Quẻ Thần Tốc: Hôm nay não bộ của con chạy nhanh hơn cả Wi-Fi văn phòng, deadline nào cũng vượt qua!', 'Tắt bớt các tab trình duyệt không cần thiết để tập trung 100%.'],
+        ['Báo cáo nhìn dài vậy thôi chứ khi con đặt tay lên bàn phím là chữ nghĩa tuôn trào như suối!', 'Lập dàn ý 4 mục chính trước khi bắt đầu viết chi tiết.'],
+        ['Thầy phán: Việc gấp mấy cũng phải thở đều! Bình tĩnh làm một lần chuẩn luôn còn nhanh hơn vội vàng sửa lại!', 'Kiểm tra kỹ file đính kèm trước khi bấm nút gửi email.'],
+        ['Hôm nay con có vía “Bàn Tay Vàng Xử Lý Việc Khó”, đụng đâu gọn đó, chiều 5h30 tắt máy mỉm cười!', 'Ưu tiên hoàn thành việc khó nhất vào lúc tinh thần tỉnh táo nhất.'],
+        ['Deadline tưởng căng nhưng thực ra chỉ là bài tập thể dục cho trí não thêm nhạy bén thôi!', 'Đặt đồng hồ đếm ngược 20 phút và thử thách bản thân hoàn thành 1 hạng mục.'],
+        ['Quẻ Giải Ách: Khúc mắc công việc con đang nghĩ sắp có lời giải cực kỳ đơn giản ngay sau giờ nghỉ trưa!', 'Đứng dậy đi lấy cốc nước ấm để não bộ có khoảng nghỉ sáng tạo.'],
+        ['Đừng để 10 việc nhỏ làm rối, hãy viết chúng ra giấy – nhìn thấy trên giấy là đã xong được một nửa!', 'Gạch bỏ từng việc đã xong để tận hưởng cảm giác chiến thắng.'],
+        ['Thầy nhìn thấy màn hình máy tính của con chiều nay toàn dấu tích xanh hoàn thành xuất sắc!', 'Lưu file thường xuyên để bảo vệ thành quả lao động nha.'],
+        ['Chuyện phát sinh phút 89 chỉ làm bàn thắng ở phút 90 của con thêm phần rực rỡ mà thôi!', 'Giữ tinh thần linh hoạt và bình tĩnh trước mọi thay đổi.']
+      ],
+      salary: [
+        ['Quẻ Tài Lộc Vượng Phát: Tiếng “ting ting” báo lương thưởng đang trên đường cao tốc tiến thẳng về tài khoản của con!', 'Lên kế hoạch chi tiêu hợp lý và trích một phần nhỏ tự thưởng cho bản thân.'],
+        ['Hoa hồng tháng này tuy về hơi hồi hộp nhưng khi về là làm con cười tươi suốt cả tuần!', 'Kiểm tra kỹ bảng đối soát doanh số để đảm bảo quyền lợi đầy đủ.'],
+        ['Ví tiền của con đang ở thế “Tụ Tài”, chăm chỉ gieo hạt hôm nay là cuối tháng gặt vàng đầy giỏ!', 'Tiếp tục duy trì dịch vụ khách hàng tốt để gia tăng tỷ lệ tái ký.'],
+        ['Thầy soi thấy lộc ăn uống và lộc tiền bạc cùng xuất hiện, tuần này vừa có lộc túi vừa ấm chiếc bụng!', 'Chia sẻ niềm vui nhỏ cùng đồng đội để lộc lá thêm phần lan tỏa.'],
+        ['Chuyện tăng lương thưởng phụ thuộc vào giá trị con tạo ra – mà năng lượng của con đang lên rất cao!', 'Ghi nhận lại các thành tích nổi bật để làm tư liệu trao đổi cuối kỳ.'],
+        ['Quẻ Kim Ngân Đầy Hũ: Ngoài khoản thu chính, sắp tới con còn có cơ hội nhận thưởng nóng từ đơn hàng mới!', 'Nắm bắt ngay các chương trình thi đua doanh số đang diễn ra.'],
+        ['Đừng lo ví mỏng tạm thời, đó chỉ là khoảng lặng để ví chuẩn bị phồng to vào kỳ thanh toán tới!', 'Hạn chế mua sắm ngẫu hứng lúc nửa đêm để bảo toàn ngân khố.'],
+        ['Thầy phán: Tiền bạc thích người vui vẻ và quyết đoán! Con cứ giữ tâm thế lạc quan là tài lộc tự tìm về!', 'Mỉm cười mỗi khi mở đầu cuộc trò chuyện với đối tác.'],
+        ['Lộc nhỏ đến từ sự chỉn chu, lộc lớn đến từ sự bền bỉ – cả hai thứ đó con đều đang có sẵn!', 'Rà soát lại các hợp đồng sắp đến hạn thanh toán để nhắc khách nhẹ nhàng.'],
+        ['Quẻ Báo Tin Vui: Bộ phận kế toán đang là ngôi sao may mắn chiếu mệnh cho ví tiền của con tuần này!', 'Nộp chứng từ thanh toán đúng hạn và đầy đủ chữ ký nhé.'],
+        ['Thần Tài 4.0 nhắn qua quả cầu pha lê: Khoản thưởng con mong đợi đang đến rất gần rồi!', 'Giữ vững phong độ làm việc ổn định trong những ngày cuối tháng.'],
+        ['Hôm nay xuất hành hướng về phía công việc, lộc về hướng tài khoản ngân hàng!', 'Đặt một mục tiêu tiết kiệm nhỏ cho chuyến đi chơi sắp tới.']
+      ],
+      rest: [
+        ['Quẻ Đại Cát Trà Sữa: Chiều nay uống một ly ít đường 70% đá sẽ giúp tinh thần tăng 200% công lực!', 'Rủ đồng nghiệp đặt chung để vừa vui vừa được giảm phí giao hàng.'],
+        ['Cơ thể đang gửi tín hiệu xin một giấc ngủ trưa 15 phút để chiều dậy hóa thân thành Chiến Thần Chốt Đơn!', 'Khép mắt thư giãn ngắn vào giờ nghỉ trưa thay vì lướt điện thoại liên tục.'],
+        ['Thầy phán: Làm việc hết mình nhưng nhớ thương cái lưng và đôi mắt của mình nữa nha con!', 'Áp dụng quy tắc 20-20-20: Mỗi 20 phút nhìn xa 20 feet trong 20 giây.'],
+        ['Hôm nay tan làm đúng giờ, về ăn món mình thích chính là liều thuốc nạp lại năng lượng đỉnh nhất!', 'Hoàn thành dứt điểm các việc quan trọng trước 16h30 chiều nay.'],
+        ['Cà phê sáng nay rất hợp mệnh, uống xong một ngụm là ý tưởng sáng tạo tuôn trào!', 'Uống kèm một ly nước lọc đầy để cơ thể luôn đủ nước suốt ngày dài.'],
+        ['Quẻ Bình Yên: Cuối tuần này hãy gác lại bảng tính, dành thời gian cho bản thân và gia đình nhé!', 'Lên lịch một hoạt động thư giãn nhẹ nhàng cho tối nay.'],
+        ['Muốn chạy đường dài phải biết nhịp nghỉ! Nghỉ giải lao 5 phút không làm chậm việc mà giúp làm nhanh gấp đôi!', 'Đứng dậy xoay nhẹ cổ vai gáy ngay sau khi đọc xong lời phán này.'],
+        ['Thầy nhìn thấy tối nay con sẽ có một giấc ngủ cực ngon vì hôm nay con đã cố gắng rất nhiều rồi!', 'Hạn chế xem màn hình điện thoại 30 phút trước khi đi ngủ.'],
+        ['Đi ăn trưa món gì hôm nay? Quẻ chỉ rằng món có nước dùng nóng hổi sẽ mang lại may mắn buổi chiều!', 'Ăn đúng bữa và nhai kỹ để nạp năng lượng bền bỉ cho buổi chiều.'],
+        ['Tinh thần thoải mái là phong thủy tốt nhất của người đi làm! Hãy thở phào một cái thật nhẹ nhõm nào!', 'Nghe một bản nhạc không lời êm dịu khi cần sự tập trung thư thái.'],
+        ['Quẻ Chữa Lành Công Sở: Hôm nay hãy tự khen mình một câu vì đã kiên trì vượt qua bao nhiêu áp lực!', 'Viết ra 1 điều nhỏ khiến bạn biết ơn hoặc vui vẻ trong ngày hôm nay.'],
+        ['Năng lượng của con như viên pin quý, nhớ sạc pin bằng nụ cười và những phút giây thư giãn đúng lúc!', 'Uống ngay một ngụm nước mát để làm mới tinh thần.']
+      ],
+      general: [
+        ['Quẻ Vạn Sự Hanh Thông: Việc con đang băn khoăn cứ mạnh dạn bước bước đầu tiên là đường sẽ tự mở!', 'Bắt đầu ngay từ hành động nhỏ nhất mà bạn có thể làm trong 5 phút tới.'],
+        ['Thầy phán: Hôm nay nụ cười của con chính là lá bùa may mắn mạnh nhất nơi công sở!', 'Chào buổi sáng đồng nghiệp và khách hàng bằng giọng điệu hào hứng nhất.'],
+        ['Mọi chuyện rối rắm đều có nút mở, chỉ cần con bình tĩnh nhìn từ góc độ đơn giản hơn!', 'Hỏi ý kiến một người bạn đồng nghiệp đáng tin cậy để có thêm góc nhìn mới.'],
+        ['Quẻ Thời Tới Cản Không Kịp: Hôm nay làm việc gì cũng có cảm giác trôi chảy bất ngờ!', 'Tận dụng đà năng lượng cao để giải quyết việc bạn đã trì hoãn từ đầu tuần.'],
+        ['Đừng lo lắng chuyện chưa xảy ra, 90% nỗi lo công sở đều tự tan biến khi ta bắt tay vào hành động!', 'Tập trung hoàn toàn vào việc trước mắt trong 15 phút tiếp theo.'],
+        ['Thầy soi quả cầu thấy một tin vui nho nhỏ đang trên đường bay tới hộp thư của con chiều nay!', 'Kiểm tra và dọn dẹp hộp thư đến để không bỏ lỡ thông tin quan trọng.'],
+        ['Phong thủy hôm nay cực hợp với sự chủ động: Ai mở lời trước người đó nắm phần thắng!', 'Chủ động kết nối với 1 khách hàng hoặc đối tác trong hôm nay.'],
+        ['Quẻ Kiên Định: Cứ giữ vững sự tử tế và chuyên nghiệp, thành quả ngọt ngào không bao giờ phụ người có tâm!', 'Kiểm tra lại chất lượng công việc một lượt trước khi bàn giao.'],
+        ['Hôm nay là ngày đẹp để dọn dẹp bàn làm việc và dọn luôn những suy nghĩ ngổn ngang trong đầu!', 'Cất gọn giấy tờ cũ trên bàn để tạo không gian thoáng đãng.'],
+        ['Thầy bấm độn: Giữa hai lựa chọn con đang phân vân, lựa chọn nào giúp con ngủ ngon hơn thì hãy chọn!', 'Ưu tiên phương án minh bạch, bền vững và đúng nguyên tắc.'],
+        ['Quẻ Lộc Bất Ngờ: Hôm nay có người khen ngợi hoặc cảm ơn sự nhiệt tình của con đó!', 'Tiếp tục lan tỏa sự hỗ trợ nhiệt tình đến những người xung quanh.'],
+        ['Vũ trụ công sở nhắn rằng: Con đang làm tốt hơn con nghĩ rất nhiều, cứ tự tin tiến lên nhé!', 'Giữ tư thế ngồi thẳng lưng và mỉm cười tự tin ngay lúc này.']
+      ]
+    };
+
     // State Variables
     let tab = 'burn';
     let selected = scenarios[0];
@@ -1914,8 +2877,23 @@
     let soundEnabled = false;
     let meritCount = 0;
 
+    // Mini Game 1 State
+    let punchCount = 0;
+    let punchLastEffectTime = 0;
+    let punchActivePopups = 0;
+    let punchSwingDir = 1;
+    let punchResetTimer = null;
+
+    // Mini Game 3 State
+    let lastOracleQuestion = '';
+    let lastOracleCategory = 'general';
+
+    // Mini Game 4 Hold State
+    let moHoldTimer = null;
+    let moHoldTriggered = false;
+
     const random = arr => arr[Math.floor(Math.random() * arr.length)];
-    const escapeText = s => String(s || '').slice(0, 140);
+    const escapeText = (s, max = 140) => String(s || '').trim().slice(0, max);
 
     // ==========================================
     // AUDIO SYSTEM (Procedural Web Audio API)
@@ -1963,6 +2941,83 @@
 
       osc.start(now);
       osc.stop(now + 0.085);
+    }
+
+    // Punch Thud / Comic Impact (Tiếng đấm bao cát vui nhộn)
+    function playPunchSound(isFinish = false) {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(160, now);
+      osc.frequency.exponentialRampToValueAtTime(42, now + 0.12);
+
+      gain.gain.setValueAtTime(0.65, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.14);
+
+      if (isFinish) {
+        playCoinSound();
+      }
+    }
+
+    // Wind Chime (Tiếng chuông gió Cây Ước Nguyện)
+    function playWindChime() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const notes = [1046.5, 1174.66, 1318.51, 1567.98, 2093.0];
+
+      notes.forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        const start = now + i * 0.065;
+        osc.frequency.setValueAtTime(f, start);
+
+        gain.gain.setValueAtTime(0.18, start);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.7);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + 0.72);
+      });
+    }
+
+    // Mystical Crystal Ball Chime (Âm thanh Thầy Phán)
+    function playMagicSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const freqs = [440, 554.37, 659.25, 880, 1108.73];
+
+      freqs.forEach((f, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        const t = now + i * 0.14;
+        osc.frequency.setValueAtTime(f, t);
+
+        gain.gain.setValueAtTime(0.001, t);
+        gain.gain.linearRampToValueAtTime(0.2, t + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.95);
+      });
     }
 
     // Temple Gong / Chuông đồng
@@ -2099,7 +3154,6 @@
       const ctx = getAudioContext();
       if (!ctx) return;
       const now = ctx.currentTime;
-      // Harmonic bell partials for a warm, peaceful chime
       const partials = [
         { freq: 528, amp: 0.28, dur: 2.2 },
         { freq: 1056, amp: 0.14, dur: 1.6 },
@@ -2145,25 +3199,525 @@
       }
     });
 
-    // Mõ Online / Xả KPI Button
-    $('moBtn').addEventListener('click', (e) => {
+    // ==========================================
+    // MINI GAME 4: 🔔 NÂNG CẤP GÕ MÕ XẢ KPI
+    // Directly upgrades #moBtn & #woodenFishTarget
+    // ==========================================
+    const moFloatingPhrases = [
+      '+1 Bình tĩnh',
+      '+1 May mắn',
+      '-1 Drama',
+      '+1 Tinh thần',
+      'Deadline né ra!',
+      'Khách chuyển khoản đi!',
+      '+1 Công Đức',
+      '+1 Chốt Đơn'
+    ];
+
+    function syncMeritUI() {
+      $('meritCount').textContent = meritCount;
+      if ($('moStageCount')) {
+        $('moStageCount').textContent = 'Tâm tịnh: ' + meritCount;
+      }
+    }
+
+    function saveMeritCount() {
+      try {
+        localStorage.setItem('xinvia-merit-count', String(meritCount));
+      } catch (e) {}
+    }
+
+    function triggerMoZenMode() {
+      moHoldTriggered = true;
+      playTempleBell();
+      const fish = $('woodenFishTarget');
+      if (fish) {
+        fish.classList.add('zen-active');
+        setTimeout(() => fish.classList.remove('zen-active'), 4200);
+      }
+      const msg = '🧘 Chế độ Tịnh Tâm: Hít sâu 4 giây, thả lỏng đôi vai và uống một ngụm nước mát nhé!';
+      if ($('moComboBanner')) {
+        $('moComboBanner').textContent = msg;
+      }
+      showToast(msg);
+      const stageRect = $('stage').getBoundingClientRect();
+      spawnIncenseSmoke(stageRect.left + stageRect.width / 2, stageRect.top + stageRect.height / 2, 18);
+      if (navigator.vibrate) navigator.vibrate([40, 80, 40]);
+    }
+
+    function handleMoStrike(sourceEl) {
+      if (moHoldTriggered) {
+        moHoldTriggered = false;
+        return;
+      }
       getAudioContext();
       meritCount++;
-      $('meritCount').textContent = meritCount;
+      syncMeritUI();
+      saveMeritCount();
       playWoodblock();
 
-      // Spawn floating merit toast text
-      const rect = $('moBtn').getBoundingClientRect();
+      const fish = $('woodenFishTarget');
+      if (fish) {
+        fish.classList.add('strike');
+        setTimeout(() => fish.classList.remove('strike'), 120);
+      }
+
+      // Floating phrase near clicked button
+      const target = sourceEl || $('moBtn');
+      const rect = target.getBoundingClientRect();
       const toastEl = document.createElement('div');
       toastEl.className = 'toast-merit';
-      const phrases = ['+1 May Mắn', '+1 Công Đức', '+1 Chốt Đơn', '+1 Trừ KPI', '+1 Vía Sộp'];
-      toastEl.textContent = random(phrases);
-      toastEl.style.left = (rect.left + rect.width / 2 - 40) + 'px';
-      toastEl.style.top = (rect.top - 10) + 'px';
+      toastEl.textContent = random(moFloatingPhrases);
+      toastEl.style.left = Math.max(12, Math.min(window.innerWidth - 150, rect.left + rect.width / 2 - 55)) + 'px';
+      toastEl.style.top = Math.max(12, rect.top - 12) + 'px';
       document.body.appendChild(toastEl);
       setTimeout(() => toastEl.remove(), 1200);
 
-      if (navigator.vibrate) navigator.vibrate(20);
+      // Combo Milestone Checks: 5, 10, 20, 50
+      let milestoneMsg = '';
+      if (meritCount === 5) {
+        milestoneMsg = '✨ Mốc 5 tiếng mõ: Tâm đã tịnh, KPI vẫn động!';
+        playWindChime();
+        spawnFireSparks(rect.left + rect.width / 2, rect.top, 18);
+      } else if (meritCount === 10) {
+        milestoneMsg = '🔥 Mốc 10 tiếng mõ: Đắc đạo xả stress cấp 1!';
+        playTempleBell();
+        spawnCoinRain(15);
+      } else if (meritCount === 20) {
+        milestoneMsg = '🧘 Mốc 20 tiếng mõ: Mõ đã nóng, xin thí chủ nghỉ tay uống nước!';
+        playGong();
+        spawnCoinRain(25);
+      } else if (meritCount === 50 || (meritCount > 50 && meritCount % 50 === 0)) {
+        milestoneMsg = '👑 Mốc ' + meritCount + ' tiếng mõ: Cảnh giới tối thượng – Gõ mõ không quên công việc!';
+        playTempleBell();
+        playCoinSound();
+        spawnCoinRain(40);
+      }
+
+      if (milestoneMsg) {
+        if ($('moComboBanner')) {
+          $('moComboBanner').textContent = milestoneMsg;
+        }
+        showToast(milestoneMsg);
+      } else if ($('moComboBanner') && tab === 'mo') {
+        $('moComboBanner').textContent = '🔔 Đã gõ ' + meritCount + ' nhịp · Giữ lì 2 giây để bật chế độ “Tịnh Tâm”';
+      }
+
+      if (navigator.vibrate) navigator.vibrate(18);
+    }
+
+    function bindMoHoldAndClick(el) {
+      if (!el) return;
+      const startHold = () => {
+        moHoldTriggered = false;
+        clearTimeout(moHoldTimer);
+        moHoldTimer = setTimeout(() => {
+          triggerMoZenMode();
+        }, 1800);
+      };
+      const cancelHold = () => {
+        clearTimeout(moHoldTimer);
+      };
+      el.addEventListener('mousedown', startHold);
+      el.addEventListener('touchstart', startHold, { passive: true });
+      el.addEventListener('mouseup', cancelHold);
+      el.addEventListener('mouseleave', cancelHold);
+      el.addEventListener('touchend', cancelHold);
+      el.addEventListener('touchcancel', cancelHold);
+      el.addEventListener('click', () => handleMoStrike(el));
+    }
+
+    bindMoHoldAndClick($('moBtn'));
+    bindMoHoldAndClick($('woodenFishTarget'));
+
+    $('moResetBtn').addEventListener('click', () => {
+      if (confirm('Bạn có muốn đặt lại bộ đếm Gõ Mõ Tịnh Tâm về 0 không?')) {
+        meritCount = 0;
+        syncMeritUI();
+        saveMeritCount();
+        $('moComboBanner').textContent = '🔔 Bộ đếm đã về 0 · Tâm sáng như gương, sẵn sàng chốt đơn!';
+        showToast('🔄 Đã đặt lại bộ đếm Gõ Mõ về 0!');
+        if (soundEnabled) playWoodblock();
+      }
+    });
+
+    $('moCertificateBtn').addEventListener('click', () => {
+      const name = $('nickname').value.trim().slice(0, 32) || 'Chiến thần giấu tên';
+      const date = new Date().toLocaleString('vi-VN');
+      const res = {
+        type: 'mo',
+        emoji: '🔔',
+        title: 'CHỨNG NHẬN TỊNH TÂM (' + meritCount + ' TIẾNG MÕ)',
+        honorTitle: random(honorTitles.mo),
+        who: 'Thí chủ công sở: ' + name,
+        message: meritCount >= 20
+          ? 'Mõ đã nóng nhưng tâm đã tịnh! Mọi drama công sở đều hóa hư không trước tiếng mõ của bạn!'
+          : 'Tâm đã tịnh, KPI vẫn động! Bình tĩnh mỉm cười là bí quyết giải quyết mọi deadline!',
+        tip: 'Thả lỏng vai, uống một ngụm nước ấm rồi giải quyết từng việc một cách nhẹ nhàng.',
+        date
+      };
+      finishRitual(res);
+    });
+
+    // ==========================================
+    // MINI GAME 1: 🥊 ĐẤM BAO CÁT XẢ NGHIỆP LOGIC
+    // ==========================================
+    function getPunchPressureLabel() {
+      if (selected === 'Khác (tự nhập)') {
+        return escapeText($('customPunchInput').value, 100) || 'Áp lực không tên';
+      }
+      return selected;
+    }
+
+    function updatePunchUI() {
+      const label = getPunchPressureLabel();
+      $('punchTag').textContent = label;
+      $('punchCounterBadge').textContent = '🥊 Cú đấm: ' + punchCount + ' / 20';
+      $('punchMeterFill').style.width = Math.min(100, (punchCount / 20) * 100) + '%';
+
+      if (punchCount === 0) {
+        $('punchFace').textContent = '😏';
+        $('punchFlag').classList.remove('surrender');
+        $('punchSpeech').textContent = '“Chạm vào bao cát hoặc bấm nút bên dưới để tung cú đấm xả nghiệp!”';
+      } else if (punchCount < 5) {
+        $('punchFace').textContent = '😮';
+      } else if (punchCount >= 5 && punchCount < 10) {
+        $('punchFace').textContent = '😣';
+        if (punchCount === 5) {
+          $('punchSpeech').textContent = '“' + random(punchQuotes5) + '”';
+        }
+      } else if (punchCount >= 10 && punchCount < 20) {
+        $('punchFace').textContent = '😵‍💫';
+        if (punchCount === 10 || punchCount === 15) {
+          $('punchSpeech').textContent = '“' + random(punchQuotes10) + '”';
+        }
+      } else if (punchCount >= 20) {
+        $('punchFace').textContent = '🏳️😵';
+        $('punchFlag').classList.add('surrender');
+        $('punchSpeech').textContent = '“' + random(punchQuotes20) + '”';
+      }
+    }
+
+    function resetPunchGame() {
+      punchCount = 0;
+      busy = false;
+      $('go').disabled = false;
+      $('punchPendulum').style.transform = 'rotate(0deg)';
+      updatePunchUI();
+    }
+
+    function spawnPunchPopup(word) {
+      const now = performance.now();
+      // Rate limit DOM popups when user taps rapidly
+      if (now - punchLastEffectTime < 65 || punchActivePopups >= 8) return;
+      punchLastEffectTime = now;
+      punchActivePopups++;
+
+      const arena = $('punchArena');
+      const pop = document.createElement('div');
+      pop.className = 'hit-pop';
+      pop.textContent = word;
+      pop.style.left = (45 + Math.random() * 110) + 'px';
+      pop.style.top = (35 + Math.random() * 80) + 'px';
+      arena.appendChild(pop);
+
+      setTimeout(() => {
+        pop.remove();
+        punchActivePopups = Math.max(0, punchActivePopups - 1);
+      }, 550);
+    }
+
+    function handlePunchHit(e) {
+      if (tab !== 'punch' || busy) return;
+      if (punchCount >= 20) {
+        resetPunchGame();
+      }
+      getAudioContext();
+
+      punchCount++;
+      const isFinish = punchCount >= 20;
+      playPunchSound(isFinish);
+
+      // Physics pendulum swing with smooth return
+      punchSwingDir = -punchSwingDir;
+      const angle = (14 + Math.min(punchCount, 12)) * punchSwingDir;
+      const pendulum = $('punchPendulum');
+      pendulum.style.transform = 'rotate(' + angle + 'deg) translateY(-4px)';
+      clearTimeout(punchResetTimer);
+      punchResetTimer = setTimeout(() => {
+        pendulum.style.transform = 'rotate(' + (-angle * 0.35) + 'deg)';
+        setTimeout(() => {
+          pendulum.style.transform = 'rotate(0deg)';
+        }, 150);
+      }, 140);
+
+      spawnPunchPopup(random(punchHitWords));
+      const bagRect = $('punchBagTarget').getBoundingClientRect();
+      if (punchCount % 2 === 0) {
+        spawnFireSparks(bagRect.left + bagRect.width / 2, bagRect.top + bagRect.height / 2, 8);
+      }
+
+      updatePunchUI();
+      if (navigator.vibrate) navigator.vibrate(isFinish ? [40, 60, 40] : 18);
+
+      if (isFinish) {
+        busy = true;
+        $('go').disabled = true;
+        // Save funny session count in localStorage
+        try {
+          const totalSessions = Number(localStorage.getItem('xinvia-punch-sessions') || '0') + 1;
+          localStorage.setItem('xinvia-punch-sessions', String(totalSessions));
+        } catch (err) {}
+
+        const name = $('nickname').value.trim().slice(0, 32) || 'Chiến thần giấu tên';
+        const pressure = getPunchPressureLabel();
+        const finishQuote = random(punchQuotes20);
+        const res = {
+          type: 'punch',
+          emoji: '🥊',
+          title: 'ĐÃ ĐẤM BAY: ' + pressure.toUpperCase(),
+          honorTitle: random(honorTitles.punch),
+          who: 'Võ sĩ công sở: ' + name + ' (Chuỗi 20 cú đấm chuẩn xác)',
+          message: finishQuote,
+          tip: 'Uống một ngụm nước mát, vươn vai nhẹ nhàng rồi quay lại xử lý công việc với tinh thần sảng khoái nhé!',
+          date: new Date().toLocaleString('vi-VN')
+        };
+
+        setTimeout(() => {
+          finishRitual(res);
+        }, 650);
+      }
+    }
+
+    $('punchPendulum').addEventListener('click', handlePunchHit);
+    $('punchPendulum').addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handlePunchHit(e);
+      }
+    });
+    $('punchResetBtn').addEventListener('click', () => {
+      resetPunchGame();
+      $('result').classList.remove('show');
+      showToast('🥊 Bao cát mới đã treo lên, sẵn sàng xả nghiệp!');
+      if (soundEnabled) playWoodblock();
+    });
+    $('customPunchInput').addEventListener('input', () => {
+      if (tab === 'punch') updatePunchUI();
+    });
+
+    // ==========================================
+    // MINI GAME 2: 🌳 CÂY ƯỚC NGUYỆN LOGIC
+    // ==========================================
+    const treeTagPositions = [
+      { top: '24px', left: '54px' },
+      { top: '28px', left: '146px' },
+      { top: '58px', left: '42px' },
+      { top: '62px', left: '98px' },
+      { top: '54px', left: '158px' },
+      { top: '88px', left: '68px' },
+      { top: '86px', left: '132px' },
+      { top: '38px', left: '82px' },
+      { top: '42px', left: '122px' },
+      { top: '92px', left: '34px' },
+      { top: '90px', left: '172px' },
+      { top: '18px', left: '104px' }
+    ];
+
+    function getTreeWishes() {
+      try {
+        const raw = JSON.parse(localStorage.getItem('xinvia-tree-wishes') || '[]');
+        return Array.isArray(raw) ? raw.slice(0, 20) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveTreeWishes(list) {
+      try {
+        localStorage.setItem('xinvia-tree-wishes', JSON.stringify(list.slice(0, 20)));
+      } catch (e) {}
+    }
+
+    function openTreeWishResult(wishObj) {
+      const blessing = wishObj.blessing || treeBlessings[0][0];
+      const tip = wishObj.tip || treeBlessings[0][1];
+      const res = {
+        type: 'tree',
+        emoji: '🌳',
+        title: 'THẺ ƯỚC NGUYỆN CÂY LỘC 4.0',
+        honorTitle: wishObj.honorTitle || random(honorTitles.tree),
+        who: (wishObj.author || 'Người gieo ước nguyện') + ' ước: “' + wishObj.text + '”',
+        message: blessing,
+        tip: tip,
+        date: wishObj.date || new Date().toLocaleString('vi-VN')
+      };
+      showResult(res);
+    }
+
+    function renderTreeWishes() {
+      const wishes = getTreeWishes();
+      const layer = $('treeTagsLayer');
+      const listEl = $('treeWishesList');
+      $('treeWishCount').textContent = String(wishes.length);
+
+      layer.replaceChildren();
+      listEl.replaceChildren();
+
+      // Render up to 12 visual tags on the canopy
+      wishes.slice(0, 12).forEach((w, idx) => {
+        const pos = treeTagPositions[idx % treeTagPositions.length];
+        const tag = document.createElement('button');
+        tag.type = 'button';
+        tag.className = 'tree-wish-tag ' + (idx % 2 === 0 ? 'red' : 'gold');
+        tag.style.top = pos.top;
+        tag.style.left = pos.left;
+        tag.textContent = idx % 2 === 0 ? 'LỘC' : 'ƯỚC';
+        tag.title = 'Xem điều ước: ' + w.text;
+        tag.addEventListener('click', e => {
+          e.stopPropagation();
+          playWindChime();
+          openTreeWishResult(w);
+        });
+        layer.appendChild(tag);
+      });
+
+      if (!wishes.length) {
+        const empty = document.createElement('p');
+        empty.className = 'muted';
+        empty.style.fontSize = '12.5px';
+        empty.textContent = 'Chưa có thẻ điều ước nào trên cành. Hãy treo điều ước đầu tiên của bạn nhé!';
+        listEl.appendChild(empty);
+        return;
+      }
+
+      wishes.forEach(w => {
+        const item = document.createElement('div');
+        item.className = 'tree-wish-item';
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'tree-wish-item-text';
+        textSpan.textContent = '🎋 ' + w.text;
+        textSpan.title = 'Bấm để xem thiệp điều ước';
+        textSpan.addEventListener('click', () => {
+          playWindChime();
+          openTreeWishResult(w);
+        });
+
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.className = 'back-nav-btn';
+        delBtn.textContent = '✖';
+        delBtn.title = 'Xóa điều ước này';
+        delBtn.addEventListener('click', () => {
+          const next = getTreeWishes().filter(item => item.id !== w.id);
+          saveTreeWishes(next);
+          renderTreeWishes();
+          showToast('🍃 Đã gỡ 1 thẻ điều ước khỏi cành cây.');
+        });
+
+        item.append(textSpan, delBtn);
+        listEl.appendChild(item);
+      });
+    }
+
+    function rustleTreeCanopy() {
+      const canopy = $('treeCanopy');
+      canopy.classList.remove('rustle');
+      void canopy.offsetWidth;
+      canopy.classList.add('rustle');
+      playWindChime();
+      const rect = canopy.getBoundingClientRect();
+      spawnIncenseSmoke(rect.left + rect.width / 2, rect.top + rect.height / 2, 12);
+    }
+
+    $('treeCanopy').addEventListener('click', rustleTreeCanopy);
+    $('treeCanopy').addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        rustleTreeCanopy();
+      }
+    });
+
+    $('clearTreeWishesBtn').addEventListener('click', () => {
+      if (!getTreeWishes().length) return;
+      if (confirm('Bạn có chắc muốn gỡ toàn bộ thẻ điều ước trên cây không?')) {
+        saveTreeWishes([]);
+        renderTreeWishes();
+        showToast('🗑️ Đã dọn sạch các thẻ điều ước trên cây!');
+      }
+    });
+
+    // ==========================================
+    // MINI GAME 3: 🔮 THẦY PHÁN CÔNG SỞ LOGIC
+    // ==========================================
+    function isUnsafeOracleInput(q) {
+      const lower = q.toLowerCase();
+      const banned = ['đánh nhau', 'bạo lực', 'tự tử', 'chết', 'giết', 'lừa đảo', 'cờ bạc', 'cá độ'];
+      return banned.some(word => lower.includes(word));
+    }
+
+    function classifyOracleQuestion(q) {
+      const s = q.toLowerCase();
+      if (/(khách|chốt|đơn|báo giá|hợp đồng|sale|bán hàng|mua|seen|rep|tư vấn)/.test(s)) return 'sales';
+      if (/(kpi|doanh số|chỉ tiêu|target|số|vượt|bảng vàng)/.test(s)) return 'kpi';
+      if (/(sếp|họp|đồng nghiệp|drama|công ty|văn phòng|team|nhóm|leader)/.test(s)) return 'boss';
+      if (/(deadline|việc|báo cáo|email|task|gấp|trễ|kịp|dự án)/.test(s)) return 'deadline';
+      if (/(lương|thưởng|tiền|hoa hồng|tài khoản|ting ting|ví|giàu)/.test(s)) return 'salary';
+      if (/(trà sữa|ăn|ngủ|nghỉ|mệt|stress|cà phê|chữa lành|về sớm|du lịch)/.test(s)) return 'rest';
+      return 'general';
+    }
+
+    function buildOracleResult(questionText, categoryKey) {
+      const name = $('nickname').value.trim().slice(0, 32) || 'Tín chủ công sở';
+      const date = new Date().toLocaleString('vi-VN');
+
+      if (isUnsafeOracleInput(questionText)) {
+        return {
+          type: 'oracle',
+          emoji: '🔮',
+          title: 'THẦY PHÁN: TÂM BÌNH VẠN SỰ AN',
+          honorTitle: random(honorTitles.oracle),
+          who: name + ' hỏi: “' + escapeText(questionText, 180) + '”',
+          message: 'Thầy chỉ phán chuyện công sở vui vẻ, tích cực thôi nha! Hãy hít thở sâu và giữ tâm thế an lành!',
+          tip: 'Trò chuyện cùng người thân hoặc đồng nghiệp tin cậy khi bạn cần chia sẻ áp lực.',
+          date
+        };
+      }
+
+      const pool = oracleDatabase[categoryKey] || oracleDatabase.general;
+      const picked = random(pool);
+      return {
+        type: 'oracle',
+        emoji: '🔮',
+        title: 'LỜI PHÁN TỪ THẦY CÔNG SỞ 4.0',
+        honorTitle: random(honorTitles.oracle),
+        who: name + ' thỉnh giáo: “' + escapeText(questionText, 180) + '”',
+        message: picked[0],
+        tip: picked[1],
+        date
+      };
+    }
+
+    $('oracleRerollBtn').addEventListener('click', () => {
+      if (!lastOracleQuestion) return;
+      playMagicSound();
+      const rerolled = buildOracleResult(lastOracleQuestion, lastOracleCategory);
+      showResult(rerolled);
+      showToast('🎲 Thầy đã gieo lại một lời phán mới cho con!');
+    });
+
+    $('oracleSaveBtn').addEventListener('click', () => {
+      if (!current) return;
+      saveHistory([current, ...getHistory()]);
+      renderHistory();
+      showToast('💾 Đã lưu lời phán vào Sổ vía của bạn!');
+      if (soundEnabled) playWoodblock();
+    });
+
+    $('backToNavBtn').addEventListener('click', () => {
+      $('navGroups').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (soundEnabled) playWoodblock();
     });
 
     // ==========================================
@@ -2430,7 +3984,7 @@
     }
 
     // ==========================================
-    // RENDER RITUAL VIEW ACCORDING TO TAB
+    // RENDER RITUAL & MINI GAME VIEW ACCORDING TO TAB
     // ==========================================
     function render() {
       const config = {
@@ -2438,51 +3992,107 @@
           title: '🔥 Lò đốt phong long',
           desc: 'Khách bom đơn, KPI dí, báo giá im lặng? Gửi hết vào lò hóa vàng!',
           items: scenarios,
-          buttonText: '🔥 ĐỐT PHONG LONG NGAY'
+          buttonText: '🔥 ĐỐT PHONG LONG NGAY',
+          notice: '⚡ Nghi thức vui vẻ giúp giải tỏa áp lực, tăng 200% tinh thần chiến đấu!'
         },
         via: {
           title: '🧧 Điện xin vía tài lộc',
           desc: 'Chọn loại vía bạn muốn triệu hồi hôm nay để chốt đơn thần tốc!',
           items: vias,
-          buttonText: '🧧 TRIỆU HỒI VÍA MAY'
+          buttonText: '🧧 TRIỆU HỒI VÍA MAY',
+          notice: '⚡ Nghi thức vui vẻ giúp giải tỏa áp lực, tăng 200% tinh thần chiến đấu!'
         },
         fortune: {
           title: '🔮 Ống quẻ Sales thần kỳ',
           desc: 'Nghĩ về mục tiêu kinh doanh tuần này rồi rút một quẻ sấm truyền!',
           items: [],
-          buttonText: '🔮 LẮC QUẺ NGAY'
+          buttonText: '🔮 LẮC QUẺ NGAY',
+          notice: '⚡ Quẻ vui giải trí giúp định hướng hành động tích cực mỗi ngày!'
         },
         pray: {
           title: '🏯 Chùa Chốt Đơn – Cầu May Online',
           desc: 'Chọn một điều ước tốt lành, thành tâm dâng hoa sen và thắp nén hương cầu may!',
           items: prayers,
-          buttonText: '🏯 DÂNG HOA & THẮP HƯƠNG'
+          buttonText: '🏯 DÂNG HOA & THẮP HƯƠNG',
+          notice: '🌸 Nghi thức văn hóa vui vẻ mang lại sự thư thái và năng lượng tích cực!'
+        },
+        punch: {
+          title: '🥊 ĐẤM BAO CÁT – KHÔNG ĐẤM ĐỒNG NGHIỆP!',
+          desc: 'Chọn nguồn cơn áp lực rồi chạm liên tiếp vào bao cát (đủ 20 cú đấm) để xả sạch bực dọc!',
+          items: punchPressures,
+          buttonText: '🥊 TUNG CÚ ĐẤM XẢ NGHIỆP!',
+          notice: '🥊 Trò chơi hoạt hình giải tỏa căng thẳng – vui vẻ, lành mạnh, không bạo lực!'
+        },
+        tree: {
+          title: '🌳 CÂY ƯỚC NGUYỆN – TREO MUỘN PHIỀN, ĐÓN NIỀM VUI',
+          desc: 'Chọn một điều ước mẫu hoặc tự viết điều ước (tối đa 150 ký tự) để treo lên cành lộc!',
+          items: treeSampleWishes,
+          buttonText: '🌳 TREO ĐIỀU ƯỚC LÊN CÂY',
+          notice: '🌱 Điều ước được lưu riêng trên trình duyệt của bạn (tối đa 20 điều ước).'
+        },
+        oracle: {
+          title: '🔮 THẦY PHÁN CÔNG SỞ – PHÁN VUI CHỨ KHÔNG PHÁN BỪA!',
+          desc: 'Chọn câu hỏi gợi ý hoặc nhập thắc mắc công sở của bạn để Thầy bấm độn giải đáp!',
+          items: oracleSampleQuestions,
+          buttonText: '🔮 THẦY ƠI, PHÁN GIÚP CON!',
+          notice: '🎭 Lời phán hài hước giải trí, không tự động lưu câu hỏi cá nhân khi bạn chưa bấm Lưu.'
+        },
+        mo: {
+          title: '🔔 GÕ MÕ XẢ KPI – TỊNH TÂM CÔNG SỞ',
+          desc: 'Chạm nhịp nhàng vào mõ gỗ hoặc nút Gõ Mõ trên thanh đầu trang. Giữ lì 2 giây để bật chế độ Tịnh Tâm!',
+          items: [],
+          buttonText: '🔔 GÕ MÕ XẢ KPI NGAY (+1 TỊNH TÂM)',
+          notice: '🧘 Mốc combo đặc biệt tại 5 · 10 · 20 · 50 tiếng mõ!'
         }
       }[tab];
 
       $('ritualTitle').textContent = config.title;
       $('ritualDesc').textContent = config.desc;
       $('go').textContent = config.buttonText;
+      if ($('ritualNotice')) {
+        $('ritualNotice').textContent = config.notice;
+      }
 
-      // Stage visibility
+      // Stage visibility for all 8 modes
       $('burnStageContent').classList.toggle('hidden', tab !== 'burn');
       $('viaStageContent').classList.toggle('hidden', tab !== 'via');
       $('fortuneStageContent').classList.toggle('hidden', tab !== 'fortune');
       $('prayStageContent').classList.toggle('hidden', tab !== 'pray');
+      $('punchStageContent').classList.toggle('hidden', tab !== 'punch');
+      $('treeStageContent').classList.toggle('hidden', tab !== 'tree');
+      $('oracleStageContent').classList.toggle('hidden', tab !== 'oracle');
+      $('moStageContent').classList.toggle('hidden', tab !== 'mo');
 
-      // Options
+      // Saved tree wishes panel visibility
+      $('treeWishesPanel').classList.toggle('hidden', tab !== 'tree');
+
+      // Options rendering
       const optionsContainer = $('options');
       optionsContainer.replaceChildren();
-      optionsContainer.classList.toggle('hidden', tab === 'fortune');
+      const hasOptions = config.items && config.items.length > 0;
+      optionsContainer.classList.toggle('hidden', !hasOptions);
 
-      if (tab !== 'fortune') {
-        const prefixMap = { burn: '🔥 ', via: '✨ ', pray: '🌸 ' };
+      if (hasOptions) {
+        const prefixMap = {
+          burn: '🔥 ',
+          via: '✨ ',
+          pray: '🌸 ',
+          punch: '🥊 ',
+          tree: '🎋 ',
+          oracle: '💬 '
+        };
         config.items.forEach(opt => {
           const btn = document.createElement('button');
+          btn.type = 'button';
           btn.className = 'option' + (selected === opt ? ' selected' : '');
           btn.textContent = (prefixMap[tab] || '✨ ') + opt;
           btn.addEventListener('click', () => {
             selected = opt;
+            if (tab === 'tree') {
+              $('treeWishInput').value = opt;
+            } else if (tab === 'oracle') {
+              $('oracleQuestionInput').value = opt;
+            }
             if (soundEnabled) playWoodblock();
             render();
           });
@@ -2490,7 +4100,13 @@
         });
       }
 
-      // Update paper, letter, or temple wish tag text
+      // Custom input visibility per mode
+      $('customWrap').classList.toggle('hidden', !(tab === 'burn' && selected === 'Khác (tự nhập)'));
+      $('customPunchWrap').classList.toggle('hidden', !(tab === 'punch' && selected === 'Khác (tự nhập)'));
+      $('treeInputWrap').classList.toggle('hidden', tab !== 'tree');
+      $('oracleInputWrap').classList.toggle('hidden', tab !== 'oracle');
+
+      // Update stage dynamic labels
       if (tab === 'burn') {
         const text = selected === 'Khác (tự nhập)' ? ($('customBad').value.trim() || 'Vận xui tự nhập') : selected;
         $('paper').textContent = text;
@@ -2498,10 +4114,13 @@
         $('envelopeTitle').textContent = selected.toUpperCase();
       } else if (tab === 'pray') {
         $('templeWishTag').textContent = '🌸 Cầu: ' + selected;
+      } else if (tab === 'punch') {
+        updatePunchUI();
+      } else if (tab === 'tree') {
+        renderTreeWishes();
+      } else if (tab === 'mo') {
+        syncMeritUI();
       }
-
-      // Custom textarea wrap
-      $('customWrap').classList.toggle('hidden', !(tab === 'burn' && selected === 'Khác (tự nhập)'));
 
       // Tab button active states
       document.querySelectorAll('.tab').forEach(b => {
@@ -2516,16 +4135,46 @@
     // ==========================================
     function showResult(item) {
       current = item;
-      const isPray = item.type === 'pray' || item.emoji === '🏯';
+      const type = item.type || 'via';
+      const isPray = type === 'pray' || item.emoji === '🏯';
+      const isTree = type === 'tree' || item.emoji === '🌳';
+      const isOracle = type === 'oracle';
+      const isPunch = type === 'punch';
+
       $('resultEmoji').textContent = item.emoji;
-      $('resultBadge').textContent = isPray
-        ? 'CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0'
-        : 'XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN';
+
+      const badgeMap = {
+        pray: 'CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0',
+        tree: 'CÂY ƯỚC NGUYỆN · THẺ LỘC MAY MẮN 4.0',
+        oracle: 'THẦY PHÁN CÔNG SỞ · QUẺ VUI 4.0',
+        punch: 'ĐẤM BAO CÁT · CHỨNG NHẬN XẢ NGHIỆP',
+        mo: 'GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM'
+      };
+      $('resultBadge').textContent = badgeMap[type] || 'XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN';
       $('resultTitle').textContent = item.title;
+
+      // Humorous Honor Title Pill
+      const honor = item.honorTitle || (honorTitles[type] ? honorTitles[type][0] : 'Chiến Thần Chốt Đơn');
+      $('resultHonor').textContent = '🏅 Danh hiệu: ' + honor;
+      $('resultHonor').classList.remove('hidden');
+
       $('resultWho').textContent = item.who;
       $('resultMessage').textContent = item.message;
-      $('resultTip').textContent = (isPray ? '🌱 Lời động viên tích cực: ' : '✨ Lời khuyên hành động: ') + item.tip;
-      $('download').textContent = isPray ? '📸 Tải thiệp cầu may PNG' : '📸 Tải ảnh bùa HD';
+      $('resultTip').textContent = (isPray || isTree ? '🌱 Lời động viên tích cực: ' : '✨ Lời khuyên hành động: ') + item.tip;
+
+      const downloadLabels = {
+        pray: '📸 Tải thiệp cầu may PNG',
+        tree: '📸 Tải thiệp điều ước PNG',
+        oracle: '📸 Tải ảnh lời phán PNG',
+        punch: '📸 Tải chứng nhận xả nghiệp PNG'
+      };
+      $('download').textContent = downloadLabels[type] || '📸 Tải ảnh bùa HD';
+      $('again').textContent = isPunch ? '🔁 Đấm hiệp mới' : (isOracle ? '🔁 Hỏi câu khác' : '🔁 Làm tiếp');
+
+      // Oracle-specific buttons (Reroll & Opt-in Save)
+      $('oracleRerollBtn').classList.toggle('hidden', !isOracle);
+      $('oracleSaveBtn').classList.toggle('hidden', !isOracle);
+
       $('result').classList.add('show');
       $('result').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -2546,7 +4195,8 @@
           type: 'burn',
           emoji: '🔥',
           title: 'PHONG LONG ĐÃ TIÊU TAN',
-          who: name + ' đã hóa vàng: ' + escapeText(subject),
+          honorTitle: random(honorTitles.burn),
+          who: name + ' đã hóa vàng: ' + escapeText(subject, 140),
           message: random(burns),
           tip: 'Chọn một khách hàng tiềm năng và chủ động gọi điện tư vấn lại ngay.',
           date
@@ -2556,6 +4206,7 @@
           type: 'via',
           emoji: '🧧',
           title: 'LÁ BÙA ' + selected.toUpperCase(),
+          honorTitle: random(honorTitles.via),
           who: 'Trao gửi may mắn tới: ' + name,
           message: random(blessings),
           tip: 'Hôm nay gửi một lời tư vấn tận tâm và chu đáo nhất tới khách hàng.',
@@ -2567,33 +4218,87 @@
           type: 'fortune',
           emoji: '🔮',
           title: 'QUẺ ' + f[0],
+          honorTitle: random(honorTitles.fortune),
           who: 'Quẻ sấm truyền cho: ' + name,
           message: f[1],
           tip: f[2],
           date
         };
-      } else {
+      } else if (tab === 'pray') {
         const pool = prayerWishes[selected] || prayerWishes['Chốt deal'];
         const chosen = random(pool);
         res = {
           type: 'pray',
           emoji: '🏯',
           title: 'CẦU MAY: ' + selected.toUpperCase(),
+          honorTitle: random(honorTitles.pray),
           who: 'Tín chủ dâng hoa cầu may: ' + name,
           message: chosen[0],
           tip: chosen[1],
           date
         };
+      } else if (tab === 'tree') {
+        const wishText = escapeText($('treeWishInput').value || selected, 150);
+        if (!wishText) {
+          alert('Bạn hãy nhập điều ước hoặc chọn một mẫu điều ước trước nhé!');
+          $('treeWishInput').focus();
+          return null;
+        }
+        const chosenBlessing = random(treeBlessings);
+        const honor = random(honorTitles.tree);
+        const wishEntry = {
+          id: 'wish-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+          author: name,
+          text: wishText,
+          blessing: chosenBlessing[0],
+          tip: chosenBlessing[1],
+          honorTitle: honor,
+          date
+        };
+        const updatedWishes = [wishEntry, ...getTreeWishes()].slice(0, 20);
+        saveTreeWishes(updatedWishes);
+        renderTreeWishes();
+
+        res = {
+          type: 'tree',
+          emoji: '🌳',
+          title: 'THẺ ƯỚC NGUYỆN CÂY LỘC 4.0',
+          honorTitle: honor,
+          who: name + ' ước: “' + wishText + '”',
+          message: chosenBlessing[0],
+          tip: chosenBlessing[1],
+          date
+        };
+      } else if (tab === 'oracle') {
+        const qText = escapeText($('oracleQuestionInput').value || selected, 180);
+        if (!qText) {
+          alert('Con hãy nhập câu hỏi hoặc chọn một câu hỏi gợi ý trước khi thỉnh Thầy nhé!');
+          $('oracleQuestionInput').focus();
+          return null;
+        }
+        lastOracleQuestion = qText;
+        lastOracleCategory = classifyOracleQuestion(qText);
+        res = buildOracleResult(qText, lastOracleCategory);
       }
       return res;
     }
 
     // ==========================================
-    // RUN RITUAL ANIMATIONS & SOUNDS
+    // RUN RITUAL & MINI GAME ANIMATIONS
     // ==========================================
     function run() {
       if (busy) return;
       getAudioContext();
+
+      // Special interactive modes where #go triggers direct action
+      if (tab === 'punch') {
+        handlePunchHit();
+        return;
+      }
+      if (tab === 'mo') {
+        handleMoStrike($('woodenFishTarget'));
+        return;
+      }
 
       if (tab === 'burn' && selected === 'Khác (tự nhập)') {
         $('paper').textContent = $('customBad').value.trim() || 'Vận xui tự nhập';
@@ -2607,12 +4312,10 @@
       $('result').classList.remove('show');
 
       if (tab === 'burn') {
-        // Flame + paper disintegrate
         playGong();
         playFireSound();
         $('stage').classList.add('burning');
 
-        // Trigger sparks & ash on canvas
         const stageRect = $('stage').getBoundingClientRect();
         const interval = setInterval(() => {
           spawnFireSparks(stageRect.left + stageRect.width / 2, stageRect.top + stageRect.height / 2 + 30, 8);
@@ -2625,7 +4328,6 @@
         }, 2700);
 
       } else if (tab === 'via') {
-        // Red envelope opens in 3D
         playCoinSound();
         $('stage').classList.add('opening');
 
@@ -2635,7 +4337,6 @@
         }, 1200);
 
       } else if (tab === 'fortune') {
-        // Bamboo shaker rattles
         playRattleSound();
         $('stage').classList.add('shaking');
 
@@ -2645,8 +4346,7 @@
           finishRitual(res);
         }, 1300);
 
-      } else {
-        // Chùa Chốt Đơn: Offer lotus, light virtual incense, smoke rises, gentle bell chime
+      } else if (tab === 'pray') {
         playTempleBell();
         $('stage').classList.add('praying');
 
@@ -2664,16 +4364,44 @@
           $('stage').classList.remove('praying');
           finishRitual(res);
         }, 2100);
+
+      } else if (tab === 'tree') {
+        rustleTreeCanopy();
+        setTimeout(() => {
+          finishRitual(res);
+        }, 900);
+
+      } else if (tab === 'oracle') {
+        playMagicSound();
+        $('stage').classList.add('divining');
+        $('oracleFace').textContent = '😌';
+        $('oracleSpeech').textContent = '“Thầy đang soi quả cầu pha lê và bấm độn quẻ công sở cho con...”';
+
+        const ballRect = $('crystalBall').getBoundingClientRect();
+        const oracleSmoke = setInterval(() => {
+          spawnIncenseSmoke(ballRect.left + ballRect.width / 2, ballRect.top + ballRect.height / 2, 6);
+        }, 130);
+
+        setTimeout(() => {
+          clearInterval(oracleSmoke);
+          $('stage').classList.remove('divining');
+          $('oracleFace').textContent = '😄';
+          $('oracleSpeech').textContent = '“Quẻ đã ứng! Con xem lời phán bên dưới nha!”';
+          // Respect privacy: do NOT auto-save personal oracle questions unless user clicks Save
+          finishRitual(res, { skipHistorySave: true });
+        }, 2100);
       }
     }
 
-    function finishRitual(res) {
+    function finishRitual(res, opts = {}) {
       busy = false;
       $('go').disabled = false;
       showResult(res);
-      saveHistory([res, ...getHistory()]);
-      renderHistory();
-      spawnCoinRain(40);
+      if (!opts.skipHistorySave) {
+        saveHistory([res, ...getHistory()]);
+        renderHistory();
+      }
+      spawnCoinRain(36);
       if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
     }
 
@@ -2725,27 +4453,39 @@
       drawCorner(1010, 1280, -1, -1);
 
       // Header Brand
-      const isPray = res.type === 'pray' || res.emoji === '🏯';
+      const type = res.type || 'via';
+      const isPray = type === 'pray' || res.emoji === '🏯';
+      const isTree = type === 'tree' || res.emoji === '🌳';
+      const isOracle = type === 'oracle';
+      const isPunch = type === 'punch';
+
       ctx.textAlign = 'center';
       ctx.fillStyle = '#ffd700';
-      ctx.font = 'bold 30px system-ui';
-      ctx.letterSpacing = '4px';
+      ctx.font = 'bold 28px system-ui';
+      ctx.letterSpacing = '3px';
+      const topHeaderMap = {
+        pray: '✦ CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0 ✦',
+        tree: '✦ CÂY ƯỚC NGUYỆN · THẺ LỘC MAY MẮN 4.0 ✦',
+        oracle: '✦ THẦY PHÁN CÔNG SỞ · QUẺ VUI 4.0 ✦',
+        punch: '✦ ĐẤM BAO CÁT · CHỨNG NHẬN XẢ NGHIỆP ✦',
+        mo: '✦ GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM ✦'
+      };
       ctx.fillText(
-        isPray ? '✦ CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0 ✦' : '✦ HỘI CHỐT ĐƠN · CHỨNG NHẬN TÂM LINH ✦',
+        topHeaderMap[type] || '✦ HỘI CHỐT ĐƠN · CHỨNG NHẬN TÂM LINH ✦',
         540,
-        150
+        140
       );
 
       ctx.fillStyle = '#ffe2a1';
-      ctx.font = '900 78px system-ui';
-      ctx.fillText(isPray ? 'CHÙA CHỐT ĐƠN' : 'XIN VÍA 4.0', 540, 240);
+      ctx.font = '900 72px system-ui';
+      ctx.fillText(isPray ? 'CHÙA CHỐT ĐƠN' : (isTree ? 'CÂY ƯỚC NGUYỆN' : 'XIN VÍA 4.0'), 540, 225);
 
       // Big Emoji Symbol
-      ctx.font = '130px system-ui';
-      ctx.fillText(res.emoji, 540, 410);
+      ctx.font = '115px system-ui';
+      ctx.fillText(res.emoji, 540, 365);
 
       // Text Wrapper
-      function wrapText(text, startY, fontSize, color, maxWidth, lineHeight, isBold = true) {
+      function wrapText(text, startY, fontSize, color, maxWidth, lineHeight, isBold = true, maxLines = 5) {
         ctx.fillStyle = color;
         ctx.font = (isBold ? 'bold ' : '') + fontSize + 'px system-ui';
         const words = String(text).split(/\s+/);
@@ -2763,41 +4503,48 @@
         }
         if (line) lines.push(line);
 
-        lines.slice(0, 6).forEach((l, i) => {
+        lines.slice(0, maxLines).forEach((l, i) => {
           ctx.fillText(l, 540, startY + i * lineHeight);
         });
 
-        return startY + Math.min(lines.length, 6) * lineHeight;
+        return startY + Math.min(lines.length, maxLines) * lineHeight;
       }
 
-      // Title & Recipient
-      let y = wrapText(res.title, 500, 48, '#ffd700', 880, 62, true);
-      y = wrapText(res.who, y + 40, 32, '#f8d2c2', 880, 46, false);
+      // Title
+      let y = wrapText(res.title, 445, 44, '#ffd700', 880, 56, true, 2);
+
+      // Honor Title Badge
+      const honor = res.honorTitle || (honorTitles[type] ? honorTitles[type][0] : 'Chiến Thần Chốt Đơn');
+      y = wrapText('🏅 DANH HIỆU: ' + honor.toUpperCase(), y + 15, 29, '#ffea9f', 880, 42, true, 2);
+
+      // Recipient / Question / Wish
+      y = wrapText(res.who, y + 20, 30, '#f8d2c2', 880, 44, false, 3);
 
       // Main Quote in decorative box
-      const quoteBoxY = y + 30;
+      const quoteBoxY = Math.max(y + 20, 680);
       ctx.fillStyle = 'rgba(255, 248, 235, 0.94)';
-      ctx.fillRect(80, quoteBoxY, 920, 200);
+      ctx.fillRect(80, quoteBoxY, 920, 215);
       ctx.strokeStyle = '#c48924';
       ctx.lineWidth = 4;
-      ctx.strokeRect(80, quoteBoxY, 920, 200);
+      ctx.strokeRect(80, quoteBoxY, 920, 215);
 
-      wrapText('“' + res.message + '”', quoteBoxY + 65, 38, '#59161e', 840, 52, true);
+      wrapText('“' + res.message + '”', quoteBoxY + 62, 35, '#59161e', 840, 48, true, 3);
 
       // Action Tip
       wrapText(
-        (isPray ? '🌱 LỜI ĐỘNG VIÊN: ' : '✨ LỜI KHUYÊN: ') + res.tip,
-        quoteBoxY + 260,
-        28,
+        (isPray || isTree ? '🌱 LỜI ĐỘNG VIÊN: ' : '✨ LỜI KHUYÊN: ') + res.tip,
+        quoteBoxY + 265,
+        27,
         '#ffea9f',
         860,
-        42,
-        true
+        40,
+        true,
+        3
       );
 
       // Official Red Seal (Con Dấu Đỏ: XIN VÍA 4.0 - CHỐT DEAL)
       ctx.save();
-      ctx.translate(870, 1140);
+      ctx.translate(870, 1145);
       ctx.rotate(-0.15);
       ctx.strokeStyle = '#d90429';
       ctx.lineWidth = 5;
@@ -2819,13 +4566,19 @@
 
     function download() {
       if (!current) return;
-      const isPray = current.type === 'pray' || current.emoji === '🏯';
+      const type = current.type || 'via';
       const canvas = imageCanvas(current);
       const link = document.createElement('a');
-      link.download = (isPray ? 'thiep-cau-may-4.0-' : 'xin-via-4.0-') + Date.now() + '.png';
+      const prefixMap = {
+        pray: 'thiep-cau-may-4.0-',
+        tree: 'thiep-uoc-nguyen-4.0-',
+        oracle: 'thay-phan-cong-so-4.0-',
+        punch: 'chung-nhan-xa-nghiep-4.0-'
+      };
+      link.download = (prefixMap[type] || 'xin-via-4.0-') + Date.now() + '.png';
       link.href = canvas.toDataURL('image/png');
       link.click();
-      showToast(isPray ? '📸 Đã tải thiệp cầu may PNG về máy!' : '📸 Đã tải ảnh bùa Full HD về máy!');
+      showToast('📸 Đã tải ảnh chứng nhận PNG Full HD về máy!');
       if (soundEnabled) playWoodblock();
     }
 
@@ -2834,8 +4587,10 @@
     // ==========================================
     function getShareText() {
       if (!current) return '';
+      const honor = current.honorTitle ? ('🏅 Danh hiệu: ' + current.honorTitle + '\n') : '';
       return '🧧 XIN VÍA 4.0 – HỘI CHỐT ĐƠN\n' +
         current.title + '\n' +
+        honor +
         current.who + '\n' +
         '“' + current.message + '”\n' +
         '✨ ' + current.tip + '\n' +
@@ -2871,9 +4626,7 @@
     function shareToZalo() {
       if (!current) return;
       const url = encodeURIComponent(window.location.href);
-      // Zalo Web share link
       window.open('https://zalo.me/share?url=' + url, '_blank');
-      // Also copy text to clipboard so user can paste the funny quote
       try {
         navigator.clipboard.writeText(getShareText());
         showToast('💬 Đã mở Zalo & sao chép nội dung bùa!');
@@ -2899,7 +4652,18 @@
         tab = btn.dataset.tab;
         if (tab === 'via') selected = vias[0];
         else if (tab === 'pray') selected = prayers[0];
-        else selected = scenarios[0];
+        else if (tab === 'punch') {
+          selected = punchPressures[0];
+          resetPunchGame();
+        } else if (tab === 'tree') {
+          selected = treeSampleWishes[0];
+          if (!$('treeWishInput').value) $('treeWishInput').value = selected;
+        } else if (tab === 'oracle') {
+          selected = oracleSampleQuestions[0];
+          if (!$('oracleQuestionInput').value) $('oracleQuestionInput').value = selected;
+        } else {
+          selected = scenarios[0];
+        }
         $('result').classList.remove('show');
         if (soundEnabled) playWoodblock();
         render();
@@ -2910,6 +4674,9 @@
 
     $('again').addEventListener('click', () => {
       $('result').classList.remove('show');
+      if (tab === 'punch') {
+        resetPunchGame();
+      }
       $('ritual').scrollIntoView({ behavior: 'smooth' });
       if (soundEnabled) playWoodblock();
     });
@@ -2936,6 +4703,13 @@
       } catch (err) {}
     });
 
+    // Merit count (Gõ Mõ) persistence
+    const savedMerit = Number(localStorage.getItem('xinvia-merit-count') || '0');
+    if (!Number.isNaN(savedMerit) && savedMerit >= 0) {
+      meritCount = savedMerit;
+      syncMeritUI();
+    }
+
     // Sound preference persistence
     const savedSound = localStorage.getItem('xinvia-sound-enabled');
     soundEnabled = savedSound === '1'; // Default: false (OFF) as requested
@@ -2944,6 +4718,7 @@
     // Initial render
     render();
     renderHistory();
+    renderTreeWishes();
   })();
   </script>
 </body>
