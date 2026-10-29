@@ -1906,6 +1906,345 @@
       box-shadow: 0 4px 12px rgba(139, 29, 44, 0.3);
     }
 
+    /* ==========================================
+       10-SECOND QUICK STRESS RELIEF BANNER
+       ========================================== */
+    .quick-play-banner {
+      margin-top: 14px;
+      background: linear-gradient(135deg, #7a1624 0%, #48101c 60%, #2d0b13 100%);
+      border: 2px solid var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.38), 0 0 18px rgba(255, 209, 102, 0.18);
+    }
+
+    .quick-play-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .quick-play-title {
+      font-size: 14.5px;
+      font-weight: 900;
+      color: var(--gold-light);
+      letter-spacing: 0.3px;
+    }
+
+    .quick-play-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .quick-play-btn {
+      background: linear-gradient(135deg, #ffd166, #f4a236);
+      color: #4a1219;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 4px 0 #944e0b, 0 6px 14px rgba(244, 162, 54, 0.35);
+      transition: transform 0.15s ease, filter 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .quick-play-btn:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .quick-play-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #944e0b;
+    }
+
+    /* ==========================================
+       FEATURE 1: 🎯 BINGO CÔNG SỞ (3x3 GRID)
+       ========================================== */
+    .bingo-wrap {
+      width: 100%;
+      max-width: 440px;
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      z-index: 5;
+    }
+
+    .bingo-hud {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .bingo-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      background: linear-gradient(145deg, #5e111b, #360910);
+      padding: 10px;
+      border-radius: 16px;
+      border: 2.5px solid var(--gold-primary);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45), inset 0 0 15px rgba(255, 209, 102, 0.15);
+    }
+
+    .bingo-cell {
+      aspect-ratio: 1 / 0.92;
+      min-height: 78px;
+      background: linear-gradient(165deg, #fff9ec 0%, #f8e2b8 100%);
+      color: #4a1219;
+      border: 2px solid #c48924;
+      border-radius: 12px;
+      padding: 6px 5px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.25;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.16s cubic-bezier(0.2, 0.9, 0.3, 1.4), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .bingo-cell:hover {
+      transform: translateY(-2px);
+      border-color: #8b1d2c;
+    }
+
+    .bingo-cell:active {
+      transform: scale(0.93);
+    }
+
+    .bingo-cell.marked {
+      background: linear-gradient(145deg, #b81d2f, #7a111e);
+      color: #fff8eb;
+      border-color: #ffd166;
+      box-shadow: inset 0 0 12px rgba(255, 209, 102, 0.35), 0 4px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .bingo-cell.win-cell {
+      background: linear-gradient(145deg, #ffd166, #e09119);
+      color: #4a1017;
+      border-color: #ffffff;
+      box-shadow: 0 0 18px rgba(255, 209, 102, 0.85);
+      animation: bingoWinPulse 0.55s ease-in-out 3;
+    }
+
+    @keyframes bingoWinPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .bingo-stamp {
+      position: absolute;
+      top: 3px;
+      right: 4px;
+      font-size: 13px;
+      line-height: 1;
+      opacity: 0;
+      transform: scale(0.3) rotate(-20deg);
+      transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.5);
+    }
+
+    .bingo-cell.marked .bingo-stamp {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .bingo-status-bar {
+      background: rgba(255, 248, 230, 0.95);
+      color: #4a1219;
+      border: 2px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 7px 12px;
+      font-size: 12.5px;
+      font-weight: 800;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* ==========================================
+       FEATURE 2: 🏆 MÁY PHÁT CHỨNG CHỈ CÔNG SỞ
+       ========================================== */
+    .printer-wrap {
+      width: 100%;
+      max-width: 420px;
+      min-height: 245px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      user-select: none;
+      z-index: 5;
+    }
+
+    .printer-machine {
+      width: 250px;
+      height: 110px;
+      background: linear-gradient(180deg, #b82537 0%, #7d1522 65%, #4f0c15 100%);
+      border: 3px solid var(--gold-primary);
+      border-radius: 22px 22px 14px 14px;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5), inset 0 3px 10px rgba(255, 255, 255, 0.22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px 12px;
+      position: relative;
+      z-index: 6;
+      transition: transform 0.2s ease;
+    }
+
+    .printer-top-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .printer-leds {
+      display: flex;
+      gap: 6px;
+    }
+
+    .printer-led {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffd166;
+      box-shadow: 0 0 6px #ffd166;
+    }
+
+    .printer-led.green {
+      background: #38b000;
+      box-shadow: 0 0 6px #38b000;
+    }
+
+    .printer-screen {
+      background: #1f0a10;
+      border: 1.5px solid var(--gold-primary);
+      border-radius: 8px;
+      padding: 4px 10px;
+      color: #ffd166;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .printer-slot {
+      width: 196px;
+      height: 10px;
+      background: #16060a;
+      border: 1.5px solid #c48924;
+      border-radius: 999px;
+    }
+
+    .printer-paper-tray {
+      width: 182px;
+      min-height: 108px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-top: -6px;
+      z-index: 4;
+      overflow: hidden;
+    }
+
+    .printer-paper {
+      width: 172px;
+      background: linear-gradient(180deg, #fffdf7 0%, #f9e7c2 100%);
+      border: 2px solid #b97f2c;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 8px;
+      color: #59161e;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+      transform: translateY(-78%);
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .printer-paper-stamp {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 2px 6px;
+      border: 1.5px solid #d90429;
+      color: #d90429;
+      font-size: 9px;
+      font-weight: 900;
+      border-radius: 4px;
+      transform: rotate(-4deg);
+    }
+
+    .printing .printer-machine {
+      animation: printerVibrate 0.14s ease-in-out infinite alternate;
+      box-shadow: 0 0 28px rgba(255, 209, 102, 0.55);
+    }
+
+    .printing .printer-led {
+      background: #ffbe0b;
+      box-shadow: 0 0 14px #ffbe0b, 0 0 24px #ff5400;
+    }
+
+    .printing .printer-paper,
+    .printed .printer-paper {
+      transform: translateY(0%);
+    }
+
+    @keyframes printerVibrate {
+      0% { transform: translate(-1.5px, 0) rotate(-0.6deg); }
+      100% { transform: translate(1.5px, -1px) rotate(0.6deg); }
+    }
+
+    /* ==========================================
+       FEATURE 3: 🧧 GỬI VÍA ĐỒNG NGHIỆP
+       ========================================== */
+    .colleague-wrap {
+      width: 100%;
+      max-width: 420px;
+      min-height: 235px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 5;
+      user-select: none;
+    }
+
+    /* Share Invitation Callout inside Result Card */
+    .share-invite-banner {
+      margin-top: 12px;
+      padding: 8px 12px;
+      background: rgba(139, 29, 44, 0.1);
+      border: 1px dashed #8f1b2b;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #7a1624;
+    }
+
     /* Buttons */
     .primary {
       width: 100%;
@@ -2215,9 +2554,31 @@
         gap: 8px;
       }
       .tabs,
-      .tabs.stress-tabs {
+      .tabs.stress-tabs,
+      .tabs.social-tabs {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
+      }
+      .quick-play-banner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 12px;
+      }
+      .quick-play-btn {
+        width: 100%;
+      }
+      .bingo-grid {
+        gap: 6px;
+        padding: 7px;
+      }
+      .bingo-cell {
+        min-height: 68px;
+        font-size: 11px;
+        padding: 4px 3px;
+      }
+      .printer-machine {
+        width: 226px;
       }
       .nav-group {
         padding: 10px;
@@ -2329,6 +2690,15 @@
       </div>
     </section>
 
+    <!-- 10-Second Quick Stress Relief Card -->
+    <section class="quick-play-banner" id="quickPlayBanner" aria-label="Chế độ chơi nhanh">
+      <div class="quick-play-info">
+        <div class="quick-play-title">⚡ ĐANG STRESS? XẢ NGHIỆP 10 GIÂY!</div>
+        <div class="quick-play-sub">Bấm phát chơi liền thử thách siêu ngắn – Nhận ngay chứng nhận &amp; lời chúc vui nhộn!</div>
+      </div>
+      <button type="button" class="quick-play-btn" id="quickPlayBtn">⚡ XẢ NGHIỆP NGAY</button>
+    </section>
+
     <!-- Nickname Identity Section -->
     <section class="panel identity">
       <div class="identity-row">
@@ -2344,7 +2714,7 @@
       </div>
     </section>
 
-    <!-- Navigation Groups: Nhóm 1 (Xin Vía & Cầu May) & Nhóm 2 (Góc Xả Stress) -->
+    <!-- Navigation Groups: 3 Groups (Xin Vía & Cầu May | Góc Xả Stress | Vui Cùng Đồng Nghiệp) -->
     <div class="nav-groups" id="navGroups" role="navigation" aria-label="Chọn nghi thức hoặc mini game">
       <div class="nav-group">
         <div class="nav-group-header">
@@ -2362,11 +2732,9 @@
             <span class="tab-icon">🔮</span>Gieo quẻ
           </button>
           <button type="button" class="tab" data-tab="pray" id="tabPray">
-            <small class="tab-tag new">NEW ✨</small>
             <span class="tab-icon">🏯</span>Chùa Chốt Đơn
           </button>
           <button type="button" class="tab" data-tab="tree" id="tabTree">
-            <small class="tab-tag new">NEW ✨</small>
             <span class="tab-icon">🌳</span>Cây Ước Nguyện
           </button>
         </div>
@@ -2389,6 +2757,27 @@
           <button type="button" class="tab" data-tab="mo" id="tabMo">
             <small class="tab-tag hot">HOT 🔥</small>
             <span class="tab-icon">🔔</span>Gõ Mõ Xả KPI
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-header">
+          <span>🎉 NHÓM 3 – VUI CÙNG ĐỒNG NGHIỆP</span>
+          <span class="nav-group-sub">Cà khịa có duyên · Chia sẻ cực vui</span>
+        </div>
+        <div class="tabs stress-tabs social-tabs">
+          <button type="button" class="tab" data-tab="bingo" id="tabBingo">
+            <small class="tab-tag new">NEW ✨</small>
+            <span class="tab-icon">🎯</span>Bingo Công Sở
+          </button>
+          <button type="button" class="tab" data-tab="cert" id="tabCert">
+            <small class="tab-tag new">NEW ✨</small>
+            <span class="tab-icon">🏆</span>Máy Phát Chứng Chỉ
+          </button>
+          <button type="button" class="tab" data-tab="colleague" id="tabColleague">
+            <small class="tab-tag new">NEW ✨</small>
+            <span class="tab-icon">🧧</span>Gửi Vía Đồng Nghiệp
           </button>
         </div>
       </div>
@@ -2426,6 +2815,12 @@
       <div id="oracleInputWrap" class="hidden" style="margin-top: 10px;">
         <label for="oracleQuestionInput" class="muted">Nhập câu hỏi công sở muốn thỉnh Thầy (tối đa 180 ký tự) hoặc chọn gợi ý bên trên:</label>
         <textarea id="oracleQuestionInput" class="field" rows="2" maxlength="180" placeholder="VD: Khách bảo để anh xem lại là có chốt không Thầy?"></textarea>
+      </div>
+
+      <!-- Optional Recipient Input for Feature 3: Gửi Vía Đồng Nghiệp -->
+      <div id="colleagueInputWrap" class="hidden" style="margin-top: 10px;">
+        <label for="colleagueNameInput" class="muted">Nhập biệt danh người nhận (không bắt buộc, tối đa 40 ký tự):</label>
+        <input id="colleagueNameInput" class="field" maxlength="40" placeholder="VD: Hội chị em kế toán, Chiến thần bàn bên...">
       </div>
 
       <!-- Stage for Visual Animations -->
@@ -2623,6 +3018,61 @@
             <button type="button" class="back-nav-btn" id="moResetBtn">🔄 Đặt lại bộ đếm</button>
           </div>
         </div>
+
+        <!-- FEATURE 1: 🎯 BINGO CÔNG SỞ Stage -->
+        <div id="bingoStageContent" class="bingo-wrap hidden">
+          <div class="bingo-hud">
+            <span class="punch-counter-badge" id="bingoCounterBadge">🎯 Đã dính: 0 / 9 ô</span>
+            <div style="display:flex;gap:6px;">
+              <button type="button" class="back-nav-btn" id="bingoResetMarksBtn" title="Bỏ đánh dấu để chơi lại bảng này">🔁 Chơi lại</button>
+              <button type="button" class="back-nav-btn" id="bingoNewBoardBtn" title="Tạo bảng 9 tình huống ngẫu nhiên mới">🎲 Đổi bảng Bingo</button>
+            </div>
+          </div>
+
+          <div class="bingo-grid" id="bingoGrid" role="grid" aria-label="Bảng Bingo Công Sở 3x3"></div>
+
+          <div class="bingo-status-bar" id="bingoStatusBar">
+            👉 Chạm vào các tình huống bạn gặp hôm nay! Đủ 3 ô thẳng hàng/cột/chéo là BINGO!
+          </div>
+        </div>
+
+        <!-- FEATURE 2: 🏆 MÁY PHÁT CHỨNG CHỈ CÔNG SỞ Stage -->
+        <div id="certStageContent" class="printer-wrap hidden">
+          <div class="printer-machine" id="printerMachine">
+            <div class="printer-top-row">
+              <div class="printer-leds">
+                <span class="printer-led"></span>
+                <span class="printer-led green"></span>
+              </div>
+              <span style="font-size:10px;font-weight:900;color:#ffd166;">MÁY IN GIẢI NGHIỆP 4.0</span>
+            </div>
+            <div class="printer-screen" id="printerScreenText">🖨️ SẴN SÀNG IN CHỨNG CHỈ...</div>
+            <div class="printer-slot"></div>
+          </div>
+          <div class="printer-paper-tray">
+            <div class="printer-paper" id="certPaperOut">
+              <div style="font-size:9px;font-weight:900;color:#8f1b2b;">GIẤY CHỨNG NHẬN GIẢI NGHIỆP</div>
+              <div style="font-size:12px;font-weight:900;margin-top:3px;" id="certPaperTitle">CHIẾN THẦN CHỊU ĐỰNG</div>
+              <div class="printer-paper-stamp">ĐÃ QUA KIỂM ĐỊNH ĐỘ LÌ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEATURE 3: 🧧 GỬI VÍA ĐỒNG NGHIỆP Stage -->
+        <div id="colleagueStageContent" class="colleague-wrap hidden">
+          <div class="envelope-wrap" style="display:flex;">
+            <div class="envelope-light"></div>
+            <div class="red-envelope" id="colleagueEnvelope">
+              <div class="envelope-flap"></div>
+              <div class="envelope-letter" id="colleagueLetter">
+                <span style="font-size: 24px;">🧧</span>
+                <span id="colleagueLetterTitle" style="font-size:12px;">VÍA CHỐT DEAL</span>
+                <span id="colleagueLetterTo" style="font-size: 10px; color: #a02834; margin-top: 3px;">Gửi đồng nghiệp thân yêu</span>
+              </div>
+              <div class="envelope-seal">福</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <button type="button" class="primary" id="go">🔥 ĐỐT PHONG LONG NGAY</button>
@@ -2648,14 +3098,17 @@
       <p class="result-who" id="resultWho"></p>
       <p class="quote" id="resultMessage"></p>
       <p class="tip" id="resultTip"></p>
+      <div class="share-invite-banner" id="shareInviteText">💬 Gửi cho đồng nghiệp cùng cảnh ngộ!</div>
 
       <div class="actions">
-        <button type="button" class="secondary" id="again">🔁 Làm tiếp</button>
+        <button type="button" class="secondary" id="again">🔁 Chơi tiếp</button>
         <button type="button" class="secondary hidden" id="oracleRerollBtn">🎲 Đổi lời phán</button>
         <button type="button" class="secondary hidden" id="oracleSaveBtn">💾 Lưu vào sổ vía</button>
-        <button type="button" class="secondary" id="download">📸 Tải ảnh bùa HD</button>
+        <button type="button" class="secondary" id="download">📸 Lưu ảnh PNG</button>
+        <button type="button" class="secondary" id="copyTextBtn">📋 Sao chép lời chúc</button>
         <button type="button" class="secondary" id="share">📤 Chia sẻ</button>
-        <button type="button" class="secondary" id="zaloShare">💬 Gửi qua Zalo</button>
+        <button type="button" class="secondary" id="zaloShare">💬 Mở Zalo &amp; Dán</button>
+        <button type="button" class="secondary" id="sendColleagueQuickBtn">🧧 Gửi cho đồng nghiệp</button>
       </div>
     </section>
 
@@ -2827,8 +3280,238 @@
       punch: ['Cao Thủ Xả Nghiệp', 'Quyền Vương Né Deadline', 'Võ Sư Đấm Bay Áp Lực', 'Kẻ Hủy Diệt Cơn Quạu Công Sở'],
       tree: ['Người Gieo Mầm May Mắn', 'Nghệ Nhân Treo Lộc Đầu Cành', 'Đại Sứ Ước Nguyện Tích Cực'],
       oracle: ['Thánh Hỏi Thầy Công Sở', 'Nhà Thám Hiểm Tâm Linh Văn Phòng', 'Tri Kỷ Của Thầy Phán 4.0'],
-      mo: ['Tâm Bất Biến Giữa Dòng KPI', 'Đại Sư Gõ Mõ Tịnh Tâm', 'Bậc Thầy Né Drama Công Sở']
+      mo: ['Tâm Bất Biến Giữa Dòng KPI', 'Đại Sư Gõ Mõ Tịnh Tâm', 'Bậc Thầy Né Drama Công Sở'],
+      bingo: [
+        'CHIẾN THẦN SỐNG SÓT QUA NGÀY LÀM VIỆC!',
+        'ĐẠI SỨ CHỐNG CHỊU DEADLINE!',
+        'THÁNH NHẪN NHỊN CÔNG SỞ!',
+        'HUYỀN THOẠI VƯỢT BÃO VĂN PHÒNG!',
+        'BẬC THẦY SINH TỒN GIỮA 7749 CUỘC HỌP!'
+      ],
+      cert: [
+        'Chứng nhận Tâm Bất Biến Giữa Dòng KPI',
+        'Huân chương Sống Sót Qua 7749 Cuộc Họp',
+        'Bằng Khen Không Quạu Giữa Giờ Làm',
+        'Danh hiệu Chiến Thần Chờ Lương',
+        'Chứng chỉ Giữ Bình Tĩnh Trước Khách Khó',
+        'Huy chương Đọc Email Mà Không Thở Dài',
+        'Danh hiệu Người Giữ Hòa Khí Phòng Ban'
+      ],
+      colleague: [
+        'Đại Sứ Lan Tỏa Vía Lành',
+        'Người Đồng Nghiệp Vàng Mười',
+        'Chiến Thần Tiếp Sức Đồng Đội',
+        'Quý Nhân Của Cả Phòng Ban'
+      ]
     };
+
+    // ==========================================
+    // OFFICE VIRAL EDITION DATA (BINGO, CERT, COLLEAGUE)
+    // ==========================================
+    // FEATURE 1: 🎯 BINGO CÔNG SỞ (45 Funny Office Situations >= 40 required)
+    const bingoSituations = [
+      'Khách seen không rep',
+      'Báo giá xong im lặng',
+      'Họp nhanh 5 phút nhưng kéo dài 1 tiếng',
+      'Deadline tới sát nút',
+      'Uống cà phê để tỉnh nhưng vẫn buồn ngủ',
+      'Mở bảng tính ra rồi nhìn 10 phút',
+      'Được giao việc lúc 16:55',
+      'Nói câu "để em kiểm tra lại"',
+      'Mong tới giờ ăn trưa từ 9h sáng',
+      'Nhận tin nhắn "Em ơi cho anh hỏi chút"',
+      'Định làm việc nghiêm túc thì có việc phát sinh',
+      'Tự nhủ hôm nay về sớm nhưng chưa chắc',
+      'Khách bảo "Để anh bàn thêm với sếp"',
+      'Sếp hỏi "Việc hôm qua tới đâu rồi em?"',
+      'Mở email ra thấy CC cả công ty',
+      'Ngồi nghĩ trưa nay ăn gì mất 30 phút',
+      'Đeo tai nghe nhưng không bật nhạc để né drama',
+      'Gõ bàn phím thật kêu cho giống đang bận',
+      'Vừa định đứng dậy về thì có tin nhắn mới',
+      'Uống trà sữa giải sầu cùng đồng nghiệp',
+      'Quên đính kèm file khi bấm gửi email',
+      'Nói "Dạ vâng ạ" nhưng trong lòng dậy sóng',
+      'Tìm file tên "Final_v3_chot_cuoi_cung"',
+      'Khách hẹn chiều chuyển khoản nhưng chưa nói chiều nào',
+      'Mạng văn phòng quay đều đúng lúc cần gấp',
+      'Ngáp 3 cái liên tiếp trước màn hình máy tính',
+      'Nhìn đồng hồ tưởng 5h chiều hóa ra mới 2h15',
+      'Đồng nghiệp rủ đặt đồ ăn xế lúc 15h30',
+      'Họp online quên tắt mic hoặc quên bật mic',
+      'Bấm lưu file liên tục vì sợ mất dữ liệu',
+      'Cười lịch sự với câu đùa của sếp',
+      'Viết xong tin nhắn dài rồi lại xóa đi viết ngắn lại',
+      'Nhận cuộc gọi lúc vừa bưng bát cơm lên',
+      'Tự thưởng cái kẹo vì vừa xử lý xong 1 ca khó',
+      'Đếm ngược từng ngày tới kỳ nhận lương',
+      'Mở 25 tab trình duyệt cùng lúc không dám tắt',
+      'Khách khen tư vấn nhiệt tình rồi hẹn tháng sau mua',
+      'Thở phào nhẹ nhõm vì cuộc họp chiều được dời lịch',
+      'Nhìn bảng KPI mà muốn bật chế độ Tịnh Tâm',
+      'Gật đầu lia lịa trong phòng họp cho đúng nhịp',
+      'Chúc đồng nghiệp chốt đơn để ké trà sữa',
+      'Đầu tuần hứa ngủ sớm, tối vẫn thức lướt điện thoại',
+      'Vươn vai kêu răng rắc sau 2 tiếng ngồi im',
+      'Nhận task "Gấp lắm em ơi" lần thứ 3 trong ngày',
+      'Giữ khuôn mặt bình thản trước mọi biến cố công sở'
+    ];
+
+    const bingoWinQuotes = [
+      'BINGO! Bạn chính thức đạt cảnh giới thượng thừa nơi công sở hôm nay! Mọi thử thách đều chỉ là muỗi!',
+      'BINGO 3 Ô THẲNG HÀNG! Đủ combo công sở kinh điển rồi, chúc bạn chiều nay lộc về bù đắp gấp đôi!',
+      'BINGO RỰC RỠ! Trải qua ngần ấy tình huống mà vẫn mỉm cười thì đích thị là Chiến Thần Sống Sót!',
+      'BINGO! Vũ trụ xác nhận hôm nay bạn đã cống hiến hết mình, xứng đáng nhận một tràng pháo tay và trà sữa full topping!'
+    ];
+
+    // FEATURE 2: 🏆 MÁY PHÁT CHỨNG CHỈ CÔNG SỞ (8 Statuses & 56 Humorous Titles >= 50 required)
+    const certStatuses = [
+      'Bị deadline dí',
+      'Khách hàng thử thách lòng kiên nhẫn',
+      'Họp nhiều hơn làm',
+      'Chạy KPI xuyên màn đêm',
+      'Chưa đến ngày lương',
+      'Một ngày không drama',
+      'Đang cố gắng giữ bình tĩnh',
+      'Muốn nghỉ phép nhưng còn việc'
+    ];
+
+    const certDatabase = {
+      'Bị deadline dí': [
+        ['ĐẠI SỨ CHỐNG CHỊU DEADLINE', 'Đã xuất sắc hoàn thành nhiệm vụ dù thời gian đếm ngược từng phút như phim hành động!'],
+        ['KIỆN TƯỚNG BỨT TỐC PHÚT 89', 'Chứng nhận bàn tay lướt phím nhanh hơn tốc độ ánh sáng khi giờ G điểm tên!'],
+        ['BẬC THẦY THUẦN HÓA VIỆC GẤP', 'Mọi task phát sinh lúc 16:55 đều phải cúi đầu trước sự điềm tĩnh của bạn!'],
+        ['HUÂN CHƯƠNG VƯỢT BÃO TIMELINE', 'Dù ba bề bốn bên là việc gấp, nụ cười công sở vẫn không hề phai nhạt!'],
+        ['CHIẾN THẦN XỬ LÝ FILE FINAL_V9', 'Đã kiên cường vượt qua 9 lần chỉnh sửa mà vẫn giữ nguyên phong độ chuyên nghiệp!'],
+        ['NGƯỜI HÙNG ĐỘI DEADLINE ĐI LÀM', 'Chứng nhận tinh thần thép: Việc có thể nhiều nhưng tuyệt đối không đầu hàng!'],
+        ['CAO THỦ CHIA NHỎ VIỆC TO', 'Biến núi công việc khổng lồ thành từng bước gọn gàng, xứng danh tấm gương sáng!']
+      ],
+      'Khách hàng thử thách lòng kiên nhẫn': [
+        ['CHỨNG CHỈ GIỮ BÌNH TĨNH TRƯỚC KHÁCH KHÓ', 'Đã lắng nghe 1001 yêu cầu éo le với giọng điệu ngọt ngào như mía lùi!'],
+        ['THÁNH NHẪN NHỊN CÔNG SỞ', 'Khách seen không rep, khách hẹn lần lữa nhưng tâm vẫn sáng như gương!'],
+        ['BẬC THẦY MỈM CƯỜI QUA ĐIỆN THOẠI', 'Dù khách hỏi câu thứ 20 lúc giờ nghỉ trưa vẫn tư vấn tận tình chu đáo!'],
+        ['HUÂN CHƯƠNG CHIỀU KHÁCH SỐ 1', 'Độ kiên nhẫn đạt chuẩn kim cương, không một lời phàn nàn nào làm khó được bạn!'],
+        ['ĐẠI SỨ HÓA GIẢI CA KHÓ', 'Biến khách hàng khó tính nhất thành khách hàng thân thiết bằng sự chân thành!'],
+        ['DANH HIỆU TRÁI TIM ẤM ÁP NHẤT PHÒNG SALE', 'Luôn giữ vững niềm tin khách sẽ chuyển khoản dù báo giá đã gửi từ tuần trước!'],
+        ['CHỨNG NHẬN ĐỘ LÌ TƯ VẤN CẤP ĐỘ MAX', 'Kiên trì chăm sóc khách hàng bằng tất cả tình yêu nghề và sự tử tế!']
+      ],
+      'Họp nhiều hơn làm': [
+        ['HUÂN CHƯƠNG SỐNG SÓT QUA 7749 CUỘC HỌP', 'Đã tham gia từ họp giao ban, họp đột xuất tới họp tổng kết mà vẫn tỉnh táo!'],
+        ['KIỆN TƯỚNG GẬT ĐẦU ĐÚNG NHỊP', 'Chứng nhận kỹ năng lắng nghe chăm chú và ghi chép tốc ký đỉnh cao trong phòng họp!'],
+        ['BẬC THẦY HỌP NHANH 5 PHÚT', 'Đã kiên trì ngồi trọn cuộc họp "5 phút" kéo dài suốt 90 phút đồng hồ!'],
+        ['DANH HIỆU CHIẾN SĨ PHÒNG HỌP', 'Chuyển từ phòng họp A sang phòng họp B mượt mà hơn cả lịch trình ngôi sao!'],
+        ['CHỨNG NHẬN TỈNH TÁO GIỮA SLIDE DÀI', 'Mắt vẫn sáng trưng sau khi xem trọn bộ 50 trang thuyết trình chi tiết!'],
+        ['HUY CHƯƠNG VÀNG KIỂM SOÁT MIC ONLINE', 'Không một lần quên tắt mic hay bật nhầm cam trong suốt các buổi họp trực tuyến!'],
+        ['CAO THỦ TÓM TẮT BIÊN BẢN HỌP', 'Nắm bắt trọn vẹn ý chính giữa muôn trùng thảo luận sôi nổi của các phòng ban!']
+      ],
+      'Chạy KPI xuyên màn đêm': [
+        ['CHỨNG NHẬN TÂM BẤT BIẾN GIỮA DÒNG KPI', 'Con số có thể nhảy múa nhưng bản lĩnh chốt đơn của bạn luôn vững như bàn thạch!'],
+        ['CHIẾN THẦN BÁM ĐUỔI MỤC TIÊU', 'Độ quyết tâm vượt chỉ tiêu cao hơn cả tòa nhà văn phòng bạn đang ngồi!'],
+        ['HUÂN CHƯƠNG ÁNH SÁNG MÀN HÌNH CRM', 'Đã miệt mài chăm chút từng cơ hội kinh doanh để mang lộc về cho đội ngũ!'],
+        ['BẬC THẦY GÁNH SỐ CẢ ĐỘI', 'Đôi vai vững chãi luôn sẵn sàng bứt phá mọi cột mốc doanh số khó nhằn!'],
+        ['DANH HIỆU NGƯỜI KHÔNG BAO GIỜ BỎ CUỘC', 'Còn một phút trong tháng là còn nỗ lực tìm kiếm khách hàng tiềm năng!'],
+        ['CHỨNG CHỈ ĐỐT CHÁY BẢNG VÀNG', 'Tinh thần chiến đấu rực lửa khiến KPI cũng phải nể phục ba phần!'],
+        ['KIỆN TƯỚNG CHỐT ĐƠN BẤT CHẤP THỜI TIẾT', 'Nắng mưa là chuyện của trời, hoàn thành chỉ tiêu là chuyện của chiến thần!']
+      ],
+      'Chưa đến ngày lương': [
+        ['DANH HIỆU CHIẾN THẦN CHỜ LƯƠNG', 'Ví có thể mỏng tạm thời nhưng khí chất đi làm vẫn sang chảnh ngời ngời!'],
+        ['BẬC THẦY QUẢNTRỊ NGÂN KHỐ CUỐI THÁNG', 'Tính toán chi tiêu siêu phàm trong những ngày đếm ngược chờ tiếng ting ting!'],
+        ['HUÂN CHƯƠNG VƯỢT QUA MÙA VÍ MỎNG', 'Giữ vững nụ cười lạc quan trước mọi lời rủ rê mua sắm trước ngày mùng 5!'],
+        ['CHỨNG NHẬN ĐÔI MẮT HƯỚNG VỀ KẾ TOÁN', 'Mỗi bước chân của bộ phận kế toán đều mang theo niềm hy vọng lớn lao của bạn!'],
+        ['CAO THỦ SINH TỒN TUẦN CUỐI THÁNG', 'Biến những bữa trưa giản dị thành đại tiệc vui vẻ cùng anh em đồng nghiệp!'],
+        ['DANH HIỆU NGƯỜI Đợi TING TING KIÊN ĐỊNH NHẤT', 'Điện thoại luôn bật chuông tối đa để không bỏ lỡ thông báo từ ngân hàng!'],
+        ['BẰNG KHEN TIẾT KIỆM THÔNG THÁI', 'Đã thành công kiềm chế 10 lần định chốt đơn giỏ hàng online tuần này!']
+      ],
+      'Một ngày không drama': [
+        ['DANH HIỆU NGƯỜI GIỮ HÒA KHÍ PHÒNG BAN', 'Nụ cười thân thiện của bạn chính là lá chắn bình yên cho cả văn phòng!'],
+        ['CHỨNG NHẬN Tàng HÌNH TRƯỚC THỊ PHI', 'Đeo tai nghe, làm tốt việc mình, để mọi sóng gió dừng sau cánh cửa!'],
+        ['HUÂN CHƯƠNG HOA HẬU THÂN THIỆN CÔNG SỞ', 'Đi tới đâu mang tiếng cười và năng lượng tích cực tới đó!'],
+        ['BẬC THẦY NGOẠI GIAO VĂN PHÒNG', 'Phối hợp êm đẹp với mọi phòng ban mà không tốn một giọt mồ hôi tranh luận!'],
+        ['CHỨNG CHỈ TÂM AN VẠN SỰ NHÀN', 'Một ngày làm việc trôi chảy êm đềm như dòng sông mùa thu!'],
+        ['ĐẠI SỨ NĂNG LƯỢNG LÀNH MẠNH', 'Lan tỏa tinh thần đoàn kết, biến giờ làm việc thành niềm vui mỗi ngày!'],
+        ['BẰNG KHEN MIỄN NHIỄM DRAMA 100%', 'Tập trung 100% vào mục tiêu chung, xứng đáng nhận điểm 10 thanh lịch!']
+      ],
+      'Đang cố gắng giữ bình tĩnh': [
+        ['BẰNG KHEN KHÔNG QUẠU GIỮA GIỜ LÀM', 'Đã hít thở sâu 3 lần thành công và nở nụ cười hiền hậu trước thử thách!'],
+        ['HUY CHƯƠNG ĐỌC EMAIL MÀ KHÔNG THỞ DÀI', 'Mở 50 bức thư công việc liên tiếp với gương mặt điềm nhiên tự tại!'],
+        ['ĐẠI SƯ THIỀN ĐỊNH TRƯỚC BẢNG TÍNH', 'Tâm tĩnh lặng như mặt hồ dù công thức Excel vừa báo lỗi #REF!'],
+        ['CHỨNG NHẬN KIỂM SOÁT CẢM XÚC XUẤT SẮC', 'Giọng nói vẫn êm ái nhẹ nhàng trong mọi tình huống phát sinh bất ngờ!'],
+        ['DANH HIỆU NỤ CƯỜI BẤT DIỆT NƠI CÔNG SỞ', 'Dù việc ngập đầu vẫn giữ được phong thái ung dung đáng ngưỡng mộ!'],
+        ['BẬC THẦY HÍT SÂU THỞ ĐỀU', 'Biến mọi áp lực thành động lực chỉ bằng một ngụm nước mát và cái vươn vai!'],
+        ['CHỨNG CHỈ ĐỘ LÌ TÂM LÝ HẠNG KIM CƯƠNG', 'Không gì có thể làm lung lay sự bình tĩnh và chuyên nghiệp của bạn hôm nay!']
+      ],
+      'Muốn nghỉ phép nhưng còn việc': [
+        ['HUÂN CHƯƠNG TRÁCH NHIỆM CAO CẢ', 'Tâm hồn đã bay ra biển xanh nhưng đôi tay vẫn tận tụy hoàn thành nốt công việc!'],
+        ['DANH HIỆU NGƯỜI CỐNG HIẾN THẦM LẶNG', 'Hoàn thành trọn vẹn bàn giao trước khi chính thức bật chế độ nghỉ ngơi!'],
+        ['CHỨNG NHẬN VỪA LÀM VIỆC VỪA MƠ DU LỊCH', 'Năng suất làm việc tăng 200% nhờ động lực hoàn thành sớm để đi xả hơi!'],
+        ['BẰNG KHEN ĐỒNG ĐỘI ĐÁNG TIN CẬY', 'Không để lại việc tồn đọng cho anh em, xứng danh người đồng nghiệp quốc dân!'],
+        ['CAO THỦ DỌN SẠCH TO-DO LIST', 'Quét sạch danh sách công việc trong ngày bằng tinh thần quyết liệt nhất!'],
+        ['HUY CHƯƠNG KIÊN CƯỜNG TRƯỚC KỲ NGHỈ', 'Giữ vững sự tập trung đến tận phút cuối cùng trước giờ tan ca!'],
+        ['CHỨNG CHỈ CHIẾN BINH TẬN TÂM 4.0', 'Làm hết sức, chơi hết mình – bạn hoàn toàn xứng đáng với kỳ nghỉ tuyệt vời sắp tới!']
+      ]
+    };
+
+    // FEATURE 3: 🧧 GỬI VÍA ĐỒNG NGHIỆP (8 Via Types & Topic-Matched Blessings)
+    const colleagueViaTypes = [
+      'Vía chốt deal',
+      'Vía hết deadline',
+      'Vía sếp dễ thương',
+      'Vía khách chuyển khoản',
+      'Vía không drama',
+      'Vía lương thưởng',
+      'Vía bình an',
+      'Vía tan ca đúng giờ'
+    ];
+
+    const colleagueViaMessages = {
+      'Vía chốt deal': [
+        ['Gửi bạn 100% vía khách dễ thương, nói một câu khách gật đầu hai cái!', 'Cùng nhau bứt phá doanh số và chiều nay đi uống trà sữa ăn mừng nha!'],
+        ['Bắn gấp cho đồng đội vía Chốt Đơn Thần Tốc: Gửi báo giá là khách ký liền tay không cần đắn đo!', 'Hôm nay người tung kẻ hứng, chúc bạn mở hàng đại thắng rực rỡ!'],
+        ['Tặng bạn túi vía Khách Sộp: Gặp toàn khách hào sảng, hợp đồng ký gọn trong một nốt nhạc!', 'Giữ nụ cười thật tươi nha, vận may chốt deal đang đứng ngay cạnh bàn làm việc của bạn đó!']
+      ],
+      'Vía hết deadline': [
+        ['Tặng bạn lá chắn chống deadline dí lúc 16:55! Mọi việc trong ngày đều trôi chảy nhẹ nhàng!', 'Giải quyết từng mục nhỏ, cần hỗ trợ gì cứ ới đồng đội một tiếng nha!'],
+        ['Gửi bạn vía Bàn Tay Vàng: Đụng vào task nào là task đó hoàn thành nhanh gấp đôi dự kiến!', 'Chúc bạn chiều nay dọn sạch danh sách việc cần làm và thảnh thơi mỉm cười!'],
+        ['Chuyển phát nhanh tới bạn vía Không Phát Sinh: Kế hoạch hôm nay êm ru từ sáng tới chiều!', 'Nhớ uống đủ nước và vươn vai thư giãn giữa các chặng làm việc nhé!']
+      ],
+      'Vía sếp dễ thương': [
+        ['Gửi bạn vía Sếp Duyệt Liền Tay: Trình phương án nào là nhận ngay cái gật đầu kèm lời khen!', 'Sự chuẩn bị chu đáo của bạn hôm nay chắc chắn sẽ ghi điểm tuyệt đối!'],
+        ['Chúc bạn hôm nay họp nhanh gọn lẹ, sếp tâm lý, mọi đề xuất đều thuận buồm xuôi gió!', 'Cứ tự tin trình bày ý tưởng của mình nha, đồng đội luôn ủng hộ bạn!'],
+        ['Tặng bạn vía Quý Nhân Phù Trợ: Cấp trên hỗ trợ nhiệt tình, công việc khó mấy cũng được tháo gỡ!', 'Giữ tinh thần chủ động và lạc quan suốt cả tuần nhé!']
+      ],
+      'Vía khách chuyển khoản': [
+        ['Chúc bạn hôm nay chỉ nghe hai âm thanh: tiếng ting ting ngân hàng và tiếng tan ca!', 'Kiểm tra lại thông tin thanh toán rõ ràng để khách quét mã trong 3 giây nha!'],
+        ['Gửi bạn vía Tiền Về Như Nước: Các khoản công nợ và hợp đồng mới nối đuôi nhau báo về tài khoản!', 'Chúc điện thoại bạn hôm nay sáng màn hình liên tục vì tin vui tài chính!'],
+        ['Tặng đồng nghiệp vía Khách Chuyển Khoản Một Cục: Không hẹn lần lữa, chốt xong là ting ting ngay!', 'Nhận được vía này nhớ chuẩn bị sẵn lời cảm ơn thật ngọt ngào gửi khách nhé!']
+      ],
+      'Vía không drama': [
+        ['Chúc bạn một ngày đi làm chỉ có tiếng cười giòn tan, mọi hiểu lầm hay rắc rối đều tự động tránh xa!', 'Tập trung vào niềm vui công việc và những người đồng nghiệp dễ mến quanh mình nha!'],
+        ['Tặng bạn vòng bảo vệ Bình Yên Công Sở: Phối hợp phòng ban êm ái, ai gặp cũng quý mến!', 'Một câu nói dịu dàng hôm nay sẽ giúp mọi việc trôi chảy gấp mười lần!'],
+        ['Gửi bạn vía Hòa Khí Sinh Tài: Cả team đoàn kết vui vẻ, drama bằng không, năng lượng bằng một nghìn!', 'Cảm ơn bạn vì luôn là người đồng nghiệp tuyệt vời cùng nhau vượt qua mọi áp lực!']
+      ],
+      'Vía lương thưởng': [
+        ['Gửi bạn vía Ví Dày Rủng Rỉnh: Lương về đúng hạn, thưởng nóng bất ngờ, hoa hồng ngập lối!', 'Nỗ lực suốt thời gian qua của bạn hoàn toàn xứng đáng được đền đáp ngọt ngào!'],
+        ['Chúc bạn tháng này bảng lương nở hoa, con số thực nhận làm bạn cười tít mắt cả tuần!', 'Cùng cố gắng hoàn thành nốt mục tiêu tuần này để rinh trọn gói thưởng nha!'],
+        ['Tặng bạn vía Tài Lộc Hanh Thông: Đi làm vui vẻ, cuối tháng tài khoản nhảy số rực rỡ!', 'Nhớ tự thưởng cho bản thân một món ngon khi tiếng ting ting vang lên nhé!']
+      ],
+      'Vía bình an': [
+        ['Gửi bạn một bầu trời năng lượng dịu lành: Tâm bất biến giữa dòng đời vạn việc gấp!', 'Hít sâu một hơi, thả lỏng đôi vai và tận hưởng ngày làm việc thật nhẹ nhàng nha!'],
+        ['Chúc người đồng nghiệp của tui hôm nay sức khỏe dồi dào, tinh thần phơi phới, việc gì cũng êm!', 'Đừng quên nghỉ ngơi cho đôi mắt 5 phút sau mỗi giờ làm việc căng thẳng nhé!'],
+        ['Tặng bạn vía An Nhiên Tự Tại: Máy tính chạy mượt, Wi-Fi căng đét, lòng người thảnh thơi!', 'Mọi chuyện rồi sẽ ổn thỏa cả thôi, cứ bình tĩnh bước từng bước vững chắc nha!']
+      ],
+      'Vía tan ca đúng giờ': [
+        ['Gửi bạn vía Đúng Giờ Tắt Máy: 17h30 việc đã xong xuôi, bước ra khỏi cổng công ty với nụ cười rạng rỡ!', 'Tập trung dứt điểm việc quan trọng ngay bây giờ để tối nay thảnh thơi nghỉ ngơi nhé!'],
+        ['Chúc bạn chiều nay không có cuộc họp phút 89, không có email lúc 17h25, tan làm đúng hẹn!', 'Tối nay dành thời gian ăn món mình thích và nạp lại 100% pin cho ngày mai nha!'],
+        ['Tặng bạn tấm vé Tan Ca Thảnh Thơi: Việc hôm nay gọn gàng hôm nay, chiều về ngắm hoàng hôn cực chill!', 'Chúc bạn một buổi chiều làm việc hiệu quả và buổi tối tràn ngập niềm vui!']
+      ]
+    };
+
+    const shareInvitePrompts = [
+      '💬 Gửi cho đồng nghiệp cùng cảnh ngộ!',
+      '💬 Tag người vừa trải qua 7749 cuộc họp!',
+      '💬 Có ai trong phòng giống tui không? Chia sẻ liền!',
+      '💬 Gửi ngay vào nhóm chat phòng ban để xả nghiệp chung!'
+    ];
 
     // MINI GAME 1: 🥊 ĐẤM BAO CÁT XẢ NGHIỆP
     const punchPressures = [
@@ -3848,6 +4531,265 @@
     });
 
     // ==========================================
+    // OFFICE VIRAL FEATURE 1: 🎯 BINGO CÔNG SỞ LOGIC
+    // ==========================================
+    const BINGO_WIN_LINES = [
+      [0, 1, 2], // Row 1
+      [3, 4, 5], // Row 2
+      [6, 7, 8], // Row 3
+      [0, 3, 6], // Col 1
+      [1, 4, 7], // Col 2
+      [2, 5, 8], // Col 3
+      [0, 4, 8], // Diag 1
+      [2, 4, 6]  // Diag 2
+    ];
+
+    let bingoBoard = [];
+    let bingoMarked = Array(9).fill(false);
+
+    function pickNineBingoCells() {
+      const pool = [...bingoSituations];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      return pool.slice(0, 9);
+    }
+
+    function saveBingoState() {
+      try {
+        localStorage.setItem('xinvia-bingo-state', JSON.stringify({
+          cells: bingoBoard,
+          marked: bingoMarked
+        }));
+      } catch (e) {}
+    }
+
+    function loadBingoState() {
+      try {
+        const raw = JSON.parse(localStorage.getItem('xinvia-bingo-state') || 'null');
+        if (raw && Array.isArray(raw.cells) && raw.cells.length === 9 && Array.isArray(raw.marked) && raw.marked.length === 9) {
+          bingoBoard = raw.cells.map(c => String(c || ''));
+          bingoMarked = raw.marked.map(Boolean);
+          return;
+        }
+      } catch (e) {}
+      bingoBoard = pickNineBingoCells();
+      bingoMarked = Array(9).fill(false);
+      saveBingoState();
+    }
+
+    // Returns array of winning cell indices across all completed 3-in-a-row lines (empty if < 3 aligned)
+    function getBingoWinningCells(markedArr) {
+      const winSet = new Set();
+      let winLineCount = 0;
+      for (const line of BINGO_WIN_LINES) {
+        if (markedArr[line[0]] === true && markedArr[line[1]] === true && markedArr[line[2]] === true) {
+          winLineCount++;
+          winSet.add(line[0]);
+          winSet.add(line[1]);
+          winSet.add(line[2]);
+        }
+      }
+      return { winCells: Array.from(winSet), winLineCount };
+    }
+
+    function buildBingoResult() {
+      const name = $('nickname').value.trim().slice(0, 32) || 'Chiến thần công sở';
+      const markedCount = bingoMarked.filter(Boolean).length;
+      const { winCells, winLineCount } = getBingoWinningCells(bingoMarked);
+      const honor = random(honorTitles.bingo);
+      const date = new Date().toLocaleString('vi-VN');
+      return {
+        type: 'bingo',
+        emoji: '🎯',
+        title: 'BINGO CÔNG SỞ (' + markedCount + '/9 Ô · ' + Math.max(1, winLineCount) + ' ĐƯỜNG BINGO)',
+        honorTitle: honor,
+        who: 'Bảng Bingo hôm nay của: ' + name,
+        message: random(bingoWinQuotes),
+        tip: 'Gửi ngay bảng Bingo này cho đồng nghiệp cùng phòng xem hôm nay ai dính nhiều ô giống bạn nhất!',
+        bingoBoard: [...bingoBoard],
+        bingoMarked: [...bingoMarked],
+        bingoWinCells: winCells,
+        date
+      };
+    }
+
+    function renderBingoBoard(lastStampedIdx = -1) {
+      const grid = $('bingoGrid');
+      if (!grid) return;
+      if (!bingoBoard.length) loadBingoState();
+
+      const markedCount = bingoMarked.filter(Boolean).length;
+      const { winCells, winLineCount } = getBingoWinningCells(bingoMarked);
+
+      if ($('bingoCounterBadge')) {
+        $('bingoCounterBadge').textContent = '✅ Đã dính: ' + markedCount + ' / 9 ô';
+      }
+
+      const statusBar = $('bingoStatusBar');
+      if (statusBar) {
+        if (winLineCount > 0) {
+          statusBar.classList.add('won');
+          statusBar.textContent = '🎉 BINGO (' + winLineCount + ' đường thẳng hàng)! DANH HIỆU: ' + honorTitles.bingo[0];
+        } else {
+          statusBar.classList.remove('won');
+          statusBar.textContent = 'Chạm vào các ô bạn gặp hôm nay · Đủ 3 ô thẳng hàng (ngang, dọc, chéo) là BINGO!';
+        }
+      }
+
+      grid.replaceChildren();
+      bingoBoard.forEach((situation, idx) => {
+        const isMarked = Boolean(bingoMarked[idx]);
+        const isWin = winCells.includes(idx);
+
+        const cell = document.createElement('button');
+        cell.type = 'button';
+        cell.className = 'bingo-cell' +
+          (isMarked ? ' marked' : '') +
+          (isWin ? ' bingo-win-cell' : '') +
+          (idx === lastStampedIdx ? ' just-stamped' : '');
+        cell.setAttribute('aria-pressed', String(isMarked));
+
+        const numSpan = document.createElement('span');
+        numSpan.className = 'bingo-cell-num';
+        numSpan.textContent = '#' + (idx + 1);
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = situation;
+
+        const stampSpan = document.createElement('span');
+        stampSpan.className = 'bingo-stamp';
+        stampSpan.textContent = '✅';
+
+        cell.append(numSpan, textSpan, stampSpan);
+
+        cell.addEventListener('click', () => {
+          if (busy) return;
+          getAudioContext();
+          const prevWinCount = getBingoWinningCells(bingoMarked).winLineCount;
+          bingoMarked[idx] = !bingoMarked[idx];
+          saveBingoState();
+
+          if (bingoMarked[idx]) {
+            playWoodblock();
+          } else if (soundEnabled) {
+            playWoodblock();
+          }
+
+          const nextWin = getBingoWinningCells(bingoMarked);
+          renderBingoBoard(bingoMarked[idx] ? idx : -1);
+
+          // Trigger celebration ONLY when at least 1 complete 3-in-a-row line is achieved
+          if (nextWin.winLineCount > prevWinCount && nextWin.winLineCount > 0) {
+            playCoinSound();
+            const rect = grid.getBoundingClientRect();
+            spawnConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 30);
+            const res = buildBingoResult();
+            finishRitual(res);
+          }
+        });
+
+        grid.appendChild(cell);
+      });
+    }
+
+    $('bingoResetMarksBtn').addEventListener('click', () => {
+      bingoMarked = Array(9).fill(false);
+      saveBingoState();
+      renderBingoBoard();
+      $('result').classList.remove('show');
+      showToast('🔄 Đã xóa dấu tích trên bảng Bingo hiện tại!');
+      if (soundEnabled) playWoodblock();
+    });
+
+    $('bingoNewBoardBtn').addEventListener('click', () => {
+      bingoBoard = pickNineBingoCells();
+      bingoMarked = Array(9).fill(false);
+      saveBingoState();
+      renderBingoBoard();
+      $('result').classList.remove('show');
+      showToast('🎲 Đã đổi bảng 9 tình huống công sở mới!');
+      if (soundEnabled) playWoodblock();
+    });
+
+    loadBingoState();
+
+    // ==========================================
+    // OFFICE VIRAL FEATURE 3: 🧧 GỬI VÍA ĐỒNG NGHIỆP HELPERS
+    // ==========================================
+    $('colleagueNameInput').addEventListener('input', e => {
+      const recipient = escapeText(e.target.value, 40) || 'Người anh em thiện lành';
+      if ($('colleagueLetterTo')) {
+        $('colleagueLetterTo').textContent = 'Gửi: ' + recipient;
+      }
+    });
+
+    // ==========================================
+    // ⚡ CHẾ ĐỘ CHƠI NHANH 10 GIÂY (QUICK STRESS RELIEF)
+    // ==========================================
+    $('quickPlayBtn').addEventListener('click', () => {
+      if (busy) return;
+      getAudioContext();
+      playCoinSound();
+
+      const quickModes = ['cert', 'bingo', 'oracle', 'mo'];
+      const chosenMode = random(quickModes);
+      const name = $('nickname').value.trim().slice(0, 32) || 'Chiến thần công sở';
+      const date = new Date().toLocaleString('vi-VN');
+
+      const rect = $('quickPlayBtn').getBoundingClientRect();
+      spawnConfetti(rect.left + rect.width / 2, rect.top, 24);
+
+      if (chosenMode === 'cert') {
+        tab = 'cert';
+        selected = random(certStatuses);
+        render();
+        $('ritual').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        run();
+      } else if (chosenMode === 'bingo') {
+        tab = 'bingo';
+        // Auto-stamp a diagonal or horizontal 3-in-a-row for instant 10-second joy
+        const instantLine = random(BINGO_WIN_LINES);
+        bingoMarked = Array(9).fill(false);
+        instantLine.forEach(i => { bingoMarked[i] = true; });
+        saveBingoState();
+        render();
+        renderBingoBoard(instantLine[2]);
+        const res = buildBingoResult();
+        finishRitual(res);
+      } else if (chosenMode === 'oracle') {
+        tab = 'oracle';
+        const q = random(oracleSampleQuestions);
+        selected = q;
+        $('oracleQuestionInput').value = q;
+        lastOracleQuestion = q;
+        lastOracleCategory = classifyOracleQuestion(q);
+        render();
+        const res = buildOracleResult(q, lastOracleCategory);
+        finishRitual(res, { skipHistorySave: true });
+      } else {
+        tab = 'mo';
+        meritCount += 5;
+        syncMeritUI();
+        saveMeritCount();
+        render();
+        const res = {
+          type: 'mo',
+          emoji: '⚡',
+          title: 'XẢ NGHIỆP CẤP TỐC 10 GIÂY (+5 TỊNH TÂM)',
+          honorTitle: random(honorTitles.mo),
+          who: 'Thí chủ công sở: ' + name,
+          message: 'Đã nạp nhanh 5 tiếng mõ Tịnh Tâm! Huyết áp ổn định, tinh thần bật tăng 200%, sẵn sàng quay lại chiến tiếp!',
+          tip: 'Hít sâu 1 hơi thật sảng khoái và gửi tiếp 1 chiếc vía lành cho đồng nghiệp ngồi cạnh nha!',
+          date
+        };
+        finishRitual(res);
+      }
+      showToast('⚡ Đã kích hoạt xả nghiệp nhanh 10 giây!');
+    });
+
+    // ==========================================
     // CANVAS PARTICLE EFFECTS (Capped & Smooth)
     // ==========================================
     const effectCanvas = $('effectCanvas');
@@ -4342,6 +5284,27 @@
           items: [],
           buttonText: '🔔 GÕ MÕ XẢ KPI NGAY (+1 TỊNH TÂM)',
           notice: '🧘 Mốc combo đặc biệt tại 5 · 10 · 20 · 50 tiếng mõ!'
+        },
+        bingo: {
+          title: '🎯 BINGO CÔNG SỞ – HÔM NAY BẠN DÍNH MẤY Ô?',
+          desc: 'Chạm vào các ô tình huống bạn gặp hôm nay. Đủ 3 ô thẳng hàng (ngang, dọc hoặc chéo) là nổ BINGO!',
+          items: [],
+          buttonText: '🎯 KIỂM TRA BINGO & NHẬN DANH HIỆU',
+          notice: '🎯 Bảng Bingo được tự động lưu trên trình duyệt để bạn tích dần suốt ngày làm việc!'
+        },
+        cert: {
+          title: '🏆 CHỨNG CHỈ CÔNG SỞ – CÓ CÔNG CHỊU ĐỰNG, CÓ NGÀY ĐƯỢC VINH DANH!',
+          desc: 'Chọn tình trạng hôm nay của bạn rồi bấm nút để Máy Phát Chứng Chỉ in ngay bằng khen giải nghiệp!',
+          items: certStatuses,
+          buttonText: '🖨️ IN CHỨNG CHỈ GIẢI NGHIỆP',
+          notice: '🏆 Chứng chỉ giải trí công sở – Không có giá trị hành chính nhưng có giá trị tinh thần cực cao!'
+        },
+        colleague: {
+          title: '🧧 GỬI VÍA ĐỒNG NGHIỆP – NGHIỆP CHIA ĐÔI, NIỀM VUI NHÂN ĐÔI!',
+          desc: 'Chọn loại vía tốt lành và nhập biệt danh người nhận (tùy chọn) để gửi tặng thiệp vía cho đồng đội!',
+          items: colleagueViaTypes,
+          buttonText: '🧧 MỞ PHONG BÌ & GỬI VÍA ĐỒNG NGHIỆP',
+          notice: '💌 Không lưu danh sách người nhận, bảo mật và an toàn tuyệt đối.'
         }
       }[tab];
 
@@ -4352,7 +5315,7 @@
         $('ritualNotice').textContent = config.notice;
       }
 
-      // Stage visibility for all 8 modes
+      // Stage visibility for all 11 modes
       $('burnStageContent').classList.toggle('hidden', tab !== 'burn');
       $('viaStageContent').classList.toggle('hidden', tab !== 'via');
       $('fortuneStageContent').classList.toggle('hidden', tab !== 'fortune');
@@ -4361,6 +5324,9 @@
       $('treeStageContent').classList.toggle('hidden', tab !== 'tree');
       $('oracleStageContent').classList.toggle('hidden', tab !== 'oracle');
       $('moStageContent').classList.toggle('hidden', tab !== 'mo');
+      $('bingoStageContent').classList.toggle('hidden', tab !== 'bingo');
+      $('certStageContent').classList.toggle('hidden', tab !== 'cert');
+      $('colleagueStageContent').classList.toggle('hidden', tab !== 'colleague');
 
       // Saved tree wishes panel visibility
       $('treeWishesPanel').classList.toggle('hidden', tab !== 'tree');
@@ -4378,7 +5344,9 @@
           pray: '🌸 ',
           punch: '🥊 ',
           tree: '🎋 ',
-          oracle: '💬 '
+          oracle: '💬 ',
+          cert: '🏆 ',
+          colleague: '🧧 '
         };
         config.items.forEach(opt => {
           const btn = document.createElement('button');
@@ -4404,6 +5372,7 @@
       $('customPunchWrap').classList.toggle('hidden', !(tab === 'punch' && selected === 'Khác (tự nhập)'));
       $('treeInputWrap').classList.toggle('hidden', tab !== 'tree');
       $('oracleInputWrap').classList.toggle('hidden', tab !== 'oracle');
+      $('colleagueInputWrap').classList.toggle('hidden', tab !== 'colleague');
 
       // Update stage dynamic labels
       if (tab === 'burn') {
@@ -4419,6 +5388,14 @@
         renderTreeWishes();
       } else if (tab === 'mo') {
         syncMeritUI();
+      } else if (tab === 'bingo') {
+        renderBingoBoard();
+      } else if (tab === 'cert') {
+        $('printerScreenText').textContent = 'TÌNH TRẠNG: ' + selected.toUpperCase();
+      } else if (tab === 'colleague') {
+        $('colleagueLetterTitle').textContent = selected.toUpperCase();
+        const recipient = escapeText($('colleagueNameInput').value, 40) || 'Người anh em thiện lành';
+        $('colleagueLetterTo').textContent = 'Gửi: ' + recipient;
       }
 
       // Tab button active states
@@ -4438,7 +5415,6 @@
       const isPray = type === 'pray' || item.emoji === '🏯';
       const isTree = type === 'tree' || item.emoji === '🌳';
       const isOracle = type === 'oracle';
-      const isPunch = type === 'punch';
 
       $('resultEmoji').textContent = item.emoji;
 
@@ -4447,7 +5423,10 @@
         tree: 'CÂY ƯỚC NGUYỆN · THẺ LỘC MAY MẮN 4.0',
         oracle: 'THẦY PHÁN CÔNG SỞ · QUẺ VUI 4.0',
         punch: 'ĐẤM BAO CÁT · CHỨNG NHẬN XẢ NGHIỆP',
-        mo: 'GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM'
+        mo: 'GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM',
+        bingo: 'BINGO CÔNG SỞ · CHỨNG NHẬN SINH TỒN 4.0',
+        cert: 'GIẤY CHỨNG NHẬN GIẢI NGHIỆP · ĐÃ QUA KIỂM ĐỊNH ĐỘ LÌ',
+        colleague: 'THƯỞNG VÍA ĐỒNG ĐỘI · NGHIỆP CHIA ĐÔI NIỀM VUI NHÂN ĐÔI'
       };
       $('resultBadge').textContent = badgeMap[type] || 'XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN';
       $('resultTitle').textContent = item.title;
@@ -4459,16 +5438,23 @@
 
       $('resultWho').textContent = item.who;
       $('resultMessage').textContent = item.message;
-      $('resultTip').textContent = (isPray || isTree ? '🌱 Lời động viên tích cực: ' : '✨ Lời khuyên hành động: ') + item.tip;
+      $('resultTip').textContent = (isPray || isTree ? '🌱 Lời động viên tích cực: ' : '✨ Lời nhắn nhủ: ') + item.tip;
+
+      if ($('shareInviteText')) {
+        $('shareInviteText').textContent = random(shareInvitePrompts);
+      }
 
       const downloadLabels = {
         pray: '📸 Lưu ảnh thiệp cầu may',
         tree: '📸 Lưu ảnh thiệp điều ước',
         oracle: '📸 Lưu ảnh lời phán',
         punch: '📸 Lưu ảnh chứng nhận',
-        mo: '📸 Lưu ảnh chứng nhận'
+        mo: '📸 Lưu ảnh chứng nhận',
+        bingo: '📸 Lưu ảnh Bảng Bingo PNG',
+        cert: '📸 Lưu ảnh Chứng chỉ PNG',
+        colleague: '📸 Lưu ảnh Thiệp Vía PNG'
       };
-      $('download').textContent = downloadLabels[type] || '📸 Lưu ảnh bùa HD';
+      $('download').textContent = downloadLabels[type] || '📸 Lưu ảnh PNG';
       $('again').textContent = '🔁 Chơi tiếp';
 
       // Oracle-specific buttons (Reroll & Opt-in Save)
@@ -4579,6 +5565,45 @@
         lastOracleQuestion = qText;
         lastOracleCategory = classifyOracleQuestion(qText);
         res = buildOracleResult(qText, lastOracleCategory);
+      } else if (tab === 'bingo') {
+        const { winLineCount } = getBingoWinningCells(bingoMarked);
+        if (winLineCount === 0) {
+          showToast('🎯 Hãy chạm tích đủ 3 ô thẳng hàng (ngang, dọc hoặc chéo) trên bảng để nổ BINGO nhé!');
+          return null;
+        }
+        res = buildBingoResult();
+      } else if (tab === 'cert') {
+        const statusKey = certDatabase[selected] ? selected : certStatuses[0];
+        const picked = random(certDatabase[statusKey]);
+        res = {
+          type: 'cert',
+          emoji: '🏆',
+          title: picked[0],
+          honorTitle: random(honorTitles.cert),
+          who: 'Vinh danh chiến thần: ' + name + ' · Tình trạng: ' + statusKey,
+          recipientName: name,
+          certStatus: statusKey,
+          message: picked[1],
+          tip: 'Chứng chỉ giải trí – Không có giá trị hành chính nhưng có giá trị kêu gọi đồng nghiệp mời trà sữa!',
+          date
+        };
+      } else if (tab === 'colleague') {
+        const viaType = colleagueViaMessages[selected] ? selected : colleagueViaTypes[0];
+        const viaIdx = Math.max(0, colleagueViaTypes.indexOf(viaType));
+        const picked = random(colleagueViaMessages[viaType]);
+        const recipient = escapeText($('colleagueNameInput').value, 40) || 'Người đồng nghiệp dễ mến';
+        res = {
+          type: 'colleague',
+          emoji: '🧧',
+          title: 'THIỆP TẶNG ' + viaType.toUpperCase(),
+          honorTitle: random(honorTitles.colleague),
+          who: name + ' gửi tặng vía lành tới: ' + recipient,
+          recipientName: recipient,
+          viaIndex: viaIdx,
+          message: picked[0],
+          tip: picked[1],
+          date
+        };
       }
       return res;
     }
@@ -4690,6 +5715,47 @@
           // Respect privacy: do NOT auto-save personal oracle questions unless user clicks Save
           finishRitual(res, { skipHistorySave: true });
         }, 2100);
+
+      } else if (tab === 'bingo') {
+        playCoinSound();
+        const grid = $('bingoGrid');
+        if (grid) {
+          const rect = grid.getBoundingClientRect();
+          spawnConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 28);
+        }
+        setTimeout(() => {
+          finishRitual(res);
+        }, 450);
+
+      } else if (tab === 'cert') {
+        playRattleSound();
+        $('stage').classList.add('printing');
+        $('printerScreenText').textContent = 'ĐANG IN CHỨNG CHỈ...';
+        $('certPaperTitle').textContent = res.title;
+
+        setTimeout(() => {
+          playCoinSound();
+          const pRect = $('printerMachine').getBoundingClientRect();
+          spawnConfetti(pRect.left + pRect.width / 2, pRect.top + pRect.height / 2, 24);
+        }, 700);
+
+        setTimeout(() => {
+          $('stage').classList.remove('printing');
+          $('printerScreenText').textContent = 'ĐÃ CẤP: ' + res.title.slice(0, 24);
+          finishRitual(res);
+        }, 1450);
+
+      } else if (tab === 'colleague') {
+        playCoinSound();
+        $('stage').classList.add('opening');
+        const envRect = $('colleagueEnvelope').getBoundingClientRect();
+        spawnConfetti(envRect.left + envRect.width / 2, envRect.top + envRect.height / 2, 24);
+
+        setTimeout(() => {
+          $('stage').classList.remove('opening');
+          // Do not save colleague recipient names into history to respect recipient privacy
+          finishRitual(res, { skipHistorySave: true });
+        }, 1150);
       }
     }
 
@@ -4707,7 +5773,7 @@
     }
 
     // ==========================================
-    // CANVAS TALISMAN IMAGE GENERATOR (Full HD)
+    // CANVAS TALISMAN / BINGO / CERTIFICATE GENERATOR (Full HD 1080x1350)
     // ==========================================
     function imageCanvas(res) {
       const c = document.createElement('canvas');
@@ -4753,40 +5819,14 @@
       drawCorner(70, 1280, 1, -1);
       drawCorner(1010, 1280, -1, -1);
 
-      // Header Brand
       const type = res.type || 'via';
       const isPray = type === 'pray' || res.emoji === '🏯';
       const isTree = type === 'tree' || res.emoji === '🌳';
-      const isOracle = type === 'oracle';
-      const isPunch = type === 'punch';
 
       ctx.textAlign = 'center';
-      ctx.fillStyle = '#ffd700';
-      ctx.font = 'bold 28px system-ui';
-      ctx.letterSpacing = '3px';
-      const topHeaderMap = {
-        pray: '✦ CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0 ✦',
-        tree: '✦ CÂY ƯỚC NGUYỆN · THẺ LỘC MAY MẮN 4.0 ✦',
-        oracle: '✦ THẦY PHÁN CÔNG SỞ · QUẺ VUI 4.0 ✦',
-        punch: '✦ ĐẤM BAO CÁT · CHỨNG NHẬN XẢ NGHIỆP ✦',
-        mo: '✦ GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM ✦'
-      };
-      ctx.fillText(
-        topHeaderMap[type] || '✦ HỘI CHỐT ĐƠN · CHỨNG NHẬN TÂM LINH ✦',
-        540,
-        140
-      );
 
-      ctx.fillStyle = '#ffe2a1';
-      ctx.font = '900 72px system-ui';
-      ctx.fillText(isPray ? 'CHÙA CHỐT ĐƠN' : (isTree ? 'CÂY ƯỚC NGUYỆN' : 'XIN VÍA 4.0'), 540, 225);
-
-      // Big Emoji Symbol
-      ctx.font = '115px system-ui';
-      ctx.fillText(res.emoji, 540, 365);
-
-      // Text Wrapper
-      function wrapText(text, startY, fontSize, color, maxWidth, lineHeight, isBold = true, maxLines = 5) {
+      // Text Wrapper helper
+      function wrapTextAt(text, centerX, startY, fontSize, color, maxWidth, lineHeight, isBold = true, maxLines = 5) {
         ctx.fillStyle = color;
         ctx.font = (isBold ? 'bold ' : '') + fontSize + 'px system-ui';
         const words = String(text).split(/\s+/);
@@ -4805,21 +5845,215 @@
         if (line) lines.push(line);
 
         lines.slice(0, maxLines).forEach((l, i) => {
-          ctx.fillText(l, 540, startY + i * lineHeight);
+          ctx.fillText(l, centerX, startY + i * lineHeight);
         });
 
         return startY + Math.min(lines.length, maxLines) * lineHeight;
       }
 
+      // SPECIAL LAYOUT 1: 🎯 BINGO CÔNG SỞ (Draws the actual 3x3 board marked by the player)
+      if (type === 'bingo') {
+        ctx.fillStyle = '#ffd700';
+        ctx.font = 'bold 26px system-ui';
+        ctx.fillText('✦ XIN VÍA 4.0 · BINGO CÔNG SỞ ✦', 540, 125);
+
+        ctx.fillStyle = '#ffe2a1';
+        ctx.font = '900 56px system-ui';
+        ctx.fillText('BINGO CÔNG SỞ 4.0', 540, 195);
+
+        const honor = res.honorTitle || honorTitles.bingo[0];
+        wrapTextAt('🏅 ' + honor, 540, 250, 30, '#ffd166', 900, 40, true, 2);
+
+        ctx.fillStyle = '#f8d2c2';
+        ctx.font = '26px system-ui';
+        ctx.fillText(res.who || '', 540, 310);
+
+        // Draw 3x3 Bingo Grid (900x690 area from x=90..990, y=340..1030)
+        const boardCells = Array.isArray(res.bingoBoard) && res.bingoBoard.length === 9 ? res.bingoBoard : bingoBoard;
+        const boardMarks = Array.isArray(res.bingoMarked) && res.bingoMarked.length === 9 ? res.bingoMarked : bingoMarked;
+        const winCells = Array.isArray(res.bingoWinCells) ? res.bingoWinCells : getBingoWinningCells(boardMarks).winCells;
+
+        const gridX = 90;
+        const gridY = 340;
+        const cellW = 284;
+        const cellH = 216;
+        const gap = 24;
+
+        for (let idx = 0; idx < 9; idx++) {
+          const r = Math.floor(idx / 3);
+          const col = idx % 3;
+          const x = gridX + col * (cellW + gap);
+          const y = gridY + r * (cellH + gap);
+          const isMarked = Boolean(boardMarks[idx]);
+          const isWin = winCells.includes(idx);
+
+          ctx.save();
+          ctx.fillStyle = isWin
+            ? 'rgba(130, 25, 38, 0.96)'
+            : (isMarked ? 'rgba(95, 22, 34, 0.94)' : 'rgba(38, 12, 22, 0.92)');
+          ctx.fillRect(x, y, cellW, cellH);
+
+          ctx.strokeStyle = isWin ? '#ffd166' : (isMarked ? '#f4a261' : '#8d5b2b');
+          ctx.lineWidth = isWin ? 6 : 3;
+          ctx.strokeRect(x, y, cellW, cellH);
+
+          // Cell index label
+          ctx.textAlign = 'left';
+          ctx.fillStyle = 'rgba(255, 226, 161, 0.65)';
+          ctx.font = 'bold 20px system-ui';
+          ctx.fillText('#' + (idx + 1), x + 14, y + 28);
+
+          // Marked checkmark stamp
+          if (isMarked) {
+            ctx.textAlign = 'right';
+            ctx.font = '32px system-ui';
+            ctx.fillText('✅', x + cellW - 12, y + 34);
+          }
+
+          // Cell situation text
+          ctx.textAlign = 'center';
+          wrapTextAt(
+            boardCells[idx] || '',
+            x + cellW / 2,
+            y + 78,
+            24,
+            isMarked ? '#fff3b0' : '#f4e3d7',
+            cellW - 28,
+            32,
+            true,
+            4
+          );
+          ctx.restore();
+        }
+
+        ctx.textAlign = 'center';
+        wrapTextAt('“' + res.message + '”', 540, 1085, 28, '#ffea9f', 880, 38, true, 2);
+
+        // Footer with Slogan & Website URL
+        ctx.fillStyle = '#ffd166';
+        ctx.font = 'bold 28px system-ui';
+        ctx.fillText('XIN VÍA 4.0 · Vào đây xả nghiệp – Ra ngoài chốt deal!', 540, 1215);
+        ctx.fillStyle = '#f4c987';
+        ctx.font = '24px system-ui';
+        ctx.fillText('https://xin-via.vibe.tinhgon.xyz/', 540, 1258);
+
+        return c;
+      }
+
+      // SPECIAL LAYOUT 2: 🏆 MÁY PHÁT CHỨNG CHỈ CÔNG SỞ (Official Humorous Certificate)
+      if (type === 'cert') {
+        // Cream-gold certificate parchment inner panel
+        ctx.fillStyle = 'rgba(255, 250, 238, 0.96)';
+        ctx.fillRect(78, 95, 924, 1055);
+        ctx.strokeStyle = '#c48924';
+        ctx.lineWidth = 6;
+        ctx.strokeRect(92, 109, 896, 1027);
+
+        ctx.fillStyle = '#8b1e24';
+        ctx.font = '900 44px system-ui';
+        ctx.fillText('XIN VÍA 4.0', 540, 185);
+
+        ctx.fillStyle = '#b5651d';
+        ctx.font = 'bold 26px system-ui';
+        ctx.fillText('✦ HỘI ĐỒNG THẨM ĐỊNH BẢN LĨNH CÔNG SỞ ✦', 540, 232);
+
+        ctx.fillStyle = '#59161e';
+        ctx.font = '900 54px system-ui';
+        ctx.fillText('GIẤY CHỨNG NHẬN GIẢI NGHIỆP', 540, 315);
+
+        ctx.font = '95px system-ui';
+        ctx.fillText('🏆', 540, 430);
+
+        const recipient = res.recipientName || ($('nickname').value.trim().slice(0, 32) || 'Chiến thần công sở');
+        ctx.fillStyle = '#6b2d26';
+        ctx.font = 'bold 30px system-ui';
+        ctx.fillText('TRÂN TRỌNG VINH DANH ĐỒNG CHÍ:', 540, 495);
+
+        ctx.fillStyle = '#b91c1c';
+        ctx.font = '900 48px system-ui';
+        ctx.fillText(recipient.toUpperCase(), 540, 558);
+
+        // Large Humorous Title
+        let nextY = wrapTextAt(res.title, 540, 645, 42, '#7f1d1d', 820, 54, true, 2);
+
+        // Humorous Description
+        nextY = wrapTextAt('“' + res.message + '”', 540, nextY + 35, 32, '#3d1016', 800, 46, false, 3);
+
+        // Status & Date
+        ctx.fillStyle = '#7c4d25';
+        ctx.font = 'italic 25px system-ui';
+        ctx.fillText('Hạng mục: ' + (res.certStatus || selected) + ' · Ngày cấp: ' + (res.date || ''), 540, 945);
+
+        // Required Red Stamp: "ĐÃ QUA KIỂM ĐỊNH ĐỘ LÌ"
+        ctx.save();
+        ctx.translate(805, 1025);
+        ctx.rotate(-0.14);
+        ctx.strokeStyle = '#d90429';
+        ctx.lineWidth = 6;
+        ctx.strokeRect(-145, -52, 290, 104);
+        ctx.strokeStyle = 'rgba(217, 4, 41, 0.5)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(-137, -44, 274, 88);
+        ctx.fillStyle = '#d90429';
+        ctx.font = '900 22px system-ui';
+        ctx.fillText('ĐÃ QUA KIỂM ĐỊNH', 0, -8);
+        ctx.font = '900 28px system-ui';
+        ctx.fillText('ĐỘ LÌ ★ 100%', 0, 28);
+        ctx.restore();
+
+        // Required Disclaimer
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#6e473b';
+        ctx.font = 'bold 22px system-ui';
+        ctx.fillText('* Chứng chỉ giải trí – Không có giá trị hành chính', 115, 1055);
+
+        // Bottom Slogan & Website URL
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#ffd166';
+        ctx.font = 'bold 28px system-ui';
+        ctx.fillText('XIN VÍA 4.0 · Vào đây xả nghiệp – Ra ngoài chốt deal!', 540, 1215);
+        ctx.fillStyle = '#f4c987';
+        ctx.font = '24px system-ui';
+        ctx.fillText('https://xin-via.vibe.tinhgon.xyz/', 540, 1258);
+
+        return c;
+      }
+
+      // DEFAULT TALISMAN / BLESSING CARD LAYOUT (including Colleague Via, Pray, Tree, Oracle, Punch, Mo, etc.)
+      ctx.fillStyle = '#ffd700';
+      ctx.font = 'bold 28px system-ui';
+      ctx.letterSpacing = '3px';
+      const topHeaderMap = {
+        pray: '✦ CHÙA CHỐT ĐƠN · THIỆP CẦU MAY 4.0 ✦',
+        tree: '✦ CÂY ƯỚC NGUYỆN · THẺ LỘC MAY MẮN 4.0 ✦',
+        oracle: '✦ THẦY PHÁN CÔNG SỞ · QUẺ VUI 4.0 ✦',
+        punch: '✦ ĐẤM BAO CÁT · CHỨNG NHẬN XẢ NGHIỆP ✦',
+        mo: '✦ GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM ✦',
+        colleague: '✦ GỬI VÍA ĐỒNG NGHIỆP · THIỆP VÍA MAY MẮN 4.0 ✦'
+      };
+      ctx.fillText(
+        topHeaderMap[type] || '✦ HỘI CHỐT ĐƠN · CHỨNG NHẬN TÂM LINH ✦',
+        540,
+        140
+      );
+
+      ctx.fillStyle = '#ffe2a1';
+      ctx.font = '900 72px system-ui';
+      ctx.fillText(isPray ? 'CHÙA CHỐT ĐƠN' : (isTree ? 'CÂY ƯỚC NGUYỆN' : 'XIN VÍA 4.0'), 540, 225);
+
+      // Big Emoji Symbol
+      ctx.font = '115px system-ui';
+      ctx.fillText(res.emoji, 540, 365);
+
       // Title
-      let y = wrapText(res.title, 445, 44, '#ffd700', 880, 56, true, 2);
+      let y = wrapTextAt(res.title, 540, 445, 44, '#ffd700', 880, 56, true, 2);
 
       // Honor Title Badge
       const honor = res.honorTitle || (honorTitles[type] ? honorTitles[type][0] : 'Chiến Thần Chốt Đơn');
-      y = wrapText('🏅 DANH HIỆU: ' + honor.toUpperCase(), y + 15, 29, '#ffea9f', 880, 42, true, 2);
+      y = wrapTextAt('🏅 DANH HIỆU: ' + honor.toUpperCase(), 540, y + 15, 29, '#ffea9f', 880, 42, true, 2);
 
       // Recipient / Question / Wish
-      y = wrapText(res.who, y + 20, 30, '#f8d2c2', 880, 44, false, 3);
+      y = wrapTextAt(res.who, 540, y + 20, 30, '#f8d2c2', 880, 44, false, 3);
 
       // Main Quote in decorative box
       const quoteBoxY = Math.max(y + 20, 680);
@@ -4829,11 +6063,12 @@
       ctx.lineWidth = 4;
       ctx.strokeRect(80, quoteBoxY, 920, 215);
 
-      wrapText('“' + res.message + '”', quoteBoxY + 62, 35, '#59161e', 840, 48, true, 3);
+      wrapTextAt('“' + res.message + '”', 540, quoteBoxY + 62, 35, '#59161e', 840, 48, true, 3);
 
       // Action Tip
-      wrapText(
-        (isPray || isTree ? '🌱 LỜI ĐỘNG VIÊN: ' : '✨ LỜI KHUYÊN: ') + res.tip,
+      wrapTextAt(
+        (isPray || isTree ? '🌱 LỜI ĐỘNG VIÊN: ' : '✨ LỜI NHẮN NHỦ: ') + res.tip,
+        540,
         quoteBoxY + 265,
         27,
         '#ffea9f',
@@ -4845,7 +6080,7 @@
 
       // Official Red Seal (Con Dấu Đỏ: XIN VÍA 4.0 - CHỐT DEAL)
       ctx.save();
-      ctx.translate(870, 1145);
+      ctx.translate(870, 1135);
       ctx.rotate(-0.15);
       ctx.strokeStyle = '#d90429';
       ctx.lineWidth = 5;
@@ -4857,10 +6092,13 @@
       ctx.fillText('CHỐT DEAL', 0, 20);
       ctx.restore();
 
-      // Footer
+      // Footer with Brand Slogan & Website URL
+      ctx.fillStyle = '#ffd166';
+      ctx.font = 'bold 26px system-ui';
+      ctx.fillText('Vào đây xả nghiệp – Ra ngoài chốt deal!', 540, 1225);
       ctx.fillStyle = '#f4c987';
-      ctx.font = '26px system-ui';
-      ctx.fillText('Vào đây xả nghiệp – Ra ngoài chốt deal!', 540, 1260);
+      ctx.font = '23px system-ui';
+      ctx.fillText('https://xin-via.vibe.tinhgon.xyz/', 540, 1264);
 
       return c;
     }
@@ -4874,40 +6112,70 @@
         pray: 'thiep-cau-may-4.0-',
         tree: 'thiep-uoc-nguyen-4.0-',
         oracle: 'thay-phan-cong-so-4.0-',
-        punch: 'chung-nhan-xa-nghiep-4.0-'
+        punch: 'chung-nhan-xa-nghiep-4.0-',
+        bingo: 'bingo-cong-so-4.0-',
+        cert: 'chung-chi-giai-nghiep-4.0-',
+        colleague: 'thiep-gui-via-dong-nghiep-4.0-'
       };
       link.download = (prefixMap[type] || 'xin-via-4.0-') + Date.now() + '.png';
       link.href = canvas.toDataURL('image/png');
       link.click();
-      showToast('📸 Đã tải ảnh chứng nhận PNG Full HD về máy!');
+      showToast('📸 Đã tải ảnh PNG Full HD (1080×1350) về máy!');
       if (soundEnabled) playWoodblock();
     }
 
     // ==========================================
-    // SHARE (Web Share API & Direct Zalo Link)
+    // SHARE, COPY TEXT & PERSONALIZED COLLEAGUE LINK
     // ==========================================
+    function getShareUrl() {
+      const base = 'https://xin-via.vibe.tinhgon.xyz/';
+      if (current && current.type === 'colleague') {
+        const params = new URLSearchParams();
+        params.set('gift', '1');
+        params.set('v', String(current.viaIndex || 0));
+        if (current.recipientName) {
+          params.set('to', String(current.recipientName).slice(0, 40));
+        }
+        return base + '?' + params.toString();
+      }
+      return window.location.href || base;
+    }
+
     function getShareText() {
       if (!current) return '';
       const honor = current.honorTitle ? ('🏅 Danh hiệu: ' + current.honorTitle + '\n') : '';
-      return '🧧 XIN VÍA 4.0 – HỘI CHỐT ĐƠN\n' +
+      return '🧧 XIN VÍA 4.0 – Vào đây xả nghiệp – Ra ngoài chốt deal!\n' +
         current.title + '\n' +
         honor +
         current.who + '\n' +
         '“' + current.message + '”\n' +
         '✨ ' + current.tip + '\n' +
-        '👉 Vào đây xả nghiệp – Ra ngoài chốt deal: ' + window.location.href;
+        '👉 Giải nghiệp ngay tại: ' + getShareUrl();
+    }
+
+    async function copyBlessingText() {
+      if (!current) return;
+      const text = getShareText();
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('📋 Đã sao chép lời chúc & link! Hãy dán gửi đồng nghiệp nhé.');
+        if (soundEnabled) playWoodblock();
+      } catch (err) {
+        alert('Không thể tự động sao chép. Bạn hãy tải ảnh PNG để gửi nhé!');
+      }
     }
 
     async function share() {
       if (!current) return;
       const text = getShareText();
+      const shareUrl = getShareUrl();
 
       if (navigator.share) {
         try {
           await navigator.share({
             title: 'XIN VÍA 4.0 | Vào đây xả nghiệp – Ra ngoài chốt deal!',
             text: text,
-            url: window.location.href
+            url: shareUrl
           });
           return;
         } catch (e) {
@@ -4916,21 +6184,16 @@
       }
 
       // Fallback: Copy to clipboard
-      try {
-        await navigator.clipboard.writeText(text);
-        showToast('📋 Đã sao chép lời chúc! Hãy dán vào Zalo/Facebook.');
-      } catch (err) {
-        alert('Không thể tự động sao chép. Bạn hãy tải ảnh bùa để gửi nhé!');
-      }
+      await copyBlessingText();
     }
 
     function shareToZalo() {
       if (!current) return;
-      const url = encodeURIComponent(window.location.href);
+      const url = encodeURIComponent(getShareUrl());
       window.open('https://zalo.me/share?url=' + url, '_blank');
       try {
         navigator.clipboard.writeText(getShareText());
-        showToast('💬 Đã mở Zalo & sao chép nội dung bùa!');
+        showToast('💬 Đã mở Zalo & sao chép nội dung lời chúc!');
       } catch (e) {}
     }
 
@@ -4966,6 +6229,10 @@
         } else if (tab === 'oracle') {
           selected = oracleSampleQuestions[0];
           if (!$('oracleQuestionInput').value) $('oracleQuestionInput').value = selected;
+        } else if (tab === 'cert') {
+          selected = certStatuses[0];
+        } else if (tab === 'colleague') {
+          selected = colleagueViaTypes[0];
         } else {
           selected = scenarios[0];
         }
@@ -4987,8 +6254,19 @@
     });
 
     $('download').addEventListener('click', download);
+    $('copyTextBtn').addEventListener('click', copyBlessingText);
     $('share').addEventListener('click', share);
     $('zaloShare').addEventListener('click', shareToZalo);
+
+    $('sendColleagueQuickBtn').addEventListener('click', () => {
+      tab = 'colleague';
+      selected = colleagueViaTypes[0];
+      $('result').classList.remove('show');
+      render();
+      $('ritual').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      $('colleagueNameInput').focus();
+      if (soundEnabled) playWoodblock();
+    });
 
     $('clear').addEventListener('click', () => {
       if (confirm('Bạn có chắc muốn xóa toàn bộ lịch sử xin vía trên thiết bị này không?')) {
@@ -4999,8 +6277,18 @@
       }
     });
 
+    // Safe localStorage helper so blocked localStorage never throws
+    function safeGetLocal(key, fallback = '') {
+      try {
+        const val = localStorage.getItem(key);
+        return val !== null ? val : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
     // Nickname persistence (preserve exact user-entered nickname)
-    const savedName = localStorage.getItem('xinvia-name');
+    const savedName = safeGetLocal('xinvia-name', '');
     if (savedName) $('nickname').value = savedName;
     $('nickname').addEventListener('input', e => {
       try {
@@ -5009,22 +6297,54 @@
     });
 
     // Merit count (Gõ Mõ) persistence
-    const savedMerit = Number(localStorage.getItem('xinvia-merit-count') || '0');
+    const savedMerit = Number(safeGetLocal('xinvia-merit-count', '0'));
     if (!Number.isNaN(savedMerit) && savedMerit >= 0) {
       meritCount = savedMerit;
       syncMeritUI();
     }
 
     // Sound preference persistence
-    const savedSound = localStorage.getItem('xinvia-sound-enabled');
+    const savedSound = safeGetLocal('xinvia-sound-enabled', '0');
     soundEnabled = savedSound === '1'; // Default: false (OFF) as requested
     updateAudioUI();
+
+    // Check URL parameters for safe personalized Colleague Via card (?gift=1&v=...&to=...)
+    function checkIncomingGiftLink() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('gift') !== '1') return;
+        const vIdx = Math.max(0, Math.min(colleagueViaTypes.length - 1, parseInt(params.get('v') || '0', 10) || 0));
+        const toName = escapeText(params.get('to') || 'Người đồng nghiệp dễ mến', 40);
+        const viaType = colleagueViaTypes[vIdx] || colleagueViaTypes[0];
+        const picked = colleagueViaMessages[viaType][0];
+
+        tab = 'colleague';
+        selected = viaType;
+        $('colleagueNameInput').value = toName;
+        render();
+
+        const giftRes = {
+          type: 'colleague',
+          emoji: '🧧',
+          title: 'THIỆP TẶNG ' + viaType.toUpperCase(),
+          honorTitle: honorTitles.colleague[0],
+          who: 'Gửi tặng vía lành tới: ' + toName,
+          recipientName: toName,
+          viaIndex: vIdx,
+          message: picked[0],
+          tip: picked[1],
+          date: new Date().toLocaleString('vi-VN')
+        };
+        showResult(giftRes);
+      } catch (e) {}
+    }
 
     // Initial render & one-time session greeting (3s, no popup, no auto-sound)
     render();
     renderHistory();
     renderTreeWishes();
     triggerMascotSessionGreeting();
+    checkIncomingGiftLink();
   })();
   </script>
 </body>
