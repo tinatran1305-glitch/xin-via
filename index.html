@@ -499,6 +499,10 @@
     }
 
     .tabs.stress-tabs {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .tabs.social-tabs {
       grid-template-columns: repeat(3, 1fr);
     }
 
@@ -2233,6 +2237,366 @@
       user-select: none;
     }
 
+    /* ==========================================
+       MINI GAME: 🐟 AO PHÓNG SINH – THẢ CÁ, THẢ MUỘN PHIỀN
+       ========================================== */
+    .pond-wrap {
+      width: 100%;
+      max-width: 460px;
+      padding: 10px 8px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 5;
+      user-select: none;
+    }
+
+    .pond-hud {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .pond-species-bar {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .pond-species-btn {
+      background: rgba(38, 16, 26, 0.85);
+      border: 1.5px solid var(--gold-border);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 6px 4px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .pond-species-btn:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-1px);
+    }
+
+    .pond-species-btn.active {
+      background: linear-gradient(145deg, #136f63, #0b4f4a);
+      border-color: var(--gold-primary);
+      color: #fff8e7;
+      box-shadow: 0 0 12px rgba(46, 196, 182, 0.35);
+    }
+
+    .pond-species-preview {
+      width: 36px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Virtual Ceramic Fish Bowl on the Bank */
+    .pond-bank-zone {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: linear-gradient(180deg, rgba(84, 38, 22, 0.72), rgba(48, 22, 14, 0.85));
+      border: 1.5px solid #c48924;
+      border-radius: 14px;
+      padding: 8px 12px;
+      position: relative;
+      z-index: 8;
+    }
+
+    .pond-bowl {
+      width: 112px;
+      height: 68px;
+      background: radial-gradient(ellipse at 50% 42%, #48cae4 0%, #0096c7 58%, #023e8a 100%);
+      border: 3.5px solid #e09f3e;
+      border-radius: 50%;
+      box-shadow: inset 0 4px 10px rgba(255, 255, 255, 0.38), 0 6px 14px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      position: relative;
+      flex-shrink: 0;
+      touch-action: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pond-bowl:hover {
+      transform: scale(1.04);
+      box-shadow: inset 0 4px 12px rgba(255, 255, 255, 0.5), 0 0 16px rgba(255, 209, 102, 0.45);
+    }
+
+    .pond-bowl:active,
+    .pond-bowl.dragging {
+      cursor: grabbing;
+      transform: scale(0.96);
+    }
+
+    .pond-bowl-fish {
+      width: 64px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bowlFishFloat 2.2s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes bowlFishFloat {
+      0% { transform: translate(-4px, -2px) rotate(-4deg); }
+      100% { transform: translate(4px, 2px) rotate(4deg); }
+    }
+
+    .pond-fish-tail {
+      transform-origin: 24px 18px;
+      animation: fishTailWag 0.45s ease-in-out infinite alternate;
+    }
+
+    @keyframes fishTailWag {
+      0% { transform: rotate(-11deg); }
+      100% { transform: rotate(11deg); }
+    }
+
+    .pond-bowl-tag {
+      position: absolute;
+      bottom: -9px;
+      background: #fff3c9;
+      color: #5c161e;
+      border: 1.5px solid #b57c1e;
+      border-radius: 999px;
+      padding: 1px 8px;
+      font-size: 10px;
+      font-weight: 900;
+      max-width: 130px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    .pond-bank-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      flex: 1;
+    }
+
+    .pond-hint-text {
+      font-size: 11.5px;
+      color: var(--gold-light);
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .pond-quick-release-btn {
+      background: linear-gradient(135deg, #2ec4b6, #158f82);
+      color: #ffffff;
+      border: 1.5px solid #a8f0d8;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .pond-quick-release-btn:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .pond-quick-release-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* 2D Vietnamese Lotus Pond Water Area */
+    .pond-water-area {
+      width: 100%;
+      height: 215px;
+      background: radial-gradient(ellipse at 50% 35%, #168aad 0%, #116979 48%, #093d4a 85%, #05262e 100%);
+      border: 3px solid #d4952c;
+      border-radius: 22px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: inset 0 0 28px rgba(0, 25, 35, 0.7), 0 8px 22px rgba(0, 0, 0, 0.45);
+    }
+
+    .pond-water-area.drag-over {
+      border-color: #ffd166;
+      box-shadow: inset 0 0 32px rgba(255, 209, 102, 0.35), 0 0 20px rgba(46, 196, 182, 0.5);
+    }
+
+    /* Gentle Sunlight Rays (No harsh blinking) */
+    .pond-sunlight {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255, 243, 176, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 75% 65%, rgba(144, 224, 239, 0.14) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Lotus Pads & Flowers on Pond */
+    .pond-lily-pad {
+      position: absolute;
+      width: 56px;
+      height: 46px;
+      background: radial-gradient(circle at 45% 45%, #52b788 0%, #2d6a4f 75%, #1b4332 100%);
+      border: 1.5px solid rgba(255, 209, 102, 0.55);
+      border-radius: 50% 50% 48% 52%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      z-index: 6;
+      transition: transform 0.3s ease;
+    }
+
+    .pond-lily-pad::after {
+      content: '';
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      width: 14px;
+      height: 6px;
+      background: #0d5261;
+      clip-path: polygon(0 50%, 100% 0, 100% 100%);
+      transform: translateY(-50%);
+    }
+
+    .pond-lily-pad.pad-1 { top: 16px; left: 16px; }
+    .pond-lily-pad.pad-2 { top: 20px; right: 18px; width: 62px; height: 50px; transform: rotate(25deg); }
+    .pond-lily-pad.pad-3 { bottom: 14px; left: 26px; width: 48px; height: 40px; transform: rotate(-30deg); }
+    .pond-lily-pad.pad-4 { bottom: 16px; right: 24px; width: 52px; height: 42px; transform: rotate(140deg); }
+
+    .pond-lily-pad.lotus-shake {
+      animation: lilyPadRippleShake 0.65s ease-in-out;
+    }
+
+    @keyframes lilyPadRippleShake {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      25% { transform: scale(1.09) translate(-2px, -3px) rotate(-6deg); }
+      60% { transform: scale(0.96) translate(2px, 2px) rotate(5deg); }
+    }
+
+    .pond-lotus-flower {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-size: 24px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+      pointer-events: none;
+    }
+
+    /* Expanding Water Ripples & Bubbles */
+    .pond-ripples-layer,
+    .pond-swimmers-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .pond-ripples-layer { z-index: 3; }
+    .pond-swimmers-layer { z-index: 4; }
+
+    .pond-ripple {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 2.5px solid rgba(255, 248, 220, 0.8);
+      border-radius: 50%;
+      animation: pondRippleExpand 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .pond-ripple.r2 {
+      border-color: rgba(144, 224, 239, 0.65);
+      animation-delay: 0.16s;
+    }
+
+    @keyframes pondRippleExpand {
+      0% { transform: scale(0.4); opacity: 0.95; }
+      100% { transform: scale(5.2); opacity: 0; }
+    }
+
+    .pond-bubble {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffffff, rgba(144, 224, 239, 0.45));
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      animation: pondBubbleRise 1.3s ease-out forwards;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    @keyframes pondBubbleRise {
+      0% { transform: translateY(0) scale(0.5); opacity: 0.9; }
+      70% { opacity: 0.85; }
+      100% { transform: translateY(-42px) scale(1.25); opacity: 0; }
+    }
+
+    /* Live Swimming Fish in Pond */
+    .pond-swimmer {
+      position: absolute;
+      width: 64px;
+      height: 38px;
+      margin-left: -32px;
+      margin-top: -19px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      filter: drop-shadow(0 5px 8px rgba(0, 15, 24, 0.55));
+      will-change: transform;
+    }
+
+    .pond-swimmer-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #fff8e7;
+      background: rgba(9, 45, 56, 0.78);
+      border: 1px solid rgba(255, 209, 102, 0.6);
+      border-radius: 999px;
+      padding: 1px 6px;
+      margin-top: -3px;
+      white-space: nowrap;
+      max-width: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Jumping Fish Arc Element & Drag Ghost */
+    .pond-jumping-fish {
+      position: fixed;
+      width: 72px;
+      height: 44px;
+      margin-left: -36px;
+      margin-top: -22px;
+      pointer-events: none;
+      z-index: 9999;
+      filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.5));
+    }
+
     /* Share Invitation Callout inside Result Card */
     .share-invite-banner {
       margin-top: 12px;
@@ -2758,6 +3122,10 @@
             <small class="tab-tag hot">HOT 🔥</small>
             <span class="tab-icon">🔔</span>Gõ Mõ Xả KPI
           </button>
+          <button type="button" class="tab" data-tab="pond" id="tabPond">
+            <small class="tab-tag new">NEW ✨</small>
+            <span class="tab-icon">🐟</span>Ao Phóng Sinh
+          </button>
         </div>
       </div>
 
@@ -2821,6 +3189,12 @@
       <div id="colleagueInputWrap" class="hidden" style="margin-top: 10px;">
         <label for="colleagueNameInput" class="muted">Nhập biệt danh người nhận (không bắt buộc, tối đa 40 ký tự):</label>
         <input id="colleagueNameInput" class="field" maxlength="40" placeholder="VD: Hội chị em kế toán, Chiến thần bàn bên...">
+      </div>
+
+      <!-- Custom Trouble Input for Mini Game: Ao Phóng Sinh (max 100 chars) -->
+      <div id="customPondWrap" class="hidden" style="margin-top: 10px;">
+        <label for="customPondInput" class="muted">Nhập nỗi phiền muốn buông bỏ xuống hồ (tối đa 100 ký tự):</label>
+        <input id="customPondInput" class="field" maxlength="100" placeholder="VD: Sửa báo giá phút 89, họp đột xuất chiều thứ 6...">
       </div>
 
       <!-- Stage for Visual Animations -->
@@ -3073,6 +3447,74 @@
             </div>
           </div>
         </div>
+
+        <!-- MINI GAME: 🐟 AO PHÓNG SINH – THẢ CÁ, THẢ MUỘN PHIỀN Stage -->
+        <div id="pondStageContent" class="pond-wrap hidden">
+          <div class="pond-hud">
+            <span class="punch-counter-badge" id="pondCountBadge">🐟 Đã thả: 0 chú cá</span>
+            <div style="display:flex;gap:6px;">
+              <button type="button" class="back-nav-btn" id="pondAddMoreBtn" title="Thả thêm một chú cá nữa xuống hồ">🐟 Thả thêm cá</button>
+              <button type="button" class="back-nav-btn" id="pondResetBtn" title="Làm mới mặt hồ để chơi lại">🔁 Chơi lại</button>
+            </div>
+          </div>
+
+          <!-- 4 Fish Species Selector -->
+          <div class="pond-species-bar" id="pondFishSelector" role="radiogroup" aria-label="Chọn loại cá muốn thả">
+            <button type="button" class="pond-species-btn active" data-species="goldfish" id="fishBtnGoldfish">
+              <span class="pond-species-preview" id="previewGoldfish"></span>
+              <span>Cá vàng</span>
+            </button>
+            <button type="button" class="pond-species-btn" data-species="koi" id="fishBtnKoi">
+              <span class="pond-species-preview" id="previewKoi"></span>
+              <span>Cá koi</span>
+            </button>
+            <button type="button" class="pond-species-btn" data-species="carp" id="fishBtnCarp">
+              <span class="pond-species-preview" id="previewCarp"></span>
+              <span>Cá chép</span>
+            </button>
+            <button type="button" class="pond-species-btn" data-species="guppy" id="fishBtnGuppy">
+              <span class="pond-species-preview" id="previewGuppy"></span>
+              <span>Cá bảy màu</span>
+            </button>
+          </div>
+
+          <!-- Virtual Fish Bowl on the Bank (Supports Drag & Drop + Touch + Click) -->
+          <div class="pond-bank-zone">
+            <div class="pond-bowl" id="pondBowl" draggable="true" role="button" tabindex="0" aria-label="Chậu cá ảo - Kéo thả xuống hồ hoặc chạm để thả cá">
+              <div class="pond-bowl-fish" id="pondBowlFish"></div>
+              <span class="pond-bowl-tag" id="pondBowlTag">Buông: KPI</span>
+            </div>
+            <div class="pond-bank-controls">
+              <div class="pond-hint-text" id="pondHintText">
+                👉 Kéo cá từ chậu thả xuống hồ, chạm mặt nước hoặc bấm nút <strong>Thả cá</strong>!
+              </div>
+              <button type="button" class="pond-quick-release-btn" id="pondQuickReleaseBtn">🐟 Thả cá ngay</button>
+            </div>
+          </div>
+
+          <!-- 2D Vietnamese Lotus Pond -->
+          <div class="pond-water-area" id="pondWaterArea" role="region" aria-label="Mặt hồ hoa sen - Thả cá vào đây">
+            <div class="pond-sunlight"></div>
+
+            <!-- Lotus Pads & Vietnamese Pink-Gold Lotus Flowers -->
+            <div class="pond-lily-pad pad-1" id="pondPad1">
+              <span class="pond-lotus-flower" aria-hidden="true">🪷</span>
+            </div>
+            <div class="pond-lily-pad pad-2" id="pondPad2">
+              <span class="pond-lotus-flower" aria-hidden="true">🪷</span>
+            </div>
+            <div class="pond-lily-pad pad-3" id="pondPad3"></div>
+            <div class="pond-lily-pad pad-4" id="pondPad4">
+              <span class="pond-lotus-flower" aria-hidden="true">🌸</span>
+            </div>
+
+            <!-- Ripples & Bubbles Layer -->
+            <div class="pond-ripples-layer" id="pondRipplesLayer"></div>
+
+            <!-- Live Autonomous Swimming Fish Layer -->
+            <div class="pond-swimmers-layer" id="pondSwimmersLayer"></div>
+          </div>
+        </div>
       </div>
 
       <button type="button" class="primary" id="go">🔥 ĐỐT PHONG LONG NGAY</button>
@@ -3102,6 +3544,7 @@
 
       <div class="actions">
         <button type="button" class="secondary" id="again">🔁 Chơi tiếp</button>
+        <button type="button" class="secondary hidden" id="pondResultResetBtn">🔄 Chơi lại từ đầu</button>
         <button type="button" class="secondary hidden" id="oracleRerollBtn">🎲 Đổi lời phán</button>
         <button type="button" class="secondary hidden" id="oracleSaveBtn">💾 Lưu vào sổ vía</button>
         <button type="button" class="secondary" id="download">📸 Lưu ảnh PNG</button>
@@ -3302,8 +3745,68 @@
         'Người Đồng Nghiệp Vàng Mười',
         'Chiến Thần Tiếp Sức Đồng Đội',
         'Quý Nhân Của Cả Phòng Ban'
+      ],
+      pond: [
+        'Đại Sứ Thả Cá Buông Phiền',
+        'Tri Kỷ Của Hồ Sen Xanh',
+        'Cao Thủ Quẳng Gánh Lo Đi',
+        'Bậc Thầy Thư Giãn Tâm Hồn'
       ]
     };
+
+    // MINI GAME: 🐟 AO PHÓNG SINH – THẢ CÁ, THẢ MUỘN PHIỀN DATA
+    const pondTroubles = [
+      'KPI',
+      'Deadline',
+      'Khách seen',
+      'Drama công sở',
+      'Áp lực công việc',
+      'Khác (tự nhập)'
+    ];
+
+    const pondFishSpecies = {
+      goldfish: {
+        key: 'goldfish',
+        name: 'Cá vàng',
+        bodyColor: '#ff9f1c',
+        accentColor: '#ffd166',
+        finColor: '#ff5400'
+      },
+      koi: {
+        key: 'koi',
+        name: 'Cá koi',
+        bodyColor: '#fff8eb',
+        accentColor: '#e63946',
+        finColor: '#ffb703'
+      },
+      carp: {
+        key: 'carp',
+        name: 'Cá chép',
+        bodyColor: '#d90429',
+        accentColor: '#f4a261',
+        finColor: '#ffd166'
+      },
+      guppy: {
+        key: 'guppy',
+        name: 'Cá bảy màu',
+        bodyColor: '#06d6a0',
+        accentColor: '#c77dff',
+        finColor: '#ff4d6d'
+      }
+    };
+
+    const pondBlessings = [
+      ['Cá đã về hồ, deadline xin về đúng hạn!', 'Thả lỏng đôi vai và giải quyết từng việc nhỏ, bạn sẽ về đích đúng giờ thôi!'],
+      ['Thả một chú cá, buông một cục tức!', 'Mặt hồ phẳng lặng rồi, giữ lại nụ cười tươi tắn cho buổi chiều nhẹ nhàng nha!'],
+      ['Cá bơi tự do, mong bạn cũng sớm được tan ca!', 'Hoàn thành nốt việc quan trọng nhất trong ngày để chiều nay thảnh thơi tắt máy nhé!'],
+      ['Cá đã thoát chậu, mong bạn thoát 7749 cuộc họp!', 'Chuẩn bị 3 gạch đầu dòng ngắn gọn súc tích để cuộc họp nào cũng kết thúc nhanh gọn!'],
+      ['Cá quẫy đuôi tung tăng, chúc khách seen xong nhớ chuyển khoản liền tay!', 'Nhắn một lời hỏi thăm lịch sự kèm thông tin hữu ích để khách dễ chốt đơn nhé!'],
+      ['Muộn phiền theo sóng nước trôi xa, KPI tháng này vượt nóc nở hoa!', 'Giữ nhịp làm việc đều đặn, từng bước nhỏ hôm nay sẽ dệt nên thành quả lớn!'],
+      ['Một chú cá nhỏ bơi ra hồ rộng, một nỗi lo to hóa thành chuyện nhỏ!', 'Hít sâu một hơi thật mát lành và uống một ngụm nước trước khi làm việc tiếp nha!'],
+      ['Nước hồ trong xanh, lòng người thanh thản, chiều nay chốt đơn nhẹ nhàng!', 'Tâm thế thoải mái chính là phong thủy tốt nhất giúp mọi cuộc trò chuyện hanh thông!'],
+      ['Lá sen rung rinh đón cá mới, chúc bạn cả tuần vui vẻ không một gợn drama!', 'Tập trung vào niềm vui công việc và lan tỏa năng lượng tích cực tới đồng đội nhé!'],
+      ['Buông áp lực xuống mặt hồ, giữ lại nụ cười rạng rỡ để đón lộc về nha!', 'Dành 2 phút thư giãn đôi mắt nhìn xa để nạp lại sự minh mẫn cho trí não!']
+    ];
 
     // ==========================================
     // OFFICE VIRAL EDITION DATA (BINGO, CERT, COLLEAGUE)
@@ -3774,6 +4277,65 @@
       if (isFinish) {
         playCoinSound();
       }
+    }
+
+    // Water Splash & Bubble Plop (Tiếng cá nhảy xuống nước & bong bóng nước)
+    function playWaterSplashSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      // 1. Water plop (rising pitch sine drop)
+      const plopOsc = ctx.createOscillator();
+      const plopGain = ctx.createGain();
+      plopOsc.type = 'sine';
+      plopOsc.frequency.setValueAtTime(220, now);
+      plopOsc.frequency.exponentialRampToValueAtTime(640, now + 0.11);
+      plopGain.gain.setValueAtTime(0.45, now);
+      plopGain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+      plopOsc.connect(plopGain);
+      plopGain.connect(ctx.destination);
+      plopOsc.start(now);
+      plopOsc.stop(now + 0.15);
+
+      // 2. Soft splash noise burst
+      const bufSize = Math.floor(ctx.sampleRate * 0.28);
+      const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < bufSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.08));
+      }
+      const noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(950, now + 0.03);
+      filter.Q.setValueAtTime(2.2, now + 0.03);
+      const noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.28, now + 0.03);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      noise.start(now + 0.03);
+      noise.stop(now + 0.31);
+
+      // 3. Two cheerful bubble chimes
+      [784, 1046.5].forEach((freq, idx) => {
+        const bOsc = ctx.createOscillator();
+        const bGain = ctx.createGain();
+        const t = now + 0.16 + idx * 0.08;
+        bOsc.type = 'sine';
+        bOsc.frequency.setValueAtTime(freq * 0.85, t);
+        bOsc.frequency.exponentialRampToValueAtTime(freq * 1.25, t + 0.07);
+        bGain.gain.setValueAtTime(0.2, t);
+        bGain.gain.exponentialRampToValueAtTime(0.001, t + 0.09);
+        bOsc.connect(bGain);
+        bGain.connect(ctx.destination);
+        bOsc.start(t);
+        bOsc.stop(t + 0.095);
+      });
     }
 
     // Wind Chime (Tiếng chuông gió Cây Ước Nguyện)
@@ -4726,6 +5288,521 @@
     });
 
     // ==========================================
+    // MINI GAME: 🐟 AO PHÓNG SINH – THẢ CÁ, THẢ MUỘN PHIỀN LOGIC
+    // ==========================================
+    let selectedFishSpecies = 'goldfish';
+    let pondReleasedCount = 0;
+    let pondSwimmers = [];
+    let pondAnimFrame = null;
+
+    function getFishSVGMarkup(speciesKey, w = 64, h = 38) {
+      if (speciesKey === 'koi') {
+        // Cá Koi: Trắng ngọc điểm đốm đỏ son & vàng kim
+        return `<svg width="${w}" height="${h}" viewBox="0 0 64 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="pond-fish-tail">
+            <path d="M20 19L4 7C2 12 3 16 8 19C3 22 2 26 4 31L20 19Z" fill="#ffb703" stroke="#e63946" stroke-width="1.2"/>
+          </g>
+          <path d="M28 11C24 5 18 4 16 8C19 10 21 12 22 14Z" fill="#ffb703"/>
+          <path d="M30 26C26 32 20 33 18 29C21 27 23 25 24 23Z" fill="#e63946"/>
+          <ellipse cx="37" cy="19" rx="20" ry="10.5" fill="#fff8eb" stroke="#e09f3e" stroke-width="1.5"/>
+          <path d="M27 12C32 9 39 10 41 15C38 18 31 18 27 14Z" fill="#e63946"/>
+          <path d="M43 17C46 14 51 15 52 19C49 23 44 22 43 17Z" fill="#ffb703"/>
+          <circle cx="22" cy="19" r="3.5" fill="#e63946"/>
+          <circle cx="51" cy="16.5" r="2.2" fill="#1d1e2c"/>
+          <circle cx="51.7" cy="15.8" r="0.8" fill="#ffffff"/>
+        </svg>`;
+      }
+      if (speciesKey === 'carp') {
+        // Cá Chép: Đỏ son vảy vàng kim truyền thống Việt Nam
+        return `<svg width="${w}" height="${h}" viewBox="0 0 64 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="pond-fish-tail">
+            <path d="M21 19L5 6C4 13 6 16 10 19C6 22 4 25 5 32L21 19Z" fill="#d90429" stroke="#ffd166" stroke-width="1.4"/>
+          </g>
+          <path d="M26 10C31 3 41 4 44 10Z" fill="#f4a261" stroke="#ffd166" stroke-width="1"/>
+          <path d="M32 27C28 33 22 33 20 29L27 25Z" fill="#f4a261"/>
+          <ellipse cx="38" cy="19" rx="19.5" ry="11.5" fill="#d90429" stroke="#ffd166" stroke-width="1.6"/>
+          <path d="M28 15C31 17 31 21 28 23" stroke="#ffd166" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M35 14C38 17 38 21 35 24" stroke="#ffd166" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M42 15C45 17 45 21 42 23" stroke="#ffd166" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M56 21C59 23 61 25 60 27" stroke="#ffd166" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="51" cy="16.5" r="2.3" fill="#1d1e2c"/>
+          <circle cx="51.7" cy="15.8" r="0.8" fill="#ffffff"/>
+        </svg>`;
+      }
+      if (speciesKey === 'guppy') {
+        // Cá Bảy Màu: Xanh ngọc – tím hồng – đuôi cầu vồng xòe lớn
+        return `<svg width="${w}" height="${h}" viewBox="0 0 64 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="pond-fish-tail">
+            <path d="M24 19L3 5C1 13 2 25 3 33L24 19Z" fill="#c77dff" stroke="#ffd166" stroke-width="1.3"/>
+            <path d="M23 19L7 10C6 16 6 22 7 28L23 19Z" fill="#ff4d6d"/>
+            <path d="M22 19L12 14C11 17 11 21 12 24L22 19Z" fill="#ffd166"/>
+          </g>
+          <path d="M29 12C33 4 42 5 44 12Z" fill="#c77dff"/>
+          <ellipse cx="39" cy="19" rx="16.5" ry="8.5" fill="#06d6a0" stroke="#a8f0d8" stroke-width="1.4"/>
+          <ellipse cx="33" cy="19" rx="7" ry="6" fill="#48cae4"/>
+          <circle cx="50" cy="17" r="2.1" fill="#1d1e2c"/>
+          <circle cx="50.6" cy="16.4" r="0.7" fill="#ffffff"/>
+        </svg>`;
+      }
+      // Default: goldfish (Cá Vàng tròn trịa cam vàng, đuôi quạt kép)
+      return `<svg width="${w}" height="${h}" viewBox="0 0 64 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="pond-fish-tail">
+          <path d="M22 19L3 5C1 12 4 17 9 19C4 21 1 26 3 33L22 19Z" fill="#ff5400" stroke="#ffd166" stroke-width="1.3"/>
+          <path d="M22 19L8 10C7 15 9 18 13 19C9 20 7 23 8 28L22 19Z" fill="#ffd166"/>
+        </g>
+        <path d="M29 9C34 2 43 4 45 10Z" fill="#ff5400"/>
+        <path d="M33 28C29 34 23 34 21 29L29 26Z" fill="#ff5400"/>
+        <ellipse cx="39" cy="19" rx="18" ry="12" fill="#ff9f1c" stroke="#ffd166" stroke-width="1.6"/>
+        <ellipse cx="36" cy="16" rx="10" ry="6" fill="#ffd166" fill-opacity="0.55"/>
+        <circle cx="50.5" cy="16" r="2.5" fill="#1d1e2c"/>
+        <circle cx="51.3" cy="15.2" r="0.9" fill="#ffffff"/>
+      </svg>`;
+    }
+
+    function getPondTroubleLabel() {
+      if (selected === 'Khác (tự nhập)') {
+        return escapeText($('customPondInput').value, 100) || 'Muộn phiền công sở';
+      }
+      return selected || pondTroubles[0];
+    }
+
+    function initPondSpeciesPreviews() {
+      if ($('previewGoldfish')) $('previewGoldfish').innerHTML = getFishSVGMarkup('goldfish', 34, 20);
+      if ($('previewKoi')) $('previewKoi').innerHTML = getFishSVGMarkup('koi', 34, 20);
+      if ($('previewCarp')) $('previewCarp').innerHTML = getFishSVGMarkup('carp', 34, 20);
+      if ($('previewGuppy')) $('previewGuppy').innerHTML = getFishSVGMarkup('guppy', 34, 20);
+    }
+
+    function updatePondUI() {
+      const trouble = getPondTroubleLabel();
+      if ($('pondBowlTag')) {
+        $('pondBowlTag').textContent = 'Buông: ' + trouble;
+      }
+      if ($('pondBowlFish')) {
+        $('pondBowlFish').innerHTML = getFishSVGMarkup(selectedFishSpecies, 64, 38);
+      }
+      if ($('pondCountBadge')) {
+        $('pondCountBadge').textContent = '🐟 Đã thả: ' + pondReleasedCount + ' chú cá';
+      }
+      document.querySelectorAll('.pond-species-btn').forEach(btn => {
+        const active = btn.getAttribute('data-species') === selectedFishSpecies;
+        btn.classList.toggle('active', active);
+      });
+    }
+
+    function shakePondLotusPads() {
+      ['pondPad1', 'pondPad2', 'pondPad3', 'pondPad4'].forEach((id, idx) => {
+        const pad = $(id);
+        if (!pad) return;
+        setTimeout(() => {
+          pad.classList.remove('lotus-shake');
+          void pad.offsetWidth;
+          pad.classList.add('lotus-shake');
+        }, idx * 70);
+      });
+    }
+
+    function spawnPondRippleAndBubbles(localX, localY) {
+      const layer = $('pondRipplesLayer');
+      if (!layer) return;
+
+      const r1 = document.createElement('div');
+      r1.className = 'pond-ripple';
+      r1.style.left = localX + 'px';
+      r1.style.top = localY + 'px';
+
+      const r2 = document.createElement('div');
+      r2.className = 'pond-ripple r2';
+      r2.style.left = localX + 'px';
+      r2.style.top = localY + 'px';
+
+      layer.append(r1, r2);
+      setTimeout(() => {
+        r1.remove();
+        r2.remove();
+      }, 1350);
+
+      for (let i = 0; i < 5; i++) {
+        const b = document.createElement('div');
+        b.className = 'pond-bubble';
+        const size = 5 + Math.random() * 6;
+        b.style.width = size + 'px';
+        b.style.height = size + 'px';
+        b.style.left = (localX + (Math.random() - 0.5) * 44) + 'px';
+        b.style.top = (localY + (Math.random() - 0.5) * 24) + 'px';
+        layer.appendChild(b);
+        setTimeout(() => b.remove(), 1350);
+      }
+
+      shakePondLotusPads();
+    }
+
+    function addSwimmerToPond(speciesKey, troubleLabel, startX, startY) {
+      const layer = $('pondSwimmersLayer');
+      const pond = $('pondWaterArea');
+      if (!layer || !pond) return;
+
+      // Cap active DOM swimmers at 8 for silky-smooth mobile performance
+      if (pondSwimmers.length >= 8) {
+        const oldest = pondSwimmers.shift();
+        if (oldest && oldest.el) oldest.el.remove();
+      }
+
+      const w = pond.clientWidth || 320;
+      const h = pond.clientHeight || 215;
+      const x = typeof startX === 'number' ? Math.max(40, Math.min(w - 40, startX)) : (60 + Math.random() * (w - 120));
+      const y = typeof startY === 'number' ? Math.max(36, Math.min(h - 36, startY)) : (45 + Math.random() * (h - 90));
+
+      const angle = (Math.random() - 0.5) * 0.9 + (Math.random() > 0.5 ? 0 : Math.PI);
+      const speed = 0.85 + Math.random() * 0.55;
+
+      const el = document.createElement('div');
+      el.className = 'pond-swimmer';
+      const svgWrap = document.createElement('div');
+      svgWrap.innerHTML = getFishSVGMarkup(speciesKey, 58, 34);
+      el.appendChild(svgWrap);
+
+      if (troubleLabel) {
+        const tag = document.createElement('span');
+        tag.className = 'pond-swimmer-tag';
+        tag.textContent = '✨ ' + troubleLabel;
+        el.appendChild(tag);
+      }
+
+      layer.appendChild(el);
+
+      const swimmer = {
+        el,
+        svgWrap,
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed * 0.6,
+        speed,
+        wobblePhase: Math.random() * Math.PI * 2
+      };
+      pondSwimmers.push(swimmer);
+      positionSwimmerDOM(swimmer);
+      ensurePondSwimLoop();
+    }
+
+    function positionSwimmerDOM(s) {
+      const facingLeft = s.vx < 0;
+      const tilt = Math.max(-18, Math.min(18, s.vy * 14)) * (facingLeft ? -1 : 1);
+      s.el.style.transform = `translate3d(${s.x}px, ${s.y}px, 0)`;
+      s.svgWrap.style.transform = `scaleX(${facingLeft ? -1 : 1}) rotate(${tilt}deg)`;
+    }
+
+    function ensurePondSwimLoop() {
+      if (pondAnimFrame) return;
+      function step() {
+        if (tab !== 'pond') {
+          pondAnimFrame = null;
+          return;
+        }
+        const pond = $('pondWaterArea');
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (pond && !reduced) {
+          const w = pond.clientWidth || 320;
+          const h = pond.clientHeight || 215;
+          const marginX = 38;
+          const marginY = 30;
+
+          for (const s of pondSwimmers) {
+            s.wobblePhase += 0.04;
+            s.x += s.vx;
+            s.y += s.vy + Math.sin(s.wobblePhase) * 0.18;
+
+            if (s.x < marginX) {
+              s.x = marginX;
+              s.vx = Math.abs(s.vx);
+            } else if (s.x > w - marginX) {
+              s.x = w - marginX;
+              s.vx = -Math.abs(s.vx);
+            }
+
+            if (s.y < marginY) {
+              s.y = marginY;
+              s.vy = Math.abs(s.vy) * 0.8 + 0.15;
+            } else if (s.y > h - marginY) {
+              s.y = h - marginY;
+              s.vy = -Math.abs(s.vy) * 0.8 - 0.15;
+            }
+
+            // Occasional gentle direction change
+            if (Math.random() < 0.012) {
+              s.vy += (Math.random() - 0.5) * 0.45;
+              s.vy = Math.max(-0.65, Math.min(0.65, s.vy));
+            }
+            positionSwimmerDOM(s);
+          }
+        }
+        pondAnimFrame = requestAnimationFrame(step);
+      }
+      pondAnimFrame = requestAnimationFrame(step);
+    }
+
+    function seedInitialPondFish() {
+      const layer = $('pondSwimmersLayer');
+      if (!layer) return;
+      layer.replaceChildren();
+      pondSwimmers = [];
+      addSwimmerToPond('koi', 'Bình an', 95, 115);
+      addSwimmerToPond('goldfish', 'Tự do', 220, 145);
+    }
+
+    function resetPondGame() {
+      pondReleasedCount = 0;
+      try {
+        localStorage.setItem('xinvia-pond-count', '0');
+      } catch (e) {}
+      seedInitialPondFish();
+      updatePondUI();
+    }
+
+    function releaseFishIntoPond(customTargetClientX, customTargetClientY) {
+      if (busy) return;
+      getAudioContext();
+
+      if (selected === 'Khác (tự nhập)' && !$('customPondInput').value.trim()) {
+        alert('Bạn hãy nhập nỗi phiền muốn buông bỏ (tối đa 100 ký tự) trước khi thả cá nhé!');
+        $('customPondInput').focus();
+        return;
+      }
+
+      const troubleText = getPondTroubleLabel();
+      const speciesObj = pondFishSpecies[selectedFishSpecies] || pondFishSpecies.goldfish;
+      const chosenBlessing = random(pondBlessings);
+      const name = $('nickname').value.trim().slice(0, 32) || 'Tín chủ công sở';
+      const date = new Date().toLocaleString('vi-VN');
+
+      const res = {
+        type: 'pond',
+        emoji: '🐟',
+        title: 'THẢ ' + speciesObj.name.toUpperCase() + ' – BUÔNG: ' + troubleText.toUpperCase(),
+        honorTitle: random(honorTitles.pond),
+        who: name + ' đã thả ' + speciesObj.name + ' · Buông bỏ: “' + troubleText + '”',
+        fishSpeciesKey: speciesObj.key,
+        fishSpeciesName: speciesObj.name,
+        troubleReleased: troubleText,
+        message: chosenBlessing[0],
+        tip: chosenBlessing[1],
+        date
+      };
+
+      busy = true;
+      $('go').disabled = true;
+      $('result').classList.remove('show');
+
+      const bowl = $('pondBowl');
+      const pond = $('pondWaterArea');
+      const bowlRect = bowl.getBoundingClientRect();
+      const pondRect = pond.getBoundingClientRect();
+
+      const startClientX = bowlRect.left + bowlRect.width / 2;
+      const startClientY = bowlRect.top + bowlRect.height / 2;
+
+      const endClientX = typeof customTargetClientX === 'number'
+        ? Math.max(pondRect.left + 45, Math.min(pondRect.right - 45, customTargetClientX))
+        : (pondRect.left + pondRect.width * (0.32 + Math.random() * 0.36));
+      const endClientY = typeof customTargetClientY === 'number'
+        ? Math.max(pondRect.top + 40, Math.min(pondRect.bottom - 40, customTargetClientY))
+        : (pondRect.top + pondRect.height * (0.38 + Math.random() * 0.34));
+
+      const localTargetX = endClientX - pondRect.left;
+      const localTargetY = endClientY - pondRect.top;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) {
+        playWaterSplashSound();
+        spawnPondRippleAndBubbles(localTargetX, localTargetY);
+        addSwimmerToPond(speciesObj.key, troubleText, localTargetX, localTargetY);
+        pondReleasedCount++;
+        try {
+          localStorage.setItem('xinvia-pond-count', String(pondReleasedCount));
+        } catch (e) {}
+        updatePondUI();
+        finishRitual(res);
+        return;
+      }
+
+      // Hide fish in bowl briefly while it jumps through the air
+      if ($('pondBowlFish')) $('pondBowlFish').style.opacity = '0.2';
+
+      const jumper = document.createElement('div');
+      jumper.className = 'pond-jumping-fish';
+      jumper.innerHTML = getFishSVGMarkup(speciesObj.key, 72, 44);
+      document.body.appendChild(jumper);
+
+      const jumpDuration = 540;
+      const startTime = performance.now();
+
+      function animateJump(now) {
+        const t = Math.min(1, (now - startTime) / jumpDuration);
+        const curX = startClientX + (endClientX - startClientX) * t;
+        const arcLift = -95 * 4 * t * (1 - t);
+        const curY = startClientY + (endClientY - startClientY) * t + arcLift;
+        const pitch = -35 + t * 80; // Tilts up on takeoff, dives into water on landing
+
+        jumper.style.left = curX + 'px';
+        jumper.style.top = curY + 'px';
+        jumper.style.transform = `rotate(${pitch}deg) scale(${1 + 0.18 * Math.sin(t * Math.PI)})`;
+
+        if (t < 1) {
+          requestAnimationFrame(animateJump);
+        } else {
+          jumper.remove();
+          if ($('pondBowlFish')) $('pondBowlFish').style.opacity = '1';
+
+          playWaterSplashSound();
+          spawnPondRippleAndBubbles(localTargetX, localTargetY);
+          addSwimmerToPond(speciesObj.key, troubleText, localTargetX, localTargetY);
+
+          pondReleasedCount++;
+          try {
+            localStorage.setItem('xinvia-pond-count', String(pondReleasedCount));
+          } catch (e) {}
+          updatePondUI();
+
+          // Let the user watch the fish splash & swim for 750ms before revealing the card
+          setTimeout(() => {
+            finishRitual(res);
+          }, 750);
+        }
+      }
+      requestAnimationFrame(animateJump);
+    }
+
+    // Bind 4 Fish Species Selector Buttons
+    document.querySelectorAll('.pond-species-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedFishSpecies = btn.getAttribute('data-species') || 'goldfish';
+        if (soundEnabled) playWoodblock();
+        updatePondUI();
+      });
+    });
+
+    // Bind HTML5 Drag & Drop + Pointer/Touch Drag from #pondBowl to #pondWaterArea
+    const pondBowlEl = $('pondBowl');
+    const pondWaterEl = $('pondWaterArea');
+
+    if (pondBowlEl && pondWaterEl) {
+      pondBowlEl.addEventListener('dragstart', e => {
+        pondBowlEl.classList.add('dragging');
+        if (e.dataTransfer) {
+          e.dataTransfer.setData('text/plain', selectedFishSpecies);
+          e.dataTransfer.effectAllowed = 'move';
+        }
+      });
+
+      pondBowlEl.addEventListener('dragend', () => {
+        pondBowlEl.classList.remove('dragging');
+        pondWaterEl.classList.remove('drag-over');
+      });
+
+      pondWaterEl.addEventListener('dragover', e => {
+        e.preventDefault();
+        pondWaterEl.classList.add('drag-over');
+      });
+
+      pondWaterEl.addEventListener('dragleave', () => {
+        pondWaterEl.classList.remove('drag-over');
+      });
+
+      pondWaterEl.addEventListener('drop', e => {
+        e.preventDefault();
+        pondWaterEl.classList.remove('drag-over');
+        pondBowlEl.classList.remove('dragging');
+        releaseFishIntoPond(e.clientX, e.clientY);
+      });
+
+      // Touch drag support for mobile devices
+      let touchDragging = false;
+      let touchGhost = null;
+
+      pondBowlEl.addEventListener('touchstart', e => {
+        if (busy || !e.touches[0]) return;
+        touchDragging = true;
+        const touch = e.touches[0];
+        pondBowlEl.classList.add('dragging');
+        touchGhost = document.createElement('div');
+        touchGhost.className = 'pond-jumping-fish';
+        touchGhost.innerHTML = getFishSVGMarkup(selectedFishSpecies, 68, 40);
+        touchGhost.style.left = touch.clientX + 'px';
+        touchGhost.style.top = touch.clientY + 'px';
+        document.body.appendChild(touchGhost);
+      }, { passive: true });
+
+      pondBowlEl.addEventListener('touchmove', e => {
+        if (!touchDragging || !touchGhost || !e.touches[0]) return;
+        const touch = e.touches[0];
+        touchGhost.style.left = touch.clientX + 'px';
+        touchGhost.style.top = touch.clientY + 'px';
+        const rect = pondWaterEl.getBoundingClientRect();
+        const inside = touch.clientX >= rect.left && touch.clientX <= rect.right &&
+                       touch.clientY >= rect.top && touch.clientY <= rect.bottom;
+        pondWaterEl.classList.toggle('drag-over', inside);
+      }, { passive: true });
+
+      const endTouchDrag = e => {
+        if (!touchDragging) return;
+        touchDragging = false;
+        pondBowlEl.classList.remove('dragging');
+        pondWaterEl.classList.remove('drag-over');
+        if (touchGhost) {
+          touchGhost.remove();
+          touchGhost = null;
+        }
+        const touch = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0] : null;
+        if (touch) {
+          const rect = pondWaterEl.getBoundingClientRect();
+          if (touch.clientX >= rect.left && touch.clientX <= rect.right &&
+              touch.clientY >= rect.top && touch.clientY <= rect.bottom) {
+            releaseFishIntoPond(touch.clientX, touch.clientY);
+          }
+        }
+      };
+
+      pondBowlEl.addEventListener('touchend', endTouchDrag);
+      pondBowlEl.addEventListener('touchcancel', endTouchDrag);
+
+      // Clicking/tapping the bowl or pressing Enter/Space also releases the fish
+      pondBowlEl.addEventListener('click', () => releaseFishIntoPond());
+      pondBowlEl.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          releaseFishIntoPond();
+        }
+      });
+
+      // Clicking/tapping anywhere on the pond water releases the fish right to that spot
+      pondWaterEl.addEventListener('click', e => {
+        releaseFishIntoPond(e.clientX, e.clientY);
+      });
+    }
+
+    $('pondQuickReleaseBtn').addEventListener('click', () => releaseFishIntoPond());
+
+    $('pondAddMoreBtn').addEventListener('click', () => {
+      $('result').classList.remove('show');
+      releaseFishIntoPond();
+    });
+
+    $('pondResetBtn').addEventListener('click', () => {
+      resetPondGame();
+      $('result').classList.remove('show');
+      showToast('🪷 Đã làm mới mặt hồ hoa sen – Sẵn sàng thả cá mới!');
+      if (soundEnabled) playWoodblock();
+    });
+
+    $('customPondInput').addEventListener('input', () => {
+      if (tab === 'pond') updatePondUI();
+    });
+
+    initPondSpeciesPreviews();
+    seedInitialPondFish();
+
+    // ==========================================
     // ⚡ CHẾ ĐỘ CHƠI NHANH 10 GIÂY (QUICK STRESS RELIEF)
     // ==========================================
     $('quickPlayBtn').addEventListener('click', () => {
@@ -5305,6 +6382,13 @@
           items: colleagueViaTypes,
           buttonText: '🧧 MỞ PHONG BÌ & GỬI VÍA ĐỒNG NGHIỆP',
           notice: '💌 Không lưu danh sách người nhận, bảo mật và an toàn tuyệt đối.'
+        },
+        pond: {
+          title: '🐟 AO PHÓNG SINH – THẢ CÁ, THẢ MUỘN PHIỀN',
+          desc: 'Chọn nỗi phiền muốn buông bỏ và loài cá yêu thích, rồi kéo cá từ chậu thả xuống hồ (hoặc chạm/bấm nút Thả cá)!',
+          items: pondTroubles,
+          buttonText: '🐟 THẢ CÁ – BUÔNG MUỘN PHIỀN',
+          notice: '🪷 Trò chơi giải trí thư giãn tinh thần – Không thay thế hoạt động phóng sinh ngoài đời thực.'
         }
       }[tab];
 
@@ -5315,7 +6399,7 @@
         $('ritualNotice').textContent = config.notice;
       }
 
-      // Stage visibility for all 11 modes
+      // Stage visibility for all 12 modes
       $('burnStageContent').classList.toggle('hidden', tab !== 'burn');
       $('viaStageContent').classList.toggle('hidden', tab !== 'via');
       $('fortuneStageContent').classList.toggle('hidden', tab !== 'fortune');
@@ -5327,6 +6411,7 @@
       $('bingoStageContent').classList.toggle('hidden', tab !== 'bingo');
       $('certStageContent').classList.toggle('hidden', tab !== 'cert');
       $('colleagueStageContent').classList.toggle('hidden', tab !== 'colleague');
+      $('pondStageContent').classList.toggle('hidden', tab !== 'pond');
 
       // Saved tree wishes panel visibility
       $('treeWishesPanel').classList.toggle('hidden', tab !== 'tree');
@@ -5346,7 +6431,8 @@
           tree: '🎋 ',
           oracle: '💬 ',
           cert: '🏆 ',
-          colleague: '🧧 '
+          colleague: '🧧 ',
+          pond: '🪷 '
         };
         config.items.forEach(opt => {
           const btn = document.createElement('button');
@@ -5373,6 +6459,7 @@
       $('treeInputWrap').classList.toggle('hidden', tab !== 'tree');
       $('oracleInputWrap').classList.toggle('hidden', tab !== 'oracle');
       $('colleagueInputWrap').classList.toggle('hidden', tab !== 'colleague');
+      $('customPondWrap').classList.toggle('hidden', !(tab === 'pond' && selected === 'Khác (tự nhập)'));
 
       // Update stage dynamic labels
       if (tab === 'burn') {
@@ -5396,6 +6483,9 @@
         $('colleagueLetterTitle').textContent = selected.toUpperCase();
         const recipient = escapeText($('colleagueNameInput').value, 40) || 'Người anh em thiện lành';
         $('colleagueLetterTo').textContent = 'Gửi: ' + recipient;
+      } else if (tab === 'pond') {
+        updatePondUI();
+        ensurePondSwimLoop();
       }
 
       // Tab button active states
@@ -5415,6 +6505,7 @@
       const isPray = type === 'pray' || item.emoji === '🏯';
       const isTree = type === 'tree' || item.emoji === '🌳';
       const isOracle = type === 'oracle';
+      const isPond = type === 'pond';
 
       $('resultEmoji').textContent = item.emoji;
 
@@ -5426,7 +6517,8 @@
         mo: 'GÕ MÕ XẢ KPI · CHỨNG NHẬN TỊNH TÂM',
         bingo: 'BINGO CÔNG SỞ · CHỨNG NHẬN SINH TỒN 4.0',
         cert: 'GIẤY CHỨNG NHẬN GIẢI NGHIỆP · ĐÃ QUA KIỂM ĐỊNH ĐỘ LÌ',
-        colleague: 'THƯỞNG VÍA ĐỒNG ĐỘI · NGHIỆP CHIA ĐÔI NIỀM VUI NHÂN ĐÔI'
+        colleague: 'THƯỞNG VÍA ĐỒNG ĐỘI · NGHIỆP CHIA ĐÔI NIỀM VUI NHÂN ĐÔI',
+        pond: 'AO PHÓNG SINH · THIỆP THẢ CÁ BUÔNG PHIỀN 4.0'
       };
       $('resultBadge').textContent = badgeMap[type] || 'XIN VÍA 4.0 · HỘI CHỐT ĐƠN CHỨNG NHẬN';
       $('resultTitle').textContent = item.title;
@@ -5438,7 +6530,7 @@
 
       $('resultWho').textContent = item.who;
       $('resultMessage').textContent = item.message;
-      $('resultTip').textContent = (isPray || isTree ? '🌱 Lời động viên tích cực: ' : '✨ Lời nhắn nhủ: ') + item.tip;
+      $('resultTip').textContent = (isPray || isTree || isPond ? '🌱 Lời động viên tích cực: ' : '✨ Lời nhắn nhủ: ') + item.tip;
 
       if ($('shareInviteText')) {
         $('shareInviteText').textContent = random(shareInvitePrompts);
@@ -5452,10 +6544,14 @@
         mo: '📸 Lưu ảnh chứng nhận',
         bingo: '📸 Lưu ảnh Bảng Bingo PNG',
         cert: '📸 Lưu ảnh Chứng chỉ PNG',
-        colleague: '📸 Lưu ảnh Thiệp Vía PNG'
+        colleague: '📸 Lưu ảnh Thiệp Vía PNG',
+        pond: '📸 Lưu thiệp phóng sinh'
       };
       $('download').textContent = downloadLabels[type] || '📸 Lưu ảnh PNG';
-      $('again').textContent = '🔁 Chơi tiếp';
+      $('again').textContent = isPond ? '🐟 Thả thêm cá' : '🔁 Chơi tiếp';
+      if ($('pondResultResetBtn')) {
+        $('pondResultResetBtn').classList.toggle('hidden', !isPond);
+      }
 
       // Oracle-specific buttons (Reroll & Opt-in Save)
       $('oracleRerollBtn').classList.toggle('hidden', !isOracle);
@@ -5622,6 +6718,10 @@
       }
       if (tab === 'mo') {
         handleMoStrike($('woodenFishTarget'));
+        return;
+      }
+      if (tab === 'pond') {
+        releaseFishIntoPond();
         return;
       }
 
@@ -6019,6 +7119,193 @@
         return c;
       }
 
+      // SPECIAL LAYOUT 3: 🐟 AO PHÓNG SINH – THIỆP THẢ CÁ BUÔNG PHIỀN (1080x1350)
+      if (type === 'pond') {
+        ctx.fillStyle = '#ffd700';
+        ctx.font = 'bold 28px system-ui';
+        ctx.fillText('✦ XIN VÍA 4.0 · AO PHÓNG SINH 4.0 ✦', 540, 130);
+
+        ctx.fillStyle = '#ffe2a1';
+        ctx.font = '900 58px system-ui';
+        ctx.fillText('THIỆP THẢ CÁ BUÔNG PHIỀN', 540, 200);
+
+        // Draw 2D Vietnamese Lotus Pond Medallion (x=540, y=425, rx=380, ry=165)
+        ctx.save();
+        ctx.beginPath();
+        ctx.ellipse(540, 425, 390, 168, 0, 0, Math.PI * 2);
+        const pondGrad = ctx.createRadialGradient(540, 400, 30, 540, 425, 390);
+        pondGrad.addColorStop(0, '#189ab4');
+        pondGrad.addColorStop(0.55, '#0f6271');
+        pondGrad.addColorStop(1, '#06343d');
+        ctx.fillStyle = pondGrad;
+        ctx.fill();
+        ctx.lineWidth = 8;
+        ctx.strokeStyle = '#efc16a';
+        ctx.stroke();
+
+        // Concentric Water Ripples around the swimming fish
+        [115, 165, 220].forEach((rad, rIdx) => {
+          ctx.beginPath();
+          ctx.ellipse(540, 425, rad * 1.45, rad * 0.72, 0, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(255, 248, 220, ${0.42 - rIdx * 0.11})`;
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        });
+
+        // Draw Lily Pads & Lotus Flowers on left and right of pond
+        function drawCanvasLilyPad(px, py, radius, hasFlower) {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(px, py, radius, 0.2, Math.PI * 1.92);
+          ctx.lineTo(px, py);
+          ctx.closePath();
+          ctx.fillStyle = '#2d6a4f';
+          ctx.fill();
+          ctx.strokeStyle = '#74c69d';
+          ctx.lineWidth = 3;
+          ctx.stroke();
+          if (hasFlower) {
+            ctx.font = '54px system-ui';
+            ctx.fillText('🪷', px, py + 16);
+          }
+          ctx.restore();
+        }
+        drawCanvasLilyPad(245, 365, 52, true);
+        drawCanvasLilyPad(830, 385, 56, true);
+        drawCanvasLilyPad(300, 515, 42, false);
+        drawCanvasLilyPad(775, 510, 44, false);
+
+        // Draw the 2D Fish in the center of the pond matching the chosen species
+        const spKey = res.fishSpeciesKey || selectedFishSpecies || 'goldfish';
+        const spInfo = pondFishSpecies[spKey] || pondFishSpecies.goldfish;
+        ctx.save();
+        ctx.translate(540, 425);
+
+        // Tail Fin
+        ctx.beginPath();
+        ctx.moveTo(-70, 0);
+        ctx.lineTo(-155, -55);
+        ctx.quadraticCurveTo(-130, 0, -155, 55);
+        ctx.closePath();
+        ctx.fillStyle = spInfo.finColor;
+        ctx.fill();
+        ctx.strokeStyle = '#ffd166';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Dorsal & Pectoral Fins
+        ctx.beginPath();
+        ctx.moveTo(-25, -42);
+        ctx.quadraticCurveTo(10, -82, 48, -38);
+        ctx.closePath();
+        ctx.fillStyle = spInfo.accentColor;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(-10, 38);
+        ctx.quadraticCurveTo(-35, 78, 22, 42);
+        ctx.closePath();
+        ctx.fillStyle = spInfo.finColor;
+        ctx.fill();
+
+        // Fish Body
+        ctx.beginPath();
+        ctx.ellipse(10, 0, 95, 52, 0, 0, Math.PI * 2);
+        ctx.fillStyle = spInfo.bodyColor;
+        ctx.fill();
+        ctx.strokeStyle = '#ffd166';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+
+        // Species-specific markings
+        if (spKey === 'koi') {
+          ctx.fillStyle = '#e63946';
+          ctx.beginPath();
+          ctx.ellipse(-18, -12, 34, 20, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#ffb703';
+          ctx.beginPath();
+          ctx.ellipse(38, 10, 24, 16, -0.2, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (spKey === 'carp') {
+          ctx.strokeStyle = '#ffd166';
+          ctx.lineWidth = 4;
+          [-25, 5, 35].forEach(sx => {
+            ctx.beginPath();
+            ctx.arc(sx, 0, 22, -0.7, 0.7);
+            ctx.stroke();
+          });
+        } else if (spKey === 'guppy') {
+          ctx.fillStyle = '#c77dff';
+          ctx.beginPath();
+          ctx.ellipse(-22, 0, 42, 32, 0, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Goldfish shimmer belly
+          ctx.fillStyle = 'rgba(255, 209, 102, 0.55)';
+          ctx.beginPath();
+          ctx.ellipse(5, -14, 52, 22, 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Cute Fish Eye
+        ctx.fillStyle = '#1d1e2c';
+        ctx.beginPath();
+        ctx.arc(72, -12, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(75, -15, 3.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Rising Water Bubbles near fish mouth
+        [
+          { bx: 122, by: -18, br: 7 },
+          { bx: 142, by: -38, br: 10 },
+          { bx: 132, by: -64, br: 6 }
+        ].forEach(b => {
+          ctx.beginPath();
+          ctx.arc(b.bx, b.by, b.br, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
+          ctx.fill();
+        });
+        ctx.restore();
+        ctx.restore();
+
+        // Title & Honor
+        let y = wrapTextAt(res.title, 540, 650, 38, '#ffd700', 880, 50, true, 2);
+        const honor = res.honorTitle || honorTitles.pond[0];
+        y = wrapTextAt('🏅 DANH HIỆU: ' + honor.toUpperCase(), 540, y + 10, 28, '#ffea9f', 880, 40, true, 2);
+        y = wrapTextAt(res.who, 540, y + 14, 28, '#f8d2c2', 880, 40, false, 2);
+
+        // Blessing Box
+        const quoteBoxY = Math.max(y + 18, 795);
+        ctx.fillStyle = 'rgba(255, 248, 235, 0.95)';
+        ctx.fillRect(80, quoteBoxY, 920, 185);
+        ctx.strokeStyle = '#c48924';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(80, quoteBoxY, 920, 185);
+
+        wrapTextAt('“' + res.message + '”', 540, quoteBoxY + 58, 34, '#59161e', 840, 46, true, 3);
+
+        wrapTextAt('🌱 LỜI ĐỘNG VIÊN: ' + res.tip, 540, quoteBoxY + 230, 26, '#ffea9f', 860, 38, true, 2);
+
+        // Subtle Entertainment Disclaimer
+        ctx.fillStyle = 'rgba(255, 226, 161, 0.8)';
+        ctx.font = 'italic 20px system-ui';
+        ctx.fillText('* Trò chơi giải trí thư giãn tinh thần – Không thay thế hoạt động phóng sinh ngoài đời thực', 540, 1170);
+
+        // Footer with Brand Slogan & Website URL
+        ctx.fillStyle = '#ffd166';
+        ctx.font = 'bold 27px system-ui';
+        ctx.fillText('XIN VÍA 4.0 · Vào đây xả nghiệp – Ra ngoài chốt deal!', 540, 1222);
+        ctx.fillStyle = '#f4c987';
+        ctx.font = '24px system-ui';
+        ctx.fillText('https://xin-via.vibe.tinhgon.xyz/', 540, 1262);
+
+        return c;
+      }
+
       // DEFAULT TALISMAN / BLESSING CARD LAYOUT (including Colleague Via, Pray, Tree, Oracle, Punch, Mo, etc.)
       ctx.fillStyle = '#ffd700';
       ctx.font = 'bold 28px system-ui';
@@ -6115,7 +7402,8 @@
         punch: 'chung-nhan-xa-nghiep-4.0-',
         bingo: 'bingo-cong-so-4.0-',
         cert: 'chung-chi-giai-nghiep-4.0-',
-        colleague: 'thiep-gui-via-dong-nghiep-4.0-'
+        colleague: 'thiep-gui-via-dong-nghiep-4.0-',
+        pond: 'thiep-phong-sinh-4.0-'
       };
       link.download = (prefixMap[type] || 'xin-via-4.0-') + Date.now() + '.png';
       link.href = canvas.toDataURL('image/png');
@@ -6233,6 +7521,8 @@
           selected = certStatuses[0];
         } else if (tab === 'colleague') {
           selected = colleagueViaTypes[0];
+        } else if (tab === 'pond') {
+          selected = pondTroubles[0];
         } else {
           selected = scenarios[0];
         }
@@ -6252,6 +7542,16 @@
       $('ritual').scrollIntoView({ behavior: 'smooth' });
       if (soundEnabled) playWoodblock();
     });
+
+    if ($('pondResultResetBtn')) {
+      $('pondResultResetBtn').addEventListener('click', () => {
+        resetPondGame();
+        $('result').classList.remove('show');
+        $('ritual').scrollIntoView({ behavior: 'smooth' });
+        showToast('🪷 Đã làm mới mặt hồ – Chơi lại từ đầu!');
+        if (soundEnabled) playWoodblock();
+      });
+    }
 
     $('download').addEventListener('click', download);
     $('copyTextBtn').addEventListener('click', copyBlessingText);
@@ -6301,6 +7601,13 @@
     if (!Number.isNaN(savedMerit) && savedMerit >= 0) {
       meritCount = savedMerit;
       syncMeritUI();
+    }
+
+    // Pond released fish count persistence
+    const savedPondCount = Number(safeGetLocal('xinvia-pond-count', '0'));
+    if (!Number.isNaN(savedPondCount) && savedPondCount >= 0) {
+      pondReleasedCount = savedPondCount;
+      updatePondUI();
     }
 
     // Sound preference persistence
